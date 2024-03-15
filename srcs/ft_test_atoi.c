@@ -6,13 +6,15 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:48:50 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/15 09:50:16 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/15 10:05:31 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tester.h"
 
-void	ft_test_atoi(char *name, const char **test, int (*ft_user)(const char *), int (*ft_orig)(const char *))
+void	ft_test_atoi(
+			char *name, const char **test,
+			int (*ft_user)(const char *), int (*ft_orig)(const char *))
 {
 	int		i;
 	int		user;

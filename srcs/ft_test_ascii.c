@@ -6,14 +6,14 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:42:03 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/15 09:26:53 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/15 10:05:03 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tester.h"
 
 void	ft_test_ascii(
-	char *name, char *test, int (*ft_user)(int), int (*ft_orig)(int))
+			char *name, char *test, int (*ft_user)(int), int (*ft_orig)(int))
 {
 	int		i;
 	int		user;

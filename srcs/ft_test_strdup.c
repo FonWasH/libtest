@@ -6,13 +6,15 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:49:04 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/15 09:49:51 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/15 10:05:59 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tester.h"
 
-void	ft_test_strdup(char *name, const char **test, char *(*ft_user)(const char *), char *(*ft_orig)(const char *))
+void	ft_test_strdup(
+			char *name, const char **test, 
+			char *(*ft_user)(const char *), char *(*ft_orig)(const char *))
 {
 	int		i;
 	char	*user;
