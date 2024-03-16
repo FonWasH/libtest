@@ -1,0 +1,42 @@
+LIBTEST
+
+NAME
+        libtest - utility for testing the libft library of School 42
+
+SYNOPSIS
+        libtest [OPTION/FUNCTION]... [TEST]...
+
+DESCRIPTION
+        libtest is a command-line utility designed to test the functions provided in the libft library.
+        With no TEST specified, standard tests are applied to the function.
+        It includes options to test mandatory and bonus functions, display available functions, and provide version information.
+        Additionally, the program checks the 42 norm using 'norminette' and for memory leaks using 'fsanitize'.
+        
+        -a, --all
+                test all functions; TEST is unavailable
+
+        -m, --mandatory
+                test mandatory functions; TEST is unavailable
+
+        -b, --bonus
+                test bonus functions; TEST is unavailable
+
+        -s, --show
+                display all available functions
+
+        -h, --help
+                display this help and exit
+
+        -v, --version
+                output version information and exit
+
+EXAMPLES
+        libtest ft_atoi 42
+                Test the ft_atoi function with the input "42".
+
+AUTHOR
+        Written by Julien Perez a.k.a. FonWasH.
+
+COPYRIGHT
+        Copyright © 2024 Free Software Foundation, Inc. License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+        This is free software: you are free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law.

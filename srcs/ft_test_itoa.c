@@ -6,11 +6,11 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:48:58 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/15 09:50:37 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/16 09:15:49 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tester.h"
+#include "libtest.h"
 
 void	ft_test_itoa(char *name, const char **test, char *(*ft_user)(int))
 {

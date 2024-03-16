@@ -1,1 +1,2 @@
-# libft_tester
+# libtest
+//clone repo inside libft

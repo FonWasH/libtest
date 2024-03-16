@@ -6,11 +6,11 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:42:04 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/15 09:45:18 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/16 09:16:06 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tester.h"
+#include "libtest.h"
 
 void	ft_test_strlen(
 			char *name, const char **test,

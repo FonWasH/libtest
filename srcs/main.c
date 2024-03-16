@@ -6,97 +6,35 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 04:47:10 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/15 09:54:32 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/16 09:16:34 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tester.h"
-
-const char	*g_atoi_tests[] = {
-	"\t\n\v\f\r +00000042",
-	" -42a",
-	" a42",
-	" -+--+42",
-	"-2147483648",
-	"2147483647",
-	"0",
-	"-00",
-	"",
-	"999999999999999",
-	"999999999999999999999",
-	"-9999999999999999999999",
-	NULL
-};
-
-const char	*g_itoa_tests[] = {
-	"42",
-	"-42",
-	"0",
-	"-2147483648",
-	"2147483647",
-	"-1",
-	"1",
-	"100",
-	NULL
-};
-
-const char	*g_str_tests[] = {
-	"\t\n\v\f\r ",
-	"Hello World!",
-	"42",
-	"#",
-	"",
-	NULL
-};
+#include "libtest.h"
 
 int	main(int ac, char *av[])
 {
 	if (ac > 1)
 	{
-		if (!strcmp(av[1], "all"))
+		if (!strcmp(av[1], "--all") || !strcmp(av[1], "-a"))
 		{
-			ft_test_ascii("ft_isalnum", CHAR_TEST, &ft_isalnum, &isalnum);
-			ft_test_ascii("ft_isalpha", CHAR_TEST, &ft_isalpha, &isalpha);
-			ft_test_ascii("ft_isascii", CHAR_TEST, &ft_isascii, &isascii);
-			ft_test_ascii("ft_isdigit", CHAR_TEST, &ft_isdigit, &isdigit);
-			ft_test_ascii("ft_isprint", CHAR_TEST, &ft_isdigit, &isdigit);
-			ft_test_ascii("ft_tolower", CHAR_TEST, &ft_tolower, &tolower);
-			ft_test_ascii("ft_toupper", CHAR_TEST, &ft_toupper, &toupper);
-			ft_test_strlen("ft_strlen", g_str_tests, &ft_strlen, &strlen);
-			ft_test_strdup("ft_strdup", g_str_tests, &ft_strdup, &strdup);
-			ft_test_atoi("ft_atoi", g_atoi_tests, &ft_atoi, &atoi);
-			ft_test_itoa("ft_itoa", g_itoa_tests, &ft_itoa);
+			ft_all_mandatory();
+			ft_all_bonus();
 		}
-		else if (!strcmp(av[1], "bonus"))
-		{
-			printf("WIP\n");
-		}
-		else if (!strcmp(av[1], "ft_isalnum"))
-			ft_test_ascii(av[1], ac > 2 ? av[2] : CHAR_TEST, &ft_isalnum, &isalnum);
-		else if (!strcmp(av[1], "ft_isalpha"))
-			ft_test_ascii(av[1], ac > 2 ? av[2] : CHAR_TEST, &ft_isalpha, &isalpha);
-		else if (!strcmp(av[1], "ft_isascii"))
-			ft_test_ascii(av[1], ac > 2 ? av[2] : CHAR_TEST, &ft_isascii, &isascii);
-		else if (!strcmp(av[1], "ft_isdigit"))
-			ft_test_ascii(av[1], ac > 2 ? av[2] : CHAR_TEST, &ft_isdigit, &isdigit);
-		else if (!strcmp(av[1], "ft_isprint"))
-			ft_test_ascii(av[1], ac > 2 ? av[2] : CHAR_TEST, &ft_isprint, &isprint);
-		else if (!strcmp(av[1], "ft_tolower"))
-			ft_test_ascii(av[1], ac > 2 ? av[2] : CHAR_TEST, &ft_tolower, &tolower);
-		else if (!strcmp(av[1], "ft_toupper"))
-			ft_test_ascii(av[1], ac > 2 ? av[2] : CHAR_TEST, &ft_toupper, &toupper);
-		else if (!strcmp(av[1], "ft_strlen"))
-			ft_test_strlen(av[1], ac > 2 ? (const char **)(av + 2) : g_str_tests, &ft_strlen, &strlen);
-		else if (!strcmp(av[1], "ft_strdup"))
-			ft_test_strdup(av[1], ac > 2 ? (const char **)(av + 2) : g_str_tests, &ft_strdup, &strdup);
-		else if (!strcmp(av[1], "ft_atoi"))
-			ft_test_atoi(av[1], ac > 2 ? (const char **)(av + 2) : g_atoi_tests, &ft_atoi, &atoi);
-		else if (!strcmp(av[1], "ft_itoa"))
-			ft_test_itoa(av[1], ac > 2 ? (const char **)(av + 2) : g_atoi_tests, &ft_itoa);
-		else
-			printf("Invalid argument: no test for this function '%s'\n", av[1]);
+		else if (!strcmp(av[1], "--mandatory") || !strcmp(av[1], "-m"))
+			ft_all_mandatory();
+		else if (!strcmp(av[1], "--bonus") || !strcmp(av[1], "-b"))
+			ft_all_bonus();
+		else if (!strcmp(av[1], "--show") || !strcmp(av[1], "-s"))
+			system(CMD_SHOW);
+		else if (!strcmp(av[1], "--help") || !strcmp(av[1], "-h"))
+			ft_print_file("help");
+		else if (!strcmp(av[1], "--version") || !strcmp(av[1], "-v"))
+			ft_print_file("version");
+		else if (!ft_check_argument(av[1], (const char **)av + 2, ac - 2))
+			printf("%s: invalid option -- '%s'\n%s", basename(av[0]), av[1], TRY_HELP);
 	}
 	else
-		printf("Test requires an argument\nExample : ft_atoi\n");
+		printf("%s: requires an option\n%s", basename(av[0]), TRY_HELP);
 	return (EXIT_SUCCESS);
 }
