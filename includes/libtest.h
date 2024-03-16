@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/16 09:25:24 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/16 18:42:34 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # define SUCCESS "\033[0;32mSUCCESS\033[0m :)"
 
 # define TRY_HELP "Try '--help' for more information.\n"
-# define CMD_SHOW "find ../ -maxdepth 1 -type f -name 'ft_*.c'-exec basename {} \\; | sed -e 's/.c$//' | sort"
+# define CMD_SHOW "find ../ -maxdepth 1 -type f -name 'ft_*.c' -exec basename {} \\; | sed -e 's/.c$//' | sort"
 
 # define CHAR_TEST "09AZaz#\n😀"
 
