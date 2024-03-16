@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:26:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/16 09:16:14 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/16 09:42:23 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	ft_putchar_isprint(char c, bool newline)
 
 bool	ft_norminette(char *name)
 {
-	char	cmd[100] = "norminette -o ../";
-	char	ext[] = ".c > /dev/null 2>&1";
+	char		cmd[100] = "norminette -o ../";
+	const char	ext[] = ".c > /dev/null 2>&1";
 
 	strcat(cmd, name);
 	strcat(cmd, ext);
