@@ -10,5 +10,6 @@
 ```bash
 git clone git@github.com:FonWasH/libtest.git
 ```
+Make sure your environment is properly configured before proceeding with the installation steps.
 
 ## Usage
