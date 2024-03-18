@@ -7,7 +7,8 @@
 ## Installation
 - Ensure you have a Makefile in your libft containing the targets `all`, `re`, `bonus`, `clean`, and `fclean`.
 - Clone the repository into your libft folder using the following command:
-
-```git clone git@github.com:FonWasH/libtest.git```
+```bash
+git clone git@github.com:FonWasH/libtest.git
+```
 
 ## Usage
