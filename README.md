@@ -29,5 +29,4 @@ Make sure your environment is properly configured before proceeding with the ins
   
 ## Examples
 - `libtest ft_atoi 42`	Test the ft_atoi function with the input "42".
-
 - `libtest -m`			Test all mandatory functions with standard tests.
