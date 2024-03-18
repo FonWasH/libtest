@@ -13,3 +13,13 @@ git clone git@github.com:FonWasH/libtest.git
 Make sure your environment is properly configured before proceeding with the installation steps.
 
 ## Usage
+```bash
+  libtest [OPTION/FUNCTION]... [TEST]...
+
+  -a, --all         test all functions; TEST is unavailable
+  -m, --mandatory   test mandatory functions; TEST is unavailable
+  -b, --bonus       test bonus functions; TEST is unavailable
+  -s, --show        display all available functions
+  -h, --help        display help and exit
+  -v, --version     output version information and exit
+```
