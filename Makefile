@@ -7,6 +7,7 @@ SRC		= main.c \
 		  ft_all_bonus.c \
 		  ft_check_argument.c \
 		  ft_utils.c \
+		  ft_print_test.c \
 		  ft_test_ascii.c \
 		  ft_test_atoi.c \
 		  ft_test_itoa.c \

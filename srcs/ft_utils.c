@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:26:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/16 20:20:22 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/18 12:29:36 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ void	ft_putstr_isprint(const char *str, bool newline)
 			printf("\\%02x", (unsigned char)*str);
 		str++;
 	}
-	printf("\"%s", newline ? "\n" : "");
+	printf("\"");
+	if (newline)
+		printf("\n");
 }
 
 void	ft_putchar_isprint(char c, bool newline)
@@ -33,22 +35,36 @@ void	ft_putchar_isprint(char c, bool newline)
 		printf("%c", c);
 	else
 		printf("\\%02x", (unsigned char)c);
-	printf("'%s", newline ? "\n" : "");
+	printf("'");
+	if (newline)
+		printf("\n");
 }
 
-bool	ft_norminette(char *name)
+bool	ft_test_norminette(char *name)
 {
-	char		cmd[100] = "norminette -o ../";
+	char	*cmd;
+	size_t	cmd_len;
+	bool	success;
 
-	strcat(cmd, name);
-	strcat(cmd, ".c > /dev/null 2>&1");
-	if (!system(cmd))
+	cmd_len = strlen(CMD_NS) + strlen(name) + strlen(CMD_NE);
+	cmd = (char *)malloc(sizeof(char) * cmd_len + 1);
+	if (!cmd)
 	{
-		printf("norminette: %s\n", OK);
-		return (true);
+		fprintf(stderr, "Error: Memory allocation");
+		exit(EXIT_FAILURE);
 	}
-	printf("norminette: %s\n", ERROR);
-	return (false);
+	cmd[cmd_len] = '\0';
+	sprintf(cmd, "%s%s%s", CMD_NS, name, CMD_NE);
+	success = false;
+	if (!system(cmd))
+		success = true;
+	free(cmd);
+	printf("-- %s%s%s --\nnorminette: ", Y, name, X);
+	if (success)
+		printf("%s\n", OK);
+	else
+		printf("%s\n", ERROR);
+	return (success);
 }
 
 void	ft_print_file(char *path)
@@ -60,7 +76,11 @@ void	ft_print_file(char *path)
 	file = fopen(path, "r");
 	if (!file)
 		return ;
-	while ((bytes_read = fread(buffer, 1, BUFFER_SIZE, file)) > 0)
+	bytes_read = fread(buffer, 1, BUFFER_SIZE, file);
+	while (bytes_read > 0)
+	{
 		fwrite(buffer, 1, bytes_read, stdout);
+		bytes_read = fread(buffer, 1, BUFFER_SIZE, file);
+	}
 	fclose(file);
 }
