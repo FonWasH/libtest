@@ -6,13 +6,15 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 07:59:30 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/16 09:15:08 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/18 22:52:14 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-void	ft_all_bonus(void)
+void	ft_all_bonus(bool title)
 {
+	if (title)
+		system("./title.sh");
 	printf("WIP\n");
 }

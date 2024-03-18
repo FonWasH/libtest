@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 09:19:55 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/18 13:27:16 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/18 22:59:30 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	ft_print_success(bool success)
 
 void	ft_print_grade(bool success)
 {
-	printf("Grade: ");
+	printf("%sGrade: ", W);
 	if (success)
 		printf("%s\n", SUCCESS);
 	else
