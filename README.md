@@ -2,7 +2,10 @@
   <img src="https://i.ibb.co/0f8RbX2/Capture-d-cran-2024-03-18-231128.png" />
 </p>
 
-## Description
+libtest is a command-line utility designed to test the functions provided in the libft library.
+With no TEST specified, standard tests are applied to the function.
+It includes options to test mandatory and bonus functions, display available functions, and provide version information.
+Additionally, the program checks the 42 norm using 'norminette' and for memory leaks using 'fsanitize'.
 
 ## Installation
 - Ensure you have a Makefile in your libft containing the targets `all`, `re`, `bonus`, `clean`, and `fclean`.
