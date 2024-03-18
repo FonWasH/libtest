@@ -25,4 +25,7 @@ Make sure your environment is properly configured before proceeding with the ins
   -s, --show        display all available functions
   -h, --help        display help and exit
   -v, --version     output version information and exit
+
+  Examples:
+    libtest ft_atoi 42	Test the ft_atoi function with the input "42".
 ```
