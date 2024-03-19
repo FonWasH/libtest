@@ -15,6 +15,9 @@ git clone git@github.com:FonWasH/libtest.git
 ```
 Make sure your environment is properly configured before proceeding with the installation steps.
 
+## Dependencies
+- Norminette https://github.com/42School/norminette
+
 ## Usage
 ```bash
   libtest [OPTION/FUNCTION]... [TEST]...
