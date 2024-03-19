@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 04:47:10 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/18 14:05:33 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/19 03:34:51 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ int	main(int ac, char *av[])
 		else if (!strcmp(av[1], "--bonus") || !strcmp(av[1], "-b"))
 			ft_all_bonus(true);
 		else if (!strcmp(av[1], "--show") || !strcmp(av[1], "-s"))
-			system("./show.sh");
+			system("./scripts/show.sh");
 		else if (!strcmp(av[1], "--help") || !strcmp(av[1], "-h"))
-			ft_print_file("help");
+			ft_print_file("docs/help");
 		else if (!strcmp(av[1], "--version") || !strcmp(av[1], "-v"))
-			ft_print_file("version");
+			ft_print_file("docs/version");
 		else if (!ft_check_argument(av[1], (const char **)av + 2, ac - 2))
 			printf("%s: invalid argument -- '%s'%s",
 				basename(av[0]), av[1], HELP);

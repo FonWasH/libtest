@@ -6,11 +6,21 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:26:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/18 23:03:44 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/19 03:46:42 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
+
+void	ft_putchar_isprint(char c, bool newline)
+{
+	printf("'");
+	if (isprint(c))
+		printf("%c", c);
+	else
+		printf("\\%02x", (unsigned char)c);
+	printf("'%s", newline ? "\n" : "");
+}
 
 void	ft_putstr_isprint(const char *str, bool newline)
 {
@@ -23,64 +33,38 @@ void	ft_putstr_isprint(const char *str, bool newline)
 			printf("\\%02x", (unsigned char)*str);
 		str++;
 	}
-	printf("\"");
-	if (newline)
-		printf("\n");
-}
-
-void	ft_putchar_isprint(char c, bool newline)
-{
-	printf("'");
-	if (isprint(c))
-		printf("%c", c);
-	else
-		printf("\\%02x", (unsigned char)c);
-	printf("'");
-	if (newline)
-		printf("\n");
+	printf("\"%s", newline ? "\n" : "");
 }
 
 bool	ft_test_norminette(char *name)
 {
-	char	*cmd;
-	size_t	cmd_len;
-	bool	success;
+	char	*cmd = NULL;
+	size_t	cmd_len = strlen(CMD_NS) + strlen(name) + strlen(CMD_NE);
+	bool	success = false;
 
-	cmd_len = strlen(CMD_NS) + strlen(name) + strlen(CMD_NE);
 	cmd = (char *)malloc(sizeof(char) * cmd_len + 1);
 	if (!cmd)
 	{
-		fprintf(stderr, "Error: Memory allocation");
+		fprintf(stderr, "Error: Memory allocation\n");
 		exit(EXIT_FAILURE);
 	}
 	cmd[cmd_len] = '\0';
 	sprintf(cmd, "%s%s%s", CMD_NS, name, CMD_NE);
-	success = false;
-	if (!system(cmd))
-		success = true;
+	success = (!system(cmd));
 	free(cmd);
-	printf("-- %s%s%s --\n%snorminette: ", Y, name, X, W);
-	if (success)
-		printf("%s\n", OK);
-	else
-		printf("%s\n", ERROR);
+	printf("-- %s%s%s --\n%snorminette: %s\n", Y, name, X, W, success ? OK : ERROR);
 	return (success);
 }
 
 void	ft_print_file(char *path)
 {
-	FILE	*file;
+	FILE	*file = fopen(path, "r");
 	char	buffer[BUFFER_SIZE];
 	size_t	bytes_read;
 
-	file = fopen(path, "r");
 	if (!file)
 		return ;
-	bytes_read = fread(buffer, 1, BUFFER_SIZE, file);
-	while (bytes_read > 0)
-	{
+	while ((bytes_read = fread(buffer, 1, BUFFER_SIZE, file)) > 0)
 		fwrite(buffer, 1, bytes_read, stdout);
-		bytes_read = fread(buffer, 1, BUFFER_SIZE, file);
-	}
 	fclose(file);
 }

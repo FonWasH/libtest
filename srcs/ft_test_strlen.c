@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:42:04 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/18 13:02:21 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/19 03:40:08 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 bool	ft_test_strlen(char *name, const char **test)
 {
-	int		grade;
-	int		i;
+	size_t	i = 0;
+	size_t	grade = 0;
 	size_t	user;
 	size_t	orig;
 	bool	success;	
 
 	(void)name;
-	grade = 0;
-	i = 0;
 	while (test[i])
 	{
 		user = ft_strlen(test[i]);

@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:42:03 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/18 13:35:36 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/19 03:47:15 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,28 @@
 
 static bool	ft_find_test_ascii(char *name, char test, int *user, int *orig)
 {
-	size_t	i;
-
-	i = 0;
-	while (g_fascii[i].name)
+	for (size_t i = 0; g_fascii[i].name; i++)
 	{
 		if (!strcmp(name, g_fascii[i].name))
 		{
 			*user = (*g_fascii[i].user)(test);
 			*orig = (*g_fascii[i].orig)(test);
-			if (g_fascii[i].equal)
-				return (*orig == *user);
-			else
-				return ((*orig && *user) || (!*orig && !*user));
+			return (g_fascii[i].equal ?
+				(*orig == *user) : ((*orig && *user) || (!*orig && !*user)));
 		}
-		i++;
 	}
-	fprintf(stderr, "Error: Function does not exist");
+	fprintf(stderr, "Error: Function does not exist\n");
 	exit(EXIT_FAILURE);
 }
 
 bool	ft_test_ascii(char *name, const char **test)
 {
-	int		grade;
-	int		i;
+	size_t	i = 0;
+	size_t	grade = 0;
 	int		user;
 	int		orig;
 	bool	success;
 
-	grade = 0;
-	i = 0;
 	while (test[0][i])
 	{
 		success = ft_find_test_ascii(name, test[0][i], &user, &orig);

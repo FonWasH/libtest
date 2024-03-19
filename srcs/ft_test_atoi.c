@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:48:50 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/18 12:55:59 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/19 03:37:53 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 bool	ft_test_atoi(char *name, const char **test)
 {
-	int		grade;
-	int		i;
+	size_t	i = 0;
+	size_t	grade = 0;
 	int		user;
 	int		orig;
 	bool	success;	
 
 	(void)name;
-	grade = 0;
-	i = 0;
 	while (test[i])
 	{
 		user = ft_atoi(test[i]);

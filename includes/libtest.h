@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/18 22:58:07 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/19 03:23:07 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@
 # define X "\033[0m"
 
 // STRING
-# define KO "\033[1;31mKO\033[0m"
-# define OK "\033[1;32mOK\033[0m"
-# define FAIL "\033[1;31mFAIL\033[0m :("
-# define SUCCESS "\033[1;32mSUCCESS\033[0m :)"
-# define ERROR "\033[1;31mERROR\033[0m"
+# define KO R "KO" X
+# define OK G "OK" X
+# define FAIL R "FAIL" X " :("
+# define SUCCESS G "SUCCESS" X " :)"
+# define ERROR R "ERROR" X
 # define HELP "\nTry '--help' for more information.\n"
 
 // CMD
@@ -80,12 +80,9 @@ bool					ft_check_argument(
 
 // TEST FUNCTIONS
 void					ft_print_grade(bool success);
-void					ft_print_test_chrint(const char test, int user,
-							int orig, bool success);
-void					ft_print_test_strint(const char *test, int user,
-							int orig, bool success);
-void					ft_print_test_strstr(const char *test, char *user,
-							char *orig, bool success);
+void					ft_print_test_chrint(const char test, int user, int orig, bool success);
+void					ft_print_test_strint(const char *test, int user, int orig, bool success);
+void					ft_print_test_strstr(const char *test, char *user, char *orig, bool success);
 bool					ft_test_ascii(char *name, const char **test);
 bool					ft_test_strlen(char *name, const char **test);
 bool					ft_test_strdup(char *name, const char **test);
