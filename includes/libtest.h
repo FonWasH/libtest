@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/19 03:23:07 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/19 04:14:23 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,18 +71,17 @@ void					ft_putstr_isprint(const char *str, bool newline);
 void					ft_putchar_isprint(char c, bool newline);
 bool					ft_test_norminette(char *name);
 void					ft_print_file(char *path);
-
-// MAIN FUNCTIONS
-void					ft_all_mandatory(bool title);
-void					ft_all_bonus(bool title);
-bool					ft_check_argument(
-							char *name, const char **test, int count);
-
-// TEST FUNCTIONS
 void					ft_print_grade(bool success);
 void					ft_print_test_chrint(const char test, int user, int orig, bool success);
 void					ft_print_test_strint(const char *test, int user, int orig, bool success);
 void					ft_print_test_strstr(const char *test, char *user, char *orig, bool success);
+
+// MAIN FUNCTIONS
+void					ft_mandatory(bool title);
+void					ft_bonus(bool title);
+bool					ft_call_test(char *name, const char **test, int count);
+
+// TEST FUNCTIONS
 bool					ft_test_ascii(char *name, const char **test);
 bool					ft_test_strlen(char *name, const char **test);
 bool					ft_test_strdup(char *name, const char **test);

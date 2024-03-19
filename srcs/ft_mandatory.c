@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_all_mandatory.c                                 :+:      :+:    :+:   */
+/*   ft_mandatory.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 07:49:06 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/19 03:45:08 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/19 04:09:35 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-void	ft_all_mandatory(bool title)
+void	ft_mandatory(bool title)
 {
 	if (title)
 		system("./scripts/title.sh");

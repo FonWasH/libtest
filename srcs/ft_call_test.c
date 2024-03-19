@@ -6,13 +6,13 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:42:22 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/19 03:09:58 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/19 04:14:34 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-bool	ft_check_argument(char *name, const char **test, int count)
+bool	ft_call_test(char *name, const char **test, int count)
 {
 	bool	match = false;
 

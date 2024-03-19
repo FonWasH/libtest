@@ -2,17 +2,17 @@ SRC_DIR	= ./srcs/
 INC_DIR	= ./includes/
 
 SRC		= main.c \
-		  globals.c \
-		  ft_all_mandatory.c \
-		  ft_all_bonus.c \
-		  ft_check_argument.c \
-		  ft_utils.c \
-		  ft_print_test.c \
-		  ft_test_ascii.c \
-		  ft_test_atoi.c \
-		  ft_test_itoa.c \
-		  ft_test_strdup.c \
-		  ft_test_strlen.c
+		  globals/globals.c \
+		  ft_mandatory.c \
+		  ft_bonus.c \
+		  ft_call_test.c \
+		  utils/ft_utils.c \
+		  utils/ft_print_test.c \
+		  tests/ft_test_ascii.c \
+		  tests/ft_test_atoi.c \
+		  tests/ft_test_itoa.c \
+		  tests/ft_test_strdup.c \
+		  tests/ft_test_strlen.c
 
 SRCS	= ${addprefix ${SRC_DIR}, ${SRC}}
 OBJS	= ${SRCS:.c=.o}
