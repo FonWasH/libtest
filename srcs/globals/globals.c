@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:03:35 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/19 08:25:50 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/20 22:29:21 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ const t_ftest	g_ftest[] = {
 	{"ft_atoi", ft_test_atoi, g_atoi_tests},
 	{"ft_itoa", ft_test_itoa, g_itoa_tests},
 	{"ft_memset", ft_test_memset, g_memset_tests},
+	{"ft_bzero", ft_test_bzero, NULL},
+	//{"ft_memcpy", ft_test_memcpy, g_str_tests},
 	{NULL, NULL, NULL}
 };
 

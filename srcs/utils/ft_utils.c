@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:26:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/19 03:46:42 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/20 22:33:51 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ bool	ft_test_norminette(char *name)
 		exit(EXIT_FAILURE);
 	}
 	cmd[cmd_len] = '\0';
-	sprintf(cmd, "%s%s%s", CMD_NS, name, CMD_NE);
+	snprintf(cmd, cmd_len + 1, "%s%s%s", CMD_NS, name, CMD_NE);
+	printf("%s\n", cmd);
 	success = (!system(cmd));
 	free(cmd);
 	printf("-- %s%s%s --\n%snorminette: %s\n", Y, name, X, W, success ? OK : ERROR);

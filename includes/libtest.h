@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/19 08:35:18 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/20 22:28:41 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void					ft_print_test_chrint(const char test, int user, int orig, bool success)
 void					ft_print_test_chrstr(const char test, char *user, char *orig, bool success);
 void					ft_print_test_strint(const char *test, int user, int orig, bool success);
 void					ft_print_test_strstr(const char *test, char *user, char *orig, bool success);
+void					ft_print_test_intstr(int test, char *user, char *orig, bool success);
 
 // MAIN FUNCTIONS
 void					ft_mandatory(bool title);
@@ -90,4 +91,7 @@ bool					ft_test_strdup(char *name, const char **test);
 bool					ft_test_atoi(char *name, const char **test);
 bool					ft_test_itoa(char *name, const char **test);
 bool					ft_test_memset(char *name, const char **test);
+bool					ft_test_bzero(char *name, const char **test);
+//bool					ft_test_memcpy(char *name, const char **test);
+
 #endif
