@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/19 04:14:23 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/19 08:35:18 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ extern const char		*g_atoi_tests[];
 extern const char		*g_itoa_tests[];
 extern const char		*g_str_tests[];
 extern const char		*g_char_tests[];
+extern const char		*g_memset_tests[];
 extern const t_ftest	g_ftest[];
 extern const t_fascii	g_fascii[];
 
@@ -73,6 +74,7 @@ bool					ft_test_norminette(char *name);
 void					ft_print_file(char *path);
 void					ft_print_grade(bool success);
 void					ft_print_test_chrint(const char test, int user, int orig, bool success);
+void					ft_print_test_chrstr(const char test, char *user, char *orig, bool success);
 void					ft_print_test_strint(const char *test, int user, int orig, bool success);
 void					ft_print_test_strstr(const char *test, char *user, char *orig, bool success);
 
@@ -87,5 +89,5 @@ bool					ft_test_strlen(char *name, const char **test);
 bool					ft_test_strdup(char *name, const char **test);
 bool					ft_test_atoi(char *name, const char **test);
 bool					ft_test_itoa(char *name, const char **test);
-
+bool					ft_test_memset(char *name, const char **test);
 #endif

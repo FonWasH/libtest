@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:03:35 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/19 03:19:33 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/19 08:25:50 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,11 @@ const char		*g_char_tests[] = {
 	NULL
 };
 
+const char		*g_memset_tests[] = {
+	"09AZaz#",
+	NULL
+};
+
 const t_ftest	g_ftest[] = {
 	{"ft_isalnum", ft_test_ascii, g_char_tests},
 	{"ft_isalpha", ft_test_ascii, g_char_tests},
@@ -66,6 +71,7 @@ const t_ftest	g_ftest[] = {
 	{"ft_strdup", ft_test_strdup, g_str_tests},
 	{"ft_atoi", ft_test_atoi, g_atoi_tests},
 	{"ft_itoa", ft_test_itoa, g_itoa_tests},
+	{"ft_memset", ft_test_memset, g_memset_tests},
 	{NULL, NULL, NULL}
 };
 
