@@ -14,7 +14,8 @@ SRC		= main.c \
 		  tests/ft_test_strdup.c \
 		  tests/ft_test_strlen.c \
 		  tests/ft_test_memset.c \
-		  tests/ft_test_bzero.c
+		  tests/ft_test_bzero.c \
+		  tests/ft_test_memcpy.c
 
 SRCS	= ${addprefix ${SRC_DIR}, ${SRC}}
 OBJS	= ${SRCS:.c=.o}
