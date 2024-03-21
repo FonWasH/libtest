@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/20 22:35:19 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/21 02:18:34 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,6 @@ bool					ft_test_itoa(char *name, const char **test);
 bool					ft_test_memset(char *name, const char **test);
 bool					ft_test_bzero(char *name, const char **test);
 bool					ft_test_memcpy(char *name, const char **test);
+bool					ft_test_memmove(char *name, const char **test);
 
 #endif
