@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 04:47:10 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/19 04:14:06 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 04:20:42 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int ac, char *av[])
 			ft_print_file("docs/help");
 		else if (!strcmp(av[1], "--version") || !strcmp(av[1], "-v"))
 			ft_print_file("docs/version");
-		else if (!ft_call_test(av[1], (const char **)av + 2, ac - 2))
+		else if (!ft_call_test(av[1], (void **)av + 2, ac - 2))
 			printf("%s: invalid argument -- '%s'%s",
 				basename(av[0]), av[1], HELP);
 	}

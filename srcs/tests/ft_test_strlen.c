@@ -6,27 +6,30 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:42:04 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/19 03:40:08 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 12:27:22 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-bool	ft_test_strlen(char *name, const char **test)
+bool	ft_test_strlen(char *name, void **test)
 {
-	size_t	i = 0;
-	size_t	grade = 0;
-	size_t	user;
-	size_t	orig;
-	bool	success;	
+	const char	**tests = test ? (const char **)test : g_str_tests;
+	size_t		i = 0, grade = 0;
+	size_t		user, orig;
+	bool		success;
 
 	(void)name;
-	while (test[i])
+	while (tests[i])
 	{
-		user = ft_strlen(test[i]);
-		orig = strlen(test[i]);
+		ft_time_function("user_start");
+		user = ft_strlen(tests[i]);
+		ft_time_function("user_end orig_start");
+		orig = strlen(tests[i]);
+		ft_time_function("orig_end");
 		success = (user == orig);
-		ft_print_test_strint(test[i], (int)user, (int)orig, success);
+		if (!success)
+			ft_print_test_strint(tests[i], (int)user, (int)orig);
 		grade += success;
 		i++;
 	}

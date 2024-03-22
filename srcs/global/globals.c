@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:03:35 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/21 02:18:06 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 05:47:26 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,31 +60,21 @@ const char		*g_memset_tests[] = {
 };
 
 const t_ftest	g_ftest[] = {
-	{"ft_isalnum", ft_test_ascii, g_char_tests},
-	{"ft_isalpha", ft_test_ascii, g_char_tests},
-	{"ft_isascii", ft_test_ascii, g_char_tests},
-	{"ft_isdigit", ft_test_ascii, g_char_tests},
-	{"ft_isprint", ft_test_ascii, g_char_tests},
-	{"ft_tolower", ft_test_ascii, g_char_tests},
-	{"ft_toupper", ft_test_ascii, g_char_tests},
-	{"ft_strlen", ft_test_strlen, g_str_tests},
-	{"ft_strdup", ft_test_strdup, g_str_tests},
-	{"ft_atoi", ft_test_atoi, g_atoi_tests},
-	{"ft_itoa", ft_test_itoa, g_itoa_tests},
-	{"ft_memset", ft_test_memset, g_memset_tests},
-	{"ft_bzero", ft_test_bzero, NULL},
-	{"ft_memcpy", ft_test_memcpy, g_str_tests},
-	{"ft_memmove", ft_test_memmove, NULL},
-	{NULL, NULL, NULL}
-};
-
-const t_fascii	g_fascii[] = {
-	{"ft_isalnum", ft_isalnum, isalnum, false},
-	{"ft_isalpha", ft_isalpha, isalpha, false},
-	{"ft_isascii", ft_isascii, isascii, false},
-	{"ft_isdigit", ft_isdigit, isdigit, false},
-	{"ft_isprint", ft_isprint, isprint, false},
-	{"ft_tolower", ft_tolower, tolower, true},
-	{"ft_toupper", ft_toupper, toupper, true},
-	{NULL, NULL, NULL, false}
+	{"ft_isalnum", ft_test_ascii},
+	{"ft_isalpha", ft_test_ascii},
+	{"ft_isascii", ft_test_ascii},
+	{"ft_isdigit", ft_test_ascii},
+	{"ft_isprint", ft_test_ascii},
+	{"ft_tolower", ft_test_ascii},
+	{"ft_toupper", ft_test_ascii},
+	{"ft_strlen", ft_test_strlen},
+	{"ft_strdup", ft_test_strdup},
+	{"ft_atoi", ft_test_atoi},
+	{"ft_itoa", ft_test_itoa},
+	{"ft_memset", ft_test_memset},
+	{"ft_bzero", ft_test_bzero},
+	{"ft_memcpy", ft_test_memcpy},
+	{"ft_memmove", ft_test_memmove},
+	//{"ft_memchr", ft_test_memchr},
+	{NULL, NULL}
 };

@@ -2,7 +2,7 @@ SRC_DIR	= ./srcs/
 INC_DIR	= ./includes/
 
 SRC		= main.c \
-		  globals/globals.c \
+		  global/globals.c \
 		  ft_mandatory.c \
 		  ft_bonus.c \
 		  ft_call_test.c \
@@ -16,7 +16,10 @@ SRC		= main.c \
 		  tests/ft_test_memset.c \
 		  tests/ft_test_bzero.c \
 		  tests/ft_test_memcpy.c \
-		  tests/ft_test_memmove.c
+		  tests/ft_test_memmove.c \
+		  tests/ft_test_memchr.c
+
+SRC := $(filter-out %ft_test_memchr.c,$(SRC))
 
 SRCS	= ${addprefix ${SRC_DIR}, ${SRC}}
 OBJS	= ${SRCS:.c=.o}
@@ -32,23 +35,23 @@ RM		= rm -f
 all:		${NAME}
 
 .c.o:
-			${CC} ${CFLAGS} -c -I ${INC_DIR} $< -o ${<:.c=.o}
+			@${CC} ${CFLAGS} -c -I ${INC_DIR} $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
-			@make -C .. -f Makefile
-			${CC} ${CFLAGS} -o $@ ${OBJS} ../libft.a
+			@make -sC ..
+			@${CC} ${CFLAGS} -o $@ ${OBJS} ../libft.a
 
 $bonus:		${OBJS}
-			@make bonus -C .. -f Makefile
-			${CC} ${CFLAGS} -o $@ ${OBJS} ../libft.a
+			@make bonus -sC ..
+			@${CC} ${CFLAGS} -o $@ ${OBJS} ../libft.a
 
 clean:
-			@make clean -C .. -f Makefile
-			${RM} ${OBJS}
+			@make clean -sC ..
+			@${RM} ${OBJS}
 
 fclean:		clean
-			@make fclean -C .. -f Makefile
-			${RM} ${NAME}
+			@make fclean -sC ..
+			@${RM} ${NAME}
 
 re:			fclean all
 

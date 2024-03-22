@@ -6,27 +6,30 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:48:50 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/19 03:37:53 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 12:24:51 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-bool	ft_test_atoi(char *name, const char **test)
+bool	ft_test_atoi(char *name, void **test)
 {
-	size_t	i = 0;
-	size_t	grade = 0;
-	int		user;
-	int		orig;
-	bool	success;	
+	const char	**tests = test ? (const char **)test : g_atoi_tests;
+	size_t		i = 0, grade = 0;
+	int			user, orig;
+	bool		success;
 
 	(void)name;
-	while (test[i])
+	while (tests[i])
 	{
-		user = ft_atoi(test[i]);
-		orig = atoi(test[i]);
+		ft_time_function("user_start");
+		user = ft_atoi(tests[i]);
+		ft_time_function("user_end orig_start");
+		orig = atoi(tests[i]);
+		ft_time_function("orig_end");
 		success = (user == orig);
-		ft_print_test_strint(test[i], user, orig, success);
+		if (!success)
+			ft_print_test_strint(tests[i], user, orig);
 		grade += success;
 		i++;
 	}

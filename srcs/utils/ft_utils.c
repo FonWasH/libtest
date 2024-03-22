@@ -6,34 +6,36 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:26:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/20 22:37:22 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 12:21:40 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-void	ft_putchar_isprint(char c, bool newline)
+void	ft_time_function(char *action)
 {
-	printf("'");
-	if (isprint(c))
-		printf("%c", c);
-	else
-		printf("\\%02x", (unsigned char)c);
-	printf("'%s", newline ? "\n" : "");
-}
+	static clock_t	user_start, orig_start;
+	static double	user_time, orig_time;
 
-void	ft_putstr_isprint(const char *str, bool newline)
-{
-	printf("\"");
-	while (*str)
+	if (strstr(action, "reset"))
 	{
-		if (isprint(*str))
-			printf("%c", *str);
-		else
-			printf("\\%02x", (unsigned char)*str);
-		str++;
+		user_time = 0;
+		orig_time = 0;
 	}
-	printf("\"%s", newline ? "\n" : "");
+	if (strstr(action, "user_start"))
+		user_start = clock();
+	if (strstr(action, "orig_start"))
+		orig_start = clock();
+	if (strstr(action, "user_end"))
+		user_time += ((double)(clock() - user_start)) / CLOCKS_PER_SEC;
+	if (strstr(action, "orig_end"))
+		orig_time += ((double)(clock() - orig_start)) / CLOCKS_PER_SEC;
+	if (strstr(action, "print"))
+	{
+		printf("%suser = %fs | orig = %fs\n", TIME, user_time, orig_time);
+		user_time = 0;
+		orig_time = 0;
+	}
 }
 
 bool	ft_test_norminette(char *name)
@@ -52,7 +54,9 @@ bool	ft_test_norminette(char *name)
 	snprintf(cmd, cmd_len + 1, "%s%s%s", CMD_NS, name, CMD_NE);
 	success = (!system(cmd));
 	free(cmd);
-	printf("-- %s%s%s --\n%snorminette: %s\n", Y, name, X, W, success ? OK : ERROR);
+	printf("-- %s%s%s --\n%s%s\n", Y, name, X, NORME, success ? OK : ERROR);
+	if (!success)
+		printf("%s%s\n", GRADE, FAIL);
 	return (success);
 }
 

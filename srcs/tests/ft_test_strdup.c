@@ -6,27 +6,30 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:49:04 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/19 03:39:18 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 12:27:22 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-bool	ft_test_strdup(char *name, const char **test)
+bool	ft_test_strdup(char *name, void **test)
 {
-	size_t	i = 0;
-	size_t	grade = 0;
-	char	*user;
-	char	*orig;
-	bool	success;	
+	const char	**tests = test ? (const char **)test : g_str_tests;
+	size_t		i = 0, grade = 0;
+	char		*user, *orig;
+	bool		success;
 
 	(void)name;
-	while (test[i])
+	while (tests[i])
 	{
-		user = ft_strdup(test[i]);
-		orig = strdup(test[i]);
+		ft_time_function("user_start");
+		user = ft_strdup(tests[i]);
+		ft_time_function("user_end orig_start");
+		orig = strdup(tests[i]);
+		ft_time_function("orig_end");
 		success = (!strcmp(user, orig) && (strlen(user) == strlen(orig)));
-		ft_print_test_strstr(test[i], user, orig, success);
+		if (!success)
+			ft_print_test_strstr(tests[i], user, orig);
 		grade += success;
 		free(user);
 		free(orig);

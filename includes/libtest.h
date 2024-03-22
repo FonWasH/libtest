@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/21 02:18:34 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 12:08:31 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <libgen.h>
 # include <stdbool.h>
 # include <stdio.h>
+# include <time.h>
 
 // BUFFER
 # define BUFFER_SIZE 1024
@@ -36,6 +37,13 @@
 # define FAIL R "FAIL" X " :("
 # define SUCCESS G "SUCCESS" X " :)"
 # define ERROR R "ERROR" X
+# define USER W "user: " X
+# define ORIG W "orig: " X
+# define SEP W " | " X
+# define NORME W "Norminette: " X
+# define TEST W "Test: " X
+# define TIME W "Time: " X
+# define GRADE W "Grade: " X
 # define HELP "\nTry '--help' for more information.\n"
 
 // CMD
@@ -46,8 +54,7 @@
 typedef struct s_ftest
 {
 	char				*name;
-	bool				(*f)(char *, const char **);
-	const char			**test;
+	bool				(*f)(char *, void **);
 }						t_ftest;
 
 typedef struct s_fascii
@@ -55,7 +62,6 @@ typedef struct s_fascii
 	char				*name;
 	int					(*user)(int);
 	int					(*orig)(int);
-	bool				equal;
 }						t_fascii;
 
 // GLOBALS
@@ -65,34 +71,30 @@ extern const char		*g_str_tests[];
 extern const char		*g_char_tests[];
 extern const char		*g_memset_tests[];
 extern const t_ftest	g_ftest[];
-extern const t_fascii	g_fascii[];
 
 // UTIL FUNCTIONS
-void					ft_putstr_isprint(const char *str, bool newline);
-void					ft_putchar_isprint(char c, bool newline);
+void					ft_time_function(char *action);
 bool					ft_test_norminette(char *name);
 void					ft_print_file(char *path);
 void					ft_print_grade(bool success);
-void					ft_print_test_chrint(const char test, int user, int orig, bool success);
-void					ft_print_test_chrstr(const char test, char *user, char *orig, bool success);
-void					ft_print_test_strint(const char *test, int user, int orig, bool success);
-void					ft_print_test_strstr(const char *test, char *user, char *orig, bool success);
-void					ft_print_test_intstr(int test, char *user, char *orig, bool success);
-
+void					ft_print_test_chrint(const char test, int user, int orig);
+void					ft_print_test_chrstr(const char test, char *user, char *orig);
+void					ft_print_test_strint(const char *test, int user, int orig);
+void					ft_print_test_strstr(const char *test, char *user, char *orig);
+void					ft_print_test_intstr(int test, char *user, char *orig);
 // MAIN FUNCTIONS
 void					ft_mandatory(bool title);
 void					ft_bonus(bool title);
-bool					ft_call_test(char *name, const char **test, int count);
-
+bool					ft_call_test(char *name, void **test, int count);
 // TEST FUNCTIONS
-bool					ft_test_ascii(char *name, const char **test);
-bool					ft_test_strlen(char *name, const char **test);
-bool					ft_test_strdup(char *name, const char **test);
-bool					ft_test_atoi(char *name, const char **test);
-bool					ft_test_itoa(char *name, const char **test);
-bool					ft_test_memset(char *name, const char **test);
-bool					ft_test_bzero(char *name, const char **test);
-bool					ft_test_memcpy(char *name, const char **test);
-bool					ft_test_memmove(char *name, const char **test);
+bool					ft_test_ascii(char *name, void **test);
+bool					ft_test_strlen(char *name, void **test);
+bool					ft_test_strdup(char *name, void **test);
+bool					ft_test_atoi(char *name, void **test);
+bool					ft_test_itoa(char *name, void **test);
+bool					ft_test_memset(char *name, void **test);
+bool					ft_test_bzero(char *name, void **test);
+bool					ft_test_memcpy(char *name, void **test);
+bool					ft_test_memmove(char *name, void **test);
 
 #endif

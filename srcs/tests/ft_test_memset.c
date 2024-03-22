@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 08:06:06 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/20 22:40:24 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 12:27:22 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,30 @@ static bool	ft_test_memset_size(char *user, char *orig, char c)
 
 	for (size_t i = 0; i < count; i++)
 	{
+		ft_time_function("user_start");
 		ft_memset(user, c, size[i]);
+		ft_time_function("user_end orig_start");
 		memset(orig, c, size[i]);
+		ft_time_function("orig_end");
 		if (strcmp(user, orig))
 			return (false);
 	}
 	return (true);
 }
 
-bool	ft_test_memset(char *name, const char **test)
+bool	ft_test_memset(char *name, void **test)
 {
-	size_t	i = 0;
-	size_t	grade = 0;
-	char	user[] = "                ";
-	char	orig[] = "                ";
-	bool	success;
+	const char	**tests = test ? (const char **)test : g_memset_tests;
+	size_t		i = 0, grade = 0;
+	char		user[] = "                ", orig[] = "                ";
+	bool		success;
 
 	(void)name;
-	while (test[0][i])
+	while (tests[0][i])
 	{
-		success = ft_test_memset_size(user, orig, test[0][i]);
-		ft_print_test_chrstr(test[0][i], user, orig, success);
+		success = ft_test_memset_size(user, orig, tests[0][i]);
+		if (!success)
+			ft_print_test_chrstr(tests[0][i], user, orig);
 		grade += success;
 		i++;
 	}

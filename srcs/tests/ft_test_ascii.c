@@ -6,42 +6,76 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:42:03 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/19 03:47:15 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 12:24:19 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-static bool	ft_find_test_ascii(char *name, char test, int *user, int *orig)
+static void	ft_get_test_functions(char *name, int (**user)(int), int (**orig)(int))
 {
-	for (size_t i = 0; g_fascii[i].name; i++)
+	const t_fascii	fascii[] = {
+	{"ft_isalnum", ft_isalnum, isalnum},
+	{"ft_isalpha", ft_isalpha, isalpha},
+	{"ft_isascii", ft_isascii, isascii},
+	{"ft_isdigit", ft_isdigit, isdigit},
+	{"ft_isprint", ft_isprint, isprint},
+	{"ft_tolower", ft_tolower, tolower},
+	{"ft_toupper", ft_toupper, toupper},
+	{NULL, NULL, NULL}
+	};
+
+	for (size_t i = 0; fascii[i].name; i++)
 	{
-		if (!strcmp(name, g_fascii[i].name))
+		if (!strcmp(name, fascii[i].name))
 		{
-			*user = (*g_fascii[i].user)(test);
-			*orig = (*g_fascii[i].orig)(test);
-			return (g_fascii[i].equal ?
-				(*orig == *user) : ((*orig && *user) || (!*orig && !*user)));
+			*user = fascii[i].user;
+			*orig = fascii[i].orig;
 		}
 	}
-	fprintf(stderr, "Error: Function does not exist\n");
-	exit(EXIT_FAILURE);
 }
 
-bool	ft_test_ascii(char *name, const char **test)
+bool	ft_test_ascii(char *name, void **test)
 {
-	size_t	i = 0;
-	size_t	grade = 0;
-	int		user;
-	int		orig;
-	bool	success;
+	const char	**tests = test ? (const char **)test : NULL;
+	int			i = 0, grade = 0, user, orig;
+	int			(*f_user)(int), (*f_orig)(int);
+	bool		success;
 
-	while (test[0][i])
+	ft_get_test_functions(name, &f_user, &f_orig);
+	if (tests)
 	{
-		success = ft_find_test_ascii(name, test[0][i], &user, &orig);
-		ft_print_test_chrint(test[0][i], user, orig, success);
-		grade += success;
-		i++;
+		while (tests[0][i])
+		{
+			ft_time_function("user_start");
+			user = (*f_user)(tests[0][i]);
+			ft_time_function("user_end orig_start");
+			orig = (*f_orig)(tests[0][i]);
+			ft_time_function("orig_end");
+			success = (orig == user);
+			if (!success)
+				ft_print_test_chrint(tests[0][i], user, orig);
+			grade += success;
+			i++;
+		}
+	}
+	else
+	{
+		i = -128;
+		grade = -128;
+		while (i <= 255)
+		{
+			ft_time_function("user_start");
+			user = (*f_user)(i);
+			ft_time_function("user_end orig_start");
+			orig = (*f_orig)(i);
+			ft_time_function("orig_end");
+			success = (orig == user);
+			if (!success)
+				ft_print_test_chrint(i, user, orig);
+			grade += success;
+			i++;
+		}
 	}
 	return (grade == i);
 }
