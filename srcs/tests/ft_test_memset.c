@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 08:06:06 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 14:12:05 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 14:59:17 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static bool	ft_test_memset_size(char *user, char *orig, char c)
 
 bool	ft_test_memset(char *name, void **test)
 {
-	const char	**tests = test ? (const char **)test : g_memset_tests;
+	const char	**tests = test ? (const char **)test : g_chr_tests;
 	size_t		i = 0, grade = 0;
-	char		user[] = "                ", orig[] = "                ";
+	char		user[] = "................", orig[] = "................";
 	bool		success;
 
 	(void)name;

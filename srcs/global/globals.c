@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:03:35 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 05:47:26 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 14:59:01 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,8 @@ const char		*g_str_tests[] = {
 	NULL
 };
 
-const char		*g_char_tests[] = {
-	"09AZaz#\n😀",
-	NULL
-};
-
-const char		*g_memset_tests[] = {
-	"09AZaz#",
+const char		*g_chr_tests[] = {
+	"09AZaz#😀",
 	NULL
 };
 

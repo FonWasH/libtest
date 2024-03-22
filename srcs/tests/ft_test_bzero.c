@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:07:19 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 14:11:48 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 14:57:42 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool	ft_test_bzero(char *name, void **test)
 {
 	size_t	size[] = {0, 1, 8, 16};
 	size_t	i = 0, grade = 0, count = sizeof(size) / sizeof(size[0]);
-	char	user[] = "                ", orig[] = "                ";
+	char	user[] = "................", orig[] = "................";
 	bool	success;
 
 	(void)name;

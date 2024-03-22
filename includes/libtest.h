@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 14:07:48 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 14:54:23 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,7 @@ typedef enum e_ftime
 extern const char		*g_atoi_tests[];
 extern const char		*g_itoa_tests[];
 extern const char		*g_str_tests[];
-extern const char		*g_char_tests[];
-extern const char		*g_memset_tests[];
+extern const char		*g_chr_tests[];
 extern const t_ftest	g_ftest[];
 
 // UTIL FUNCTIONS
