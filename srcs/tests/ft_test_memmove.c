@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 02:18:39 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 12:27:58 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 14:12:02 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 static bool	ft_test_memmove_size(char *user, char *orig, size_t size, size_t *step)
 {
 	*step = 1;
-	ft_time_function("user_start");
+	ft_time_function(USER_START);
 	ft_memmove(user, (const char *)user, size);
-	ft_time_function("user_end orig_start");
+	ft_time_function(USER_END_ORIG_START);
 	memmove(orig, (const char *)orig, size);
-	ft_time_function("orig_end");
+	ft_time_function(ORIG_END);
 	if (strcmp(user, orig))
 			return (false);
 	*step = 2;
-	ft_time_function("user_start");
+	ft_time_function(USER_START);
 	ft_memmove(user, (const char *)user + 5, size);
-	ft_time_function("user_end orig_start");
+	ft_time_function(USER_END_ORIG_START);
 	memmove(orig, (const char *)orig + 5, size);
-	ft_time_function("orig_end");
+	ft_time_function(ORIG_END);
 	if (strcmp(user, orig))
 			return (false);
 	*step = 3;
-	ft_time_function("user_start");
+	ft_time_function(USER_START);
 	ft_memmove(user + 6, (const char *)user, size);
-	ft_time_function("user_end orig_start");
+	ft_time_function(USER_END_ORIG_START);
 	memmove(orig + 6, (const char *)orig, size);
-	ft_time_function("orig_end");
+	ft_time_function(ORIG_END);
 	if (strcmp(user, orig))
 			return (false);
 	return (true);

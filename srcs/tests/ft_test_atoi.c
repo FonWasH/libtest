@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:48:50 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 12:24:51 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 14:11:45 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ bool	ft_test_atoi(char *name, void **test)
 	(void)name;
 	while (tests[i])
 	{
-		ft_time_function("user_start");
+		ft_time_function(USER_START);
 		user = ft_atoi(tests[i]);
-		ft_time_function("user_end orig_start");
+		ft_time_function(USER_END_ORIG_START);
 		orig = atoi(tests[i]);
-		ft_time_function("orig_end");
+		ft_time_function(ORIG_END);
 		success = (user == orig);
 		if (!success)
 			ft_print_test_strint(tests[i], user, orig);

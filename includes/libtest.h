@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 12:08:31 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 14:07:48 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,18 @@ typedef struct s_fascii
 	int					(*orig)(int);
 }						t_fascii;
 
+// ENUM
+typedef enum e_ftime
+{
+	RESET,
+	USER_START,
+	USER_END,
+	USER_END_ORIG_START,
+	ORIG_START,
+	ORIG_END,
+	PRINT
+}	t_ftime;
+
 // GLOBALS
 extern const char		*g_atoi_tests[];
 extern const char		*g_itoa_tests[];
@@ -73,7 +85,7 @@ extern const char		*g_memset_tests[];
 extern const t_ftest	g_ftest[];
 
 // UTIL FUNCTIONS
-void					ft_time_function(char *action);
+void					ft_time_function(t_ftime action);
 bool					ft_test_norminette(char *name);
 void					ft_print_file(char *path);
 void					ft_print_grade(bool success);

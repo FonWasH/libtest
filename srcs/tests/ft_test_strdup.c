@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:49:04 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 12:27:22 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 14:12:07 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ bool	ft_test_strdup(char *name, void **test)
 	(void)name;
 	while (tests[i])
 	{
-		ft_time_function("user_start");
+		ft_time_function(USER_START);
 		user = ft_strdup(tests[i]);
-		ft_time_function("user_end orig_start");
+		ft_time_function(USER_END_ORIG_START);
 		orig = strdup(tests[i]);
-		ft_time_function("orig_end");
+		ft_time_function(ORIG_END);
 		success = (!strcmp(user, orig) && (strlen(user) == strlen(orig)));
 		if (!success)
 			ft_print_test_strstr(tests[i], user, orig);

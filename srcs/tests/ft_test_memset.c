@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 08:06:06 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 12:27:22 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 14:12:05 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ static bool	ft_test_memset_size(char *user, char *orig, char c)
 
 	for (size_t i = 0; i < count; i++)
 	{
-		ft_time_function("user_start");
+		ft_time_function(USER_START);
 		ft_memset(user, c, size[i]);
-		ft_time_function("user_end orig_start");
+		ft_time_function(USER_END_ORIG_START);
 		memset(orig, c, size[i]);
-		ft_time_function("orig_end");
+		ft_time_function(ORIG_END);
 		if (strcmp(user, orig))
 			return (false);
 	}

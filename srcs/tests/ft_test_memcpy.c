@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:39:19 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 12:27:22 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 14:16:20 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ bool	ft_test_memcpy(char *name, void **test)
 		}
 		user[test_len] = '\0';
 		orig[test_len] = '\0';
-		ft_time_function("user_start");
+		ft_time_function(USER_START);
 		ft_memcpy(user, tests[i], strlen(tests[i]));
-		ft_time_function("user_end orig_start");
+		ft_time_function(USER_END_ORIG_START);
 		memcpy(orig, tests[i], strlen(tests[i]));
-		ft_time_function("orig_end");
+		ft_time_function(ORIG_END);
 		success = (!strcmp(user, orig));
 		if (!success)
 			ft_print_test_strstr(tests[i], user, orig);

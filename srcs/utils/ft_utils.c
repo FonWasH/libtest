@@ -6,31 +6,31 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:26:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 12:21:40 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 14:44:03 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-void	ft_time_function(char *action)
+void	ft_time_function(t_ftime action)
 {
 	static clock_t	user_start, orig_start;
 	static double	user_time, orig_time;
 
-	if (strstr(action, "reset"))
+	if (action == RESET)
 	{
 		user_time = 0;
 		orig_time = 0;
 	}
-	if (strstr(action, "user_start"))
+	if (action == USER_START)
 		user_start = clock();
-	if (strstr(action, "orig_start"))
-		orig_start = clock();
-	if (strstr(action, "user_end"))
+	if ((action == USER_END) || (action == USER_END_ORIG_START))
 		user_time += ((double)(clock() - user_start)) / CLOCKS_PER_SEC;
-	if (strstr(action, "orig_end"))
+	if ((action == ORIG_START) || (action == USER_END_ORIG_START))
+		orig_start = clock();
+	if (action == ORIG_END)
 		orig_time += ((double)(clock() - orig_start)) / CLOCKS_PER_SEC;
-	if (strstr(action, "print"))
+	if (action == PRINT)
 	{
 		printf("%suser = %fs | orig = %fs\n", TIME, user_time, orig_time);
 		user_time = 0;
@@ -64,11 +64,11 @@ void	ft_print_file(char *path)
 {
 	FILE	*file = fopen(path, "r");
 	char	buffer[BUFFER_SIZE];
-	size_t	bytes_read;
+	size_t	read;
 
 	if (!file)
 		return ;
-	while ((bytes_read = fread(buffer, 1, BUFFER_SIZE, file)) > 0)
-		fwrite(buffer, 1, bytes_read, stdout);
+	while ((read = fread(buffer, 1, BUFFER_SIZE, file)) > 0)
+		fwrite(buffer, 1, read, stdout);
 	fclose(file);
 }

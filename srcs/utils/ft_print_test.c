@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 09:19:55 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 11:49:54 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 14:11:36 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_print_grade(bool success)
 	if (success)
 	{
 		printf("%s%s\n", TEST, OK);
-		ft_time_function("print");
+		ft_time_function(PRINT);
 	}
 	printf("%s%s\n", GRADE, success ? SUCCESS : FAIL);
 }

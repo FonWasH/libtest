@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:42:03 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 12:24:19 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 14:42:22 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,47 +35,54 @@ static void	ft_get_test_functions(char *name, int (**user)(int), int (**orig)(in
 	}
 }
 
-bool	ft_test_ascii(char *name, void **test)
+static bool	ft_test_ascii_table(int (*f_user)(int), int (*f_orig)(int))
 {
-	const char	**tests = test ? (const char **)test : NULL;
-	int			i = 0, grade = 0, user, orig;
-	int			(*f_user)(int), (*f_orig)(int);
-	bool		success;
+	int		i = -128, grade = -128;
+	int		user, orig;
+	bool	success;
 
-	ft_get_test_functions(name, &f_user, &f_orig);
-	if (tests)
+	while (i <= 255)
 	{
-		while (tests[0][i])
-		{
-			ft_time_function("user_start");
-			user = (*f_user)(tests[0][i]);
-			ft_time_function("user_end orig_start");
-			orig = (*f_orig)(tests[0][i]);
-			ft_time_function("orig_end");
-			success = (orig == user);
-			if (!success)
-				ft_print_test_chrint(tests[0][i], user, orig);
-			grade += success;
-			i++;
-		}
-	}
-	else
-	{
-		i = -128;
-		grade = -128;
-		while (i <= 255)
-		{
-			ft_time_function("user_start");
-			user = (*f_user)(i);
-			ft_time_function("user_end orig_start");
-			orig = (*f_orig)(i);
-			ft_time_function("orig_end");
-			success = (orig == user);
-			if (!success)
-				ft_print_test_chrint(i, user, orig);
-			grade += success;
-			i++;
-		}
+		ft_time_function(USER_START);
+		user = (*f_user)(i);
+		ft_time_function(USER_END_ORIG_START);
+		orig = (*f_orig)(i);
+		ft_time_function(ORIG_END);
+		success = (orig == user);
+		if (!success)
+			ft_print_test_chrint(i, user, orig);
+		grade += success;
+		i++;
 	}
 	return (grade == i);
+}
+
+static bool	ft_test_test_table(int (*f_user)(int), int (*f_orig)(int), const char **tests)
+{
+	size_t	i = 0, grade = 0;
+	int		user, orig;
+	bool	success;
+
+	while (tests[0][i])
+	{
+		ft_time_function(USER_START);
+		user = (*f_user)(tests[0][i]);
+		ft_time_function(USER_END_ORIG_START);
+		orig = (*f_orig)(tests[0][i]);
+		ft_time_function(ORIG_END);
+		success = (orig == user);
+		if (!success)
+			ft_print_test_chrint(tests[0][i], user, orig);
+		grade += success;
+		i++;
+	}
+	return (grade == i);
+}
+
+bool	ft_test_ascii(char *name, void **test)
+{
+	int	(*f_user)(int), (*f_orig)(int);
+
+	ft_get_test_functions(name, &f_user, &f_orig);
+	return (test ? ft_test_test_table(f_user, f_orig, (const char **)test) : ft_test_ascii_table(f_user, f_orig));
 }
