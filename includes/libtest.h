@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 14:54:23 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 15:07:47 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,14 @@ typedef struct s_fascii
 // ENUM
 typedef enum e_ftime
 {
-	RESET,
-	USER_START,
-	USER_END,
-	USER_END_ORIG_START,
-	ORIG_START,
-	ORIG_END,
-	PRINT
-}	t_ftime;
+						RESET,
+						USER_START,
+						USER_END,
+						USER_END_ORIG_START,
+						ORIG_START,
+						ORIG_END,
+						PRINT
+}						t_ftime;
 
 // GLOBALS
 extern const char		*g_atoi_tests[];
