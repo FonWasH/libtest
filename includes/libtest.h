@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 15:18:24 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/22 15:27:29 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # include "../../libft.h"
 # include <ctype.h>
 # include <libgen.h>
+# include <string.h>
 # include <stdbool.h>
 # include <stdio.h>
 # include <time.h>
-# include <string.h>
 
 // BUFFER
 # define BUFFER_SIZE 1024
