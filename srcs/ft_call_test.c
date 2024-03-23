@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:42:22 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 14:08:41 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/24 00:43:36 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,15 @@ bool	ft_call_test(char *name, void **test, int count)
 {
 	for (size_t i = 0; g_ftest[i].name; i++)
 	{
-		if (!strcmp(name, g_ftest[i].name) && ft_test_norminette(name))
+		if (!strcmp(name, g_ftest[i].name))
 		{
-			ft_time_function(RESET);
-			ft_print_grade((*g_ftest[i].f)(name, count ? test : NULL));
+			system("clear");
+			system(TITLE);
+			if (ft_test_norminette(name))
+			{
+				ft_time_function(RESET);
+				ft_print_grade((*g_ftest[i].f)(name, count ? test : NULL));
+			}
 			return (true);
 		}
 	}
