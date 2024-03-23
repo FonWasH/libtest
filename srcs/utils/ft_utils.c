@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:26:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 14:44:03 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/23 12:54:11 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,29 +32,37 @@ void	ft_time_function(t_ftime action)
 		orig_time += ((double)(clock() - orig_start)) / CLOCKS_PER_SEC;
 	if (action == PRINT)
 	{
-		printf("%suser = %fs | orig = %fs\n", TIME, user_time, orig_time);
+		printf("%s%s%s%fs%s%s%s%fs%s\n", TIME, USER, DM, user_time, X, ORIG, DM, orig_time, X);
 		user_time = 0;
 		orig_time = 0;
 	}
 }
 
+void	ft_print_name(char *name, int len)
+{
+	int	space = (SIZE_LINE - len - 2) / 2;
+	
+	printf("%.*s %s%s%s%s %.*s\n", space, LINE, B, BD, name, X, SIZE_LINE - space - len, LINE);
+}
+
 bool	ft_test_norminette(char *name)
 {
 	char	*cmd = NULL;
-	size_t	cmd_len = strlen(CMD_NS) + strlen(name) + strlen(CMD_NE);
+	size_t	len = strlen(name), cmd_len = strlen(CMD_NS) + len + strlen(CMD_NE);
 	bool	success = false;
 
 	cmd = (char *)malloc(sizeof(char) * cmd_len + 1);
 	if (!cmd)
 	{
-		fprintf(stderr, "Error: Memory allocation\n");
+		fprintf(stderr, ERROR_MEM);
 		exit(EXIT_FAILURE);
 	}
 	cmd[cmd_len] = '\0';
 	snprintf(cmd, cmd_len + 1, "%s%s%s", CMD_NS, name, CMD_NE);
 	success = (!system(cmd));
 	free(cmd);
-	printf("-- %s%s%s --\n%s%s\n", Y, name, X, NORME, success ? OK : ERROR);
+	ft_print_name(name, (int)len);
+	printf("%s%s\n", NORME, success ? OK : ERROR);
 	if (!success)
 		printf("%s%s\n", GRADE, FAIL);
 	return (success);

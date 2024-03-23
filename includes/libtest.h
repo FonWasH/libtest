@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 15:27:29 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/23 13:11:28 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,30 +26,39 @@
 # define BUFFER_SIZE 1024
 
 // COLOR
-# define R "\033[1;31m"
-# define G "\033[1;32m"
-# define Y "\033[1;33m"
-# define W "\033[1;37m"
-# define X "\033[0m"
-
+# define R "\e[91m"
+# define G "\e[92m"
+# define B "\e[94m"
+# define BD "\e[1m"
+# define DM "\e[2m\e[3m"
+# define X "\e[0m"
 // STRING
 # define KO R "KO" X
 # define OK G "OK" X
 # define FAIL R "FAIL" X " :("
 # define SUCCESS G "SUCCESS" X " :)"
 # define ERROR R "ERROR" X
-# define USER W "user: " X
-# define ORIG W "orig: " X
-# define SEP W " | " X
-# define NORME W "Norminette: " X
-# define TEST W "Test: " X
-# define TIME W "Time: " X
-# define GRADE W "Grade: " X
+# define NORME BD "Norminette: " X
+# define TEST BD "Test: " X
+# define TIME BD "Time: " X
+# define GRADE BD "Grade: " X
+# define USER "user: "
+# define ORIG " | orig: "
+# define MEMFAIL DM "Fail when destination is "
+# define HIGHER "higher" X
+# define LOWER "lower" X
+# define EQUAL "equal" X
+// FORMAT
+# define LINE "--------------------------------------"
+# define SIZE_LINE 40
+// ERROR
 # define HELP "\nTry '--help' for more information.\n"
-
+# define ERROR_MEM "Error: Memory allocation\n"
 // CMD
 # define CMD_NS "norminette -o ../"
 # define CMD_NE ".c > /dev/null 2>&1"
+// PATH
+# define TITLE "./scripts/title.sh"
 
 // STRUCT
 typedef struct s_ftest

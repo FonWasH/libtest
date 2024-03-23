@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:39:19 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 14:16:20 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/23 12:41:09 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ bool	ft_test_memcpy(char *name, void **test)
 		orig = (char *)malloc(sizeof(char) * test_len + 1);
 		if (!user || !orig)
 		{
-			fprintf(stderr, "Error: Memory allocation\n");
+			fprintf(stderr, ERROR_MEM);
 			exit(EXIT_FAILURE);
 		}
 		user[test_len] = '\0';

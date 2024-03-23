@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 07:49:06 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 14:08:16 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/23 12:43:48 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_mandatory(bool title)
 {
 	if (title)
-		system("./scripts/title.sh");
+		system(TITLE);
 	for (size_t i = 0; g_ftest[i].name; i++)
 	{
 		printf("\n");
