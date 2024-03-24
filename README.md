@@ -17,6 +17,7 @@ Make sure your environment is properly configured before proceeding with the ins
 
 ## Dependencies
 - Norminette https://github.com/42School/norminette
+- bc > `sudo apt install bc`
 
 ## Usage
 ```bash
