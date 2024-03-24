@@ -6,11 +6,37 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:26:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/23 12:54:11 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/24 16:57:53 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
+
+static bool	ft_build_cmd(char *target, size_t len, char *cmd_start, char *cmd_end)
+{
+	char	*cmd = NULL;
+	size_t	cmd_len = strlen(cmd_start) + len + strlen(cmd_end);
+	bool	success = false;
+
+	cmd = (char *)malloc(sizeof(char) * cmd_len + 1);
+	if (!cmd)
+	{
+		fprintf(stderr, ERROR_MEM);
+		exit(EXIT_FAILURE);
+	}
+	cmd[cmd_len] = '\0';
+	snprintf(cmd, cmd_len + 1, "%s%s%s", cmd_start, target, cmd_end);
+	success = (!system(cmd));
+	free(cmd);
+	return (success);
+}
+
+static void	ft_print_name(char *name, int len)
+{
+	int	space = (SIZE_LINE - len - 2) / 2;
+
+	printf("%.*s %s%s%s%s %.*s\n", space, LINE, B, BD, name, X, SIZE_LINE - space - len, LINE);
+}
 
 void	ft_time_function(t_ftime action)
 {
@@ -38,31 +64,23 @@ void	ft_time_function(t_ftime action)
 	}
 }
 
-void	ft_print_name(char *name, int len)
-{
-	int	space = (SIZE_LINE - len - 2) / 2;
-	
-	printf("%.*s %s%s%s%s %.*s\n", space, LINE, B, BD, name, X, SIZE_LINE - space - len, LINE);
-}
-
 bool	ft_test_norminette(char *name)
 {
-	char	*cmd = NULL;
-	size_t	len = strlen(name), cmd_len = strlen(CMD_NS) + len + strlen(CMD_NE);
-	bool	success = false;
+	size_t	len = strlen(name);
+	bool	success = ft_build_cmd(name, len, CMD_NS, CMD_NE);
 
-	cmd = (char *)malloc(sizeof(char) * cmd_len + 1);
-	if (!cmd)
-	{
-		fprintf(stderr, ERROR_MEM);
-		exit(EXIT_FAILURE);
-	}
-	cmd[cmd_len] = '\0';
-	snprintf(cmd, cmd_len + 1, "%s%s%s", CMD_NS, name, CMD_NE);
-	success = (!system(cmd));
-	free(cmd);
 	ft_print_name(name, (int)len);
 	printf("%s%s\n", NORME, success ? OK : ERROR);
+	if (!success)
+		printf("%s%s\n", GRADE, FAIL);
+	return (success);
+}
+
+bool	ft_check_sysfunc(char *name)
+{
+	bool	success = ft_build_cmd(name, strlen(name), CMD_CS, CMD_CE);
+
+	printf("%s%s\n", FORFUNC, success ? OK : ERROR);
 	if (!success)
 		printf("%s%s\n", GRADE, FAIL);
 	return (success);

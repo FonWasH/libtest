@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/23 13:11:28 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/24 16:57:42 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 # define SUCCESS G "SUCCESS" X " :)"
 # define ERROR R "ERROR" X
 # define NORME BD "Norminette: " X
+# define FORFUNC BD "Forbidden Functions: " X
 # define TEST BD "Test: " X
 # define TIME BD "Time: " X
 # define GRADE BD "Grade: " X
@@ -57,6 +58,8 @@
 // CMD
 # define CMD_NS "norminette -o ../"
 # define CMD_NE ".c > /dev/null 2>&1"
+# define CMD_CS "./scripts/check_sysfunc.sh ../"
+# define CMD_CE ".o > /dev/null 2>&1"
 // PATH
 # define TITLE "./scripts/title.sh"
 
@@ -96,6 +99,7 @@ extern const t_ftest	g_ftest[];
 // UTIL FUNCTIONS
 void					ft_time_function(t_ftime action);
 bool					ft_test_norminette(char *name);
+bool					ft_check_sysfunc(char *name);
 void					ft_print_file(char *path);
 void					ft_print_grade(bool success);
 void					ft_print_test_chrint(const char test, int user, int orig);
