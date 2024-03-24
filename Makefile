@@ -37,10 +37,7 @@ TOTAL_FILES		:= $(words $(SRC))
 COMPILED_FILES	:= 0
 
 
-all:			$(NAME) bonus
-				@for i in `seq 1 1`; do printf "\e[1A\e[0K"; done
-				@clear
-				@echo "Compilation completed."
+all:			$(NAME)
 
 .c.o:
 				@$(CC) $(CFLAGS) -c -I $(INC_DIR) $< -o $(<:.c=.o)
@@ -59,23 +56,25 @@ all:			$(NAME) bonus
 				@printf "%s" $(notdir $<)
 				@printf "\e[0K\r"
 
-$(NAME):		title $(OBJS)
+$(NAME):		title mandatory bonus
+				@clear
+				@echo "Compilation completed."
+
+title:
+				@scripts/title.sh
+				@printf "\n"
+
+mandatory:		title $(OBJS)
 				@make -sC ..
-				@$(CC) $(CFLAGS) -o $@ $(OBJS) ../libft.a
-				@for i in `seq 1 8`; do printf "\e[1A\e[0K"; done
+				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) ../libft.a
 				@clear
 				@echo "Mandatories successfully compiled."
 
-$bonus:			$(OBJS)
+$bonus:			title $(OBJS)
 				@make bonus -sC ..
-				@$(CC) $(CFLAGS) -o $@ $(OBJS) ../libft.a
+				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) ../libft.a
 				@clear
 				@echo "Bonus successfully compiled."
-
-title:
-				@clear
-				@scripts/title.sh
-				@printf "\n"
 
 clean:
 				@make clean -sC ..
@@ -91,8 +90,7 @@ fclean:			clean
 				@echo "Full clean completed."
 
 re:				fclean all
-				@for i in `seq 1 2`; do printf "\e[1A\e[0K"; done
 				@clear
 				@echo "Recompilation completed."
 
-.PHONY: 		all bonus clean fclean re
+.PHONY: 		all title mandatory bonus clean fclean re
