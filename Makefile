@@ -56,13 +56,13 @@ all:			$(NAME)
 				@printf "%s" $(notdir $<)
 				@printf "\e[0K\r"
 
-$(NAME):		title mandatory bonus
-				@clear
-				@echo "Compilation completed."
-
 title:
 				@scripts/title.sh
 				@printf "\n"
+
+$(NAME):		mandatory bonus
+				@clear
+				@echo "Compilation completed."
 
 mandatory:		title $(OBJS)
 				@make -sC ..
