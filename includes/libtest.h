@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/24 16:57:42 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/24 18:07:10 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,11 @@
 // STRING
 # define KO R "KO" X
 # define OK G "OK" X
+# define CHEAT R "CHEAT" X
+# define ERROR R "ERROR" X
+# define GRADECHEAT R "-42" X
 # define FAIL R "FAIL" X " :("
 # define SUCCESS G "SUCCESS" X " :)"
-# define ERROR R "ERROR" X
 # define NORME BD "Norminette: " X
 # define FORFUNC BD "Forbidden Functions: " X
 # define TEST BD "Test: " X
