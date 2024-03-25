@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 08:06:06 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 14:59:17 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/25 19:00:19 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ bool	ft_test_memset(char *name, void **test)
 	{
 		success = ft_test_memset_size(user, orig, tests[0][i]);
 		if (!success)
-			ft_print_test_chrstr(tests[0][i], user, orig);
+			ft_print_fail_chrstr(tests[0][i], user, orig);
 		grade += success;
 		i++;
 	}

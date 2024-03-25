@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:48:58 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 14:11:57 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/25 19:00:19 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ bool	ft_test_itoa(char *name, void **test)
 		ft_time_function(USER_END);
 		success = (!strcmp(user, tests[i]));
 		if (!success)
-			ft_print_test_strstr(tests[i], user, (char *)tests[i]);
+			ft_print_fail_strstr(tests[i], user, (char *)tests[i]);
 		grade += success;
 		free(user);
 		i++;

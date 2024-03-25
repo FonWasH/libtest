@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/25 12:36:55 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/25 19:00:19 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,11 +108,11 @@ bool					ft_test_norminette(char *name);
 bool					ft_check_sysfunc(char *name);
 void					ft_print_file(char *path);
 void					ft_print_grade(bool success);
-void					ft_print_test_chrint(const char test, int user, int orig);
-void					ft_print_test_chrstr(const char test, char *user, char *orig);
-void					ft_print_test_strint(const char *test, int user, int orig);
-void					ft_print_test_strstr(const char *test, char *user, char *orig);
-void					ft_print_test_intstr(int test, char *user, char *orig);
+void					ft_print_fail_chrint(const char test, int user, int orig);
+void					ft_print_fail_chrstr(const char test, char *user, char *orig);
+void					ft_print_fail_strint(const char *test, int user, int orig);
+void					ft_print_fail_strstr(const char *test, char *user, char *orig);
+void					ft_print_fail_intstr(int test, char *user, char *orig);
 // MAIN FUNCTIONS
 void					ft_mandatory(bool title);
 void					ft_bonus(bool title);

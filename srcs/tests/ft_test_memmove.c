@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 02:18:39 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/25 07:36:36 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/25 19:00:19 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ bool	ft_test_memmove(char *name, void **test)
 		success = ft_test_memmove_size(user, orig, size[i], &step);	
 		if (!success)
 		{
-			ft_print_test_intstr(size[i], user, orig);
+			ft_print_fail_intstr(size[i], user, orig);
 			printf("%s%s\n", MEM_FAIL, step == 1 ? EQUAL : step == 2 ? HIGHER : LOWER);
 		}
 		grade += success;

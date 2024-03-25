@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:39:19 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/23 12:41:09 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/25 19:00:19 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ bool	ft_test_memcpy(char *name, void **test)
 		ft_time_function(ORIG_END);
 		success = (!strcmp(user, orig));
 		if (!success)
-			ft_print_test_strstr(tests[i], user, orig);
+			ft_print_fail_strstr(tests[i], user, orig);
 		grade += success;
 		free(user);
 		free(orig);

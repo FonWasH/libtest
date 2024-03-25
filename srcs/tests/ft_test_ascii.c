@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:42:03 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/25 18:28:31 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/25 19:00:09 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	ft_get_test_functions(char *name, int (**user)(int), int (**orig)(in
 	}
 }
 
-static bool	ft_test_ascii_table(int (*f_user)(int), int (*f_orig)(int))
+static bool	ft_test_irange(int (*f_user)(int), int (*f_orig)(int))
 {
 	int		i = -129, grade = -129;
 	int		user, orig;
@@ -50,14 +50,14 @@ static bool	ft_test_ascii_table(int (*f_user)(int), int (*f_orig)(int))
 		ft_time_function(ORIG_END);
 		success = (orig == user);
 		if (!success)
-			ft_print_test_chrint(i, user, orig);
+			ft_print_fail_chrint(i, user, orig);
 		grade += success;
 		i++;
 	}
 	return (grade == i);
 }
 
-static bool	ft_test_test_table(int (*f_user)(int), int (*f_orig)(int), const char **tests)
+static bool	ft_test_tab(int (*f_user)(int), int (*f_orig)(int), const char **tests)
 {
 	size_t	i = 0, grade = 0;
 	int		user, orig;
@@ -72,7 +72,7 @@ static bool	ft_test_test_table(int (*f_user)(int), int (*f_orig)(int), const cha
 		ft_time_function(ORIG_END);
 		success = (orig == user);
 		if (!success)
-			ft_print_test_chrint(tests[0][i], user, orig);
+			ft_print_fail_chrint(tests[0][i], user, orig);
 		grade += success;
 		i++;
 	}
@@ -84,5 +84,5 @@ bool	ft_test_ascii(char *name, void **test)
 	int	(*f_user)(int), (*f_orig)(int);
 
 	ft_get_test_functions(name, &f_user, &f_orig);
-	return (test ? ft_test_test_table(f_user, f_orig, (const char **)test) : ft_test_ascii_table(f_user, f_orig));
+	return (test ? ft_test_tab(f_user, f_orig, (const char **)test) : ft_test_irange(f_user, f_orig));
 }
