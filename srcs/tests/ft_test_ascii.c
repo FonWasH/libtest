@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:42:03 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/22 14:42:22 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/25 18:28:31 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ static void	ft_get_test_functions(char *name, int (**user)(int), int (**orig)(in
 
 static bool	ft_test_ascii_table(int (*f_user)(int), int (*f_orig)(int))
 {
-	int		i = -128, grade = -128;
+	int		i = -129, grade = -129;
 	int		user, orig;
 	bool	success;
 
-	while (i <= 255)
+	while (i <= 256)
 	{
 		ft_time_function(USER_START);
 		user = (*f_user)(i);

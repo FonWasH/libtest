@@ -37,7 +37,7 @@ TOTAL_FILES		:= $(words $(SRC))
 COMPILED_FILES	:= 0
 
 CHECK_SCRIPT	= ./scripts/check_files.sh
-CHECK_BONUS		= ./scripts/check_files_bonus.sh
+CHECK_BONUS		= ./scripts/check_files.sh bonus
 
 
 all:			$(NAME)
@@ -59,7 +59,7 @@ all:			$(NAME)
 				@printf "%s" $(notdir $<)
 				@printf "\e[0K\r"
 
-$(NAME):		mandatory bonus
+$(NAME):		mandatory
 				@clear
 				@echo "Compilation completed."
 

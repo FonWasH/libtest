@@ -12,14 +12,14 @@ files=("libft.h" "Makefile")
 targets=("all" "libft.a" "clean" "fclean" "re")
 flags=("-Wall" "-Wextra" "-Werror")
 
-echo -e "Starting check..."
-
 check_lib_norme() {
     if ! norminette -R CheckDefine ../libft.h > /dev/null 2>&1; then
-        echo -e "${BD}Norminette libft:${X} ${R}ERROR${X}"
+        echo -e "${BD}Norminette libft:${X} ${R}ERROR${X}\n"
+        read -n 1 -s -r -p "Press any key to continue..."
         return 1
     else
-        echo -e "${BD}Norminette libft:${X} ${G}OK${X}"
+        echo -e "${BD}Norminette libft:${X} ${G}OK${X}\n"
+        read -n 1 -s -r -p "Press any key to continue..."
         return 0
     fi
 }
@@ -65,6 +65,9 @@ check_targets() {
 }
 
 check_files() {
+    if [ -n "$1" ]; then
+        targets+=("$1")
+    fi
 	for file in "${files[@]}"; do
 		if [ -e "$dir/$file" ]; then
 			echo -e "${BD}$file:${X} ${G}OK${X}"
@@ -76,4 +79,4 @@ check_files() {
 	check_targets
 }
 
-check_files
+check_files $1
