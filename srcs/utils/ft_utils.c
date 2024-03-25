@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:26:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/24 18:06:51 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/25 07:35:47 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,9 @@ bool	ft_check_sysfunc(char *name)
 {
 	bool	success = ft_build_cmd(name, strlen(name), CMD_CS, CMD_CE);
 
-	printf("%s%s\n", FORFUNC, success ? OK : CHEAT);
+	printf("%s%s\n", FOR_FUNC, success ? OK : CHEAT);
 	if (!success)
-		printf("%s%s\n", GRADE, GRADECHEAT);
+		printf("%s%s\n", GRADE, GRADE_CHEAT);
 	return (success);
 }
 

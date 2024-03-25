@@ -36,18 +36,21 @@ BAR_SIZE		= 50
 TOTAL_FILES		:= $(words $(SRC))
 COMPILED_FILES	:= 0
 
+CHECK_SCRIPT	= ./scripts/check_files.sh
+CHECK_BONUS		= ./scripts/check_files_bonus.sh
+
 
 all:			$(NAME)
 
 .c.o:
 				@$(CC) $(CFLAGS) -c -I $(INC_DIR) $< -o $(<:.c=.o)
-				$(eval COMPILED_FILES := $(shell echo $$(($(COMPILED_FILES)+1))))
+				@$(eval COMPILED_FILES := $(shell echo $$(($(COMPILED_FILES)+1))))
 				@echo -n "["
 				@for i in `seq 1 $(shell echo "$$(($(COMPILED_FILES)*$(BAR_SIZE)/$(TOTAL_FILES)))")`; do \
-					echo -n "$(G)▰$(X)"; \
+					echo -n "$(G)▰$(X)" ; \
 				done
 				@for i in `seq 1 $(shell echo "$$(($(BAR_SIZE)-$(COMPILED_FILES)*$(BAR_SIZE)/$(TOTAL_FILES)))")`; do \
-					echo -n "▱"; \
+					echo -n "▱" ; \
 				done
 				@echo -n "] ($(shell echo "scale=2; $(COMPILED_FILES)/$(TOTAL_FILES) * 100" | bc)%) "
 				@echo -n "["
@@ -56,25 +59,33 @@ all:			$(NAME)
 				@printf "%s" $(notdir $<)
 				@printf "\e[0K\r"
 
-title:
-				@scripts/title.sh
-				@printf "\n"
-
 $(NAME):		mandatory bonus
 				@clear
 				@echo "Compilation completed."
 
-mandatory:		title $(OBJS)
+mandatory:		title check $(OBJS)
 				@make -sC ..
 				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) ../libft.a
 				@clear
 				@echo "Mandatories successfully compiled."
 
-$bonus:			title $(OBJS)
+bonus:			title check_bonus $(OBJS)
 				@make bonus -sC ..
 				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) ../libft.a
 				@clear
 				@echo "Bonus successfully compiled."
+
+ncmandatory:	title $(OBJS)
+				@make -sC ..
+				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) ../libft.a
+				@clear
+				@echo "Mandatories successfully compiled without check."
+
+ncbonus:		title $(OBJS)
+				@make bonus -sC ..
+				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) ../libft.a
+				@clear
+				@echo "Bonus successfully compiled without check."
 
 clean:
 				@make clean -sC ..
@@ -93,4 +104,18 @@ re:				fclean all
 				@clear
 				@echo "Recompilation completed."
 
-.PHONY: 		all title mandatory bonus clean fclean re
+title:
+				@scripts/title.sh
+				@printf "\n"
+
+check:
+				@if ! $(CHECK_SCRIPT); then \
+					exit 1; \
+				fi
+
+check_bonus:
+				@if ! $(CHECK_BONUS); then \
+					exit 1; \
+				fi
+
+.PHONY: 		all title mandatory bonus ncmandatory ncbonus clean fclean re title check check_bonus

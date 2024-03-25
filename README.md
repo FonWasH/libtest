@@ -7,6 +7,8 @@ With no TEST specified, standard tests are applied to the function.
 It includes options to test mandatory and bonus functions, display available functions, and provide version information.
 
 ## Features
+- Check if the Makefile and libft.h exists
+- Check Makefile targets
 - Check norme errors
 - Check forbidden functions
 - Check memory leaks

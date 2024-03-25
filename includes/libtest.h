@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/24 18:07:10 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/25 07:40:30 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,17 @@
 # define OK G "OK" X
 # define CHEAT R "CHEAT" X
 # define ERROR R "ERROR" X
-# define GRADECHEAT R "-42" X
+# define GRADE_CHEAT R "-42" X
 # define FAIL R "FAIL" X " :("
 # define SUCCESS G "SUCCESS" X " :)"
 # define NORME BD "Norminette: " X
-# define FORFUNC BD "Forbidden Functions: " X
+# define FOR_FUNC BD "Forbidden Functions: " X
 # define TEST BD "Test: " X
 # define TIME BD "Time: " X
 # define GRADE BD "Grade: " X
 # define USER "user: "
 # define ORIG " | orig: "
-# define MEMFAIL DM "Fail when destination is "
+# define MEM_FAIL DM "Fail when destination is "
 # define HIGHER "higher" X
 # define LOWER "lower" X
 # define EQUAL "equal" X
@@ -55,7 +55,7 @@
 # define LINE "--------------------------------------"
 # define SIZE_LINE 40
 // ERROR
-# define HELP "\nTry '--help' for more information.\n"
+# define ERROR_HELP "\nTry '--help' for more information.\n"
 # define ERROR_MEM "Error: Memory allocation\n"
 // CMD
 # define CMD_NS "norminette -o ../"
@@ -64,6 +64,9 @@
 # define CMD_CE ".o > /dev/null 2>&1"
 // PATH
 # define TITLE "./scripts/title.sh"
+# define SHOW_FUNC "./scripts/show_func.sh"
+# define SHOW_HELP "docs/help"
+# define SHOW_VERSION "docs/version"
 
 // STRUCT
 typedef struct s_ftest
