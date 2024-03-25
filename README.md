@@ -9,6 +9,7 @@ It includes options to test mandatory and bonus functions, display available fun
 ## Features
 - Check if the Makefile and libft.h exists
 - Check Makefile targets
+- Check compilation flags
 - Check norme errors
 - Check forbidden functions
 - Check memory leaks
