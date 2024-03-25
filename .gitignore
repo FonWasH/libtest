@@ -56,3 +56,6 @@ dkms.conf
 
 # Program
 libtest
+
+# vscode
+.vscode/
