@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://i.ibb.co/SXgV1DL/libtest.png" />
+  <img src="https://raw.githubusercontent.com/FonWasH/libtest/main/image.png" />
 </p>
 
 libtest is a command-line utility designed to test the functions provided in the libft library.
