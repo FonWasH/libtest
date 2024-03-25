@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/25 07:40:30 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/25 12:36:55 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define R "\e[91m"
 # define G "\e[92m"
 # define B "\e[94m"
+# define Y "\e[33m"
 # define BD "\e[1m"
 # define DM "\e[2m\e[3m"
 # define X "\e[0m"
