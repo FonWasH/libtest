@@ -9,16 +9,70 @@ SRC				= main.c \
 		  		utils/ft_utils.c \
 		  		utils/ft_print_test.c \
 		  		tests/ft_test_ascii.c \
-		  		tests/ft_test_atoi.c \
-		  		tests/ft_test_itoa.c \
-		  		tests/ft_test_strdup.c \
-		  		tests/ft_test_strlen.c \
-		  		tests/ft_test_memset.c \
-		  		tests/ft_test_bzero.c \
+				tests/ft_test_strlen.c \
+				tests/ft_test_memset.c \
+				tests/ft_test_bzero.c \
 		  		tests/ft_test_memcpy.c \
 		  		tests/ft_test_memmove.c \
-		  		tests/ft_test_memchr.c
+				tests/ft_test_strlcpy.c \
+				tests/ft_test_strlcat.c \
+				tests/ft_test_strchr.c \
+				tests/ft_test_strrchr.c \
+				tests/ft_test_strncmp.c \
+		  		tests/ft_test_memchr.c \
+				tests/ft_test_memcmp.c \
+				tests/ft_test_strnstr.c \
+		  		tests/ft_test_atoi.c \
+				tests/ft_test_calloc.c \
+		  		tests/ft_test_strdup.c \
+				tests/ft_test_substr.c \
+				tests/ft_test_strjoin.c \
+				tests/ft_test_strtrim.c \
+				tests/ft_test_split.c \
+		  		tests/ft_test_itoa.c \
+				tests/ft_test_strmapi.c \
+				tests/ft_test_striteri.c \
+				tests/ft_test_putchar_fd.c \
+				tests/ft_test_putstr_fd.c \
+				tests/ft_test_putendl_fd.c \
+				tests/ft_test_putnbr_fd.c \
+				tests/ft_test_lstnew.c \
+				tests/ft_test_lstadd_front.c \
+				tests/ft_test_lstsize.c \
+				tests/ft_test_lstlast.c \
+				tests/ft_test_lstadd_back.c \
+				tests/ft_test_lstdelone.c \
+				tests/ft_test_lstclear.c \
+				tests/ft_test_lstiter.c \
+				tests/ft_test_lstmap.c
+SRC 			:= $(filter-out %ft_test_strlcpy.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_strlcat.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_strchr.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_strrchr.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_strncmp.c,$(SRC))
 SRC 			:= $(filter-out %ft_test_memchr.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_memcmp.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_strnstr.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_calloc.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_substr.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_strjoin.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_strtrim.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_split.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_strmapi.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_striteri.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_putchar_fd.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_putstr_fd.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_putendl_fd.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_putnbr_fd.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_lstnew.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_lstadd_front.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_lstsize.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_lstlast.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_lstadd_back.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_lstdelone.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_lstclear.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_lstiter.c,$(SRC))
+SRC 			:= $(filter-out %ft_test_lstmap.c,$(SRC))
 
 SRCS			= $(addprefix $(SRC_DIR), $(SRC))
 OBJS			= $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/26 12:01:01 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/27 09:09:57 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,12 +120,40 @@ bool					ft_call_test(char *name, void **test, int count);
 // TEST FUNCTIONS
 bool					ft_test_ascii(char *name, void **test);
 bool					ft_test_strlen(char *name, void **test);
-bool					ft_test_strdup(char *name, void **test);
-bool					ft_test_atoi(char *name, void **test);
-bool					ft_test_itoa(char *name, void **test);
 bool					ft_test_memset(char *name, void **test);
 bool					ft_test_bzero(char *name, void **test);
 bool					ft_test_memcpy(char *name, void **test);
 bool					ft_test_memmove(char *name, void **test);
+//bool					ft_test_strlcpy(char *name, void **test);
+//bool					ft_test_strlcat(char *name, void **test);
+//bool					ft_test_strchr(char *name, void **test);
+//bool					ft_test_strrchr(char *name, void **test);
+//bool					ft_test_strncmp(char *name, void **test);
+//bool					ft_test_memchr(char *name, void **test);
+//bool					ft_test_memcmp(char *name, void **test);
+//bool					ft_test_strnstr(char *name, void **test);
+bool					ft_test_atoi(char *name, void **test);
+//bool					ft_test_calloc(char *name, void **test);
+bool					ft_test_strdup(char *name, void **test);
+//bool					ft_test_substr(char *name, void **test);
+//bool					ft_test_strjoin(char *name, void **test);
+//bool					ft_test_strtrim(char *name, void **test);
+//bool					ft_test_split(char *name, void **test);
+bool					ft_test_itoa(char *name, void **test);
+//bool					ft_test_strmapi(char *name, void **test);
+//bool					ft_test_striteri(char *name, void **test);
+//bool					ft_test_putchar_fd(char *name, void **test);
+//bool					ft_test_putstr_fd(char *name, void **test);
+//bool					ft_test_putendl_fd(char *name, void **test);
+//bool					ft_test_putnbr_fd(char *name, void **test);
+//bool					ft_test_lstnew(char *name, void **test);
+//bool					ft_test_lstadd_front(char *name, void **test);
+//bool					ft_test_lstsize(char *name, void **test);
+//bool					ft_test_lstlast(char *name, void **test);
+//bool					ft_test_lstadd_back(char *name, void **test);
+//bool					ft_test_lstdelone(char *name, void **test);
+//bool					ft_test_lstclear(char *name, void **test);
+//bool					ft_test_lstiter(char *name, void **test);
+//bool					ft_test_lstmap(char *name, void **test);
 
 #endif
