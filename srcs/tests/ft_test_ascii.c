@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:42:03 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 08:38:54 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/28 12:12:13 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,14 @@ static bool	ft_test_irange(int (*f_user)(int), int (*f_libc)(int))
 	return (grade == i);
 }
 
-static bool	ft_test_tab(int (*f_user)(int), int (*f_libc)(int), int **tests)
+static bool	ft_test_tab(int (*f_user)(int), int (*f_libc)(int), char *tests)
 {
 	size_t	i = 0, grade = 0;
 	bool	success;
 
-	while (tests[0][i])
+	while (tests[i])
 	{
-		success = ft_run_test(f_user, f_libc, tests[0][i]);
+		success = ft_run_test(f_user, f_libc, (int)tests[i]);
 		grade += success;
 		i++;
 	}
@@ -88,5 +88,5 @@ bool	ft_test_ascii(char *name, void **test)
 	int	(*f_user)(int), (*f_libc)(int);
 
 	ft_get_test_functions(name, &f_user, &f_libc);
-	return (test ? ft_test_tab(f_user, f_libc, (int **)test) : ft_test_irange(f_user, f_libc));
+	return (test ? ft_test_tab(f_user, f_libc, (char *)test[0]) : ft_test_irange(f_user, f_libc));
 }
