@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:42:03 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 12:12:13 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/28 12:28:23 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,32 +38,29 @@ static void	ft_get_test_functions(char *name, int (**user)(int), int (**libc)(in
 static bool	ft_run_test(int (*f_user)(int), int (*f_libc)(int), int c)
 {
 	int		user, libc;
-	bool	success;
 
 	ft_time_function(USER_START);
 	user = (*f_user)(c);
 	ft_time_function(USER_END_LIBC_START);
 	libc = (*f_libc)(c);
 	ft_time_function(LIBC_END);
-	success = (libc == user);
-	if (!success)
+	if (!(libc == user))
 	{
 		ft_result_input_int(c);
 		ft_result_output_int(user, libc);
 		ft_print_result(true);
+		return (false);
 	}
-	return (success);
+	return (true);
 }
 
 static bool	ft_test_irange(int (*f_user)(int), int (*f_libc)(int))
 {
-	int		i = -129, grade = -129;
-	bool	success;
+	int	i = -129, grade = -129;
 
 	while (i <= 256)
 	{
-		success = ft_run_test(f_user, f_libc, i);
-		grade += success;
+		grade += ft_run_test(f_user, f_libc, i);
 		i++;
 	}
 	return (grade == i);
@@ -72,12 +69,10 @@ static bool	ft_test_irange(int (*f_user)(int), int (*f_libc)(int))
 static bool	ft_test_tab(int (*f_user)(int), int (*f_libc)(int), char *tests)
 {
 	size_t	i = 0, grade = 0;
-	bool	success;
 
 	while (tests[i])
 	{
-		success = ft_run_test(f_user, f_libc, (int)tests[i]);
-		grade += success;
+		grade += ft_run_test(f_user, f_libc, (int)tests[i]);
 		i++;
 	}
 	return (grade == i);
