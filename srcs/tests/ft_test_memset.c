@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 08:06:06 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 12:41:05 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/28 15:46:07 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,11 @@ static bool	ft_run_test(char *user, char *libc, int c, size_t n)
 
 static bool	ft_test_size(char *user, char *libc, int c)
 {
-	size_t	size[] = {0, 1, 8, 16};
-	size_t	i = 0, grade = 0, count = sizeof(size) / sizeof(size[0]);
+	size_t	i = 0, grade = 0;
 
-	while (i < count)
+	while (i < 16)
 	{
-		grade += ft_run_test(user, libc, c, size[i]);
+		grade += ft_run_test(user, libc, c, i);
 		i++;
 	}
 	return (grade == i);

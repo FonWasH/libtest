@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 02:18:39 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 11:36:27 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/28 15:45:47 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,18 @@ static bool	ft_test_memmove_size(void *user, void *libc, size_t size, size_t *st
 
 bool	ft_test_memmove(char *name, void **test)
 {
-	size_t	size[] = {0, 1, 5, 10};
-	size_t	i = 0, grade = 0, count = sizeof(size) / sizeof(size[0]), step;
+	size_t	i = 0, grade = 0, step;
 	char	user[] = "abcdefghijklmnopqrst", libc[] = "abcdefghijklmnopqrst";
 	bool	success;
 
 	(void)name;
 	(void)test;
-	while (i < count)
+	while (i < 10)
 	{
-		success = ft_test_memmove_size((void *)user, (void *)libc, size[i], &step);	
+		success = ft_test_memmove_size((void *)user, (void *)libc, i, &step);	
 		if (!success)
 		{
-			ft_result_input_sizet(size[i]);
+			ft_result_input_sizet(i);
 			ft_result_output_str((char *)user, (char *)libc);
 			ft_print_result(true);
 			printf("%s%s", MEM_FAIL, step == 1 ? EQUAL : step == 2 ? HIGHER : LOWER);
