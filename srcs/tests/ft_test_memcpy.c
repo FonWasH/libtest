@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:39:19 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 08:37:56 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/28 20:29:56 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool	ft_test_memcpy(char *name, void **test)
 {
-	const void	**tests = test ? (const void **)test : (const void **)g_str_tests;
+	const void	**tests = test ? (const void **)test : (const void **)g_str1_tests;
 	size_t		i = 0, grade = 0, test_len;
 	char		*user, *libc;
 	bool		success;

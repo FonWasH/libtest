@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:27:27 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 13:36:42 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/28 20:29:56 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool	ft_test_strrchr(char *name, void **test)
 {
-	const char	*tests = test ? (const char *)test[0] : g_str_tests[1];
+	const char	*tests = test ? (const char *)test[0] : g_str1_tests[1];
 	int			i = -129, grade = -129;
 	char		*user, *libc;
 	bool		success;

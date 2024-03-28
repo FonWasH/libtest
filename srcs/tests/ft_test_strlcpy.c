@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:25:46 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 17:31:09 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/28 20:29:56 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool	ft_test_strlcpy(char *name, void **test)
 {
-	const char	*tests = test ? *(const char **)test : g_str_tests[1];
+	const char	*tests = test ? *(const char **)test : g_str1_tests[1];
 	size_t		i = 0, grade = 0, user_r, libc_r;
 	char		user[] = "................", libc[] = "................";
 	bool		success;

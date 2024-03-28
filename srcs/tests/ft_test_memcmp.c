@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:30:15 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 19:02:28 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/28 20:29:56 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static bool	ft_test_tofind(const void *s1)
 
 bool	ft_test_memcmp(char *name, void **test)
 {
-	const char	**tests = test ? (const char **)test : g_str_tests;
+	const char	**tests = test ? (const char **)test : g_str1_tests;
 	size_t		i = 0, grade = 0;
 
 	(void)name;

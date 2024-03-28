@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:49:04 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 08:37:39 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/28 20:29:56 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool	ft_test_strdup(char *name, void **test)
 {
-	const char	**tests = test ? (const char **)test : g_str_tests;
+	const char	**tests = test ? (const char **)test : g_str1_tests;
 	size_t		i = 0, grade = 0;
 	char		*user, *libc;
 	bool		success;

@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:27:51 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 17:41:24 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/28 20:39:40 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static bool	ft_test_size(const char *s1, const char *s2)
 	return (grade == i);
 }
 
-static bool	ft_test_tofind(const char *s1)
+static bool	ft_test_str2(const char *s1)
 {
 	size_t	i = 0, grade = 0;
 
@@ -58,13 +58,13 @@ static bool	ft_test_tofind(const char *s1)
 
 bool	ft_test_strncmp(char *name, void **test)
 {
-	const char	**tests = test ? (const char **)test : g_str_tests;
+	const char	**tests = test ? (const char **)test : g_str1_tests;
 	size_t		i = 0, grade = 0;
 
 	(void)name;
 	while (tests[i])
 	{
-		grade += ft_test_tofind(tests[i]);
+		grade += ft_test_str2(tests[i]);
 		i++;
 	}
 	return (grade == i);

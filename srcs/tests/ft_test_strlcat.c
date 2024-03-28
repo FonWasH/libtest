@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 08:48:30 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 17:33:33 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/28 20:29:56 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 bool	ft_test_strlcat(char *name, void **test)
 {
 	size_t	size[] = {0, 1, 2, 4, 8, 16, 32};
-	const char	*tests = test ? *(const char **)test : g_str_tests[1];
+	const char	*tests = test ? *(const char **)test : g_str1_tests[1];
 	size_t		i = 0, grade = 0, user_r, libc_r, count = sizeof(size) / sizeof(size[0]);
 	char		user[] = "DEST\0............................", libc[] = "DEST\0............................";
 	bool		success;
