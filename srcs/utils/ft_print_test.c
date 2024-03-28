@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 09:19:55 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 12:03:19 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/28 13:21:38 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,21 @@ static void	ft_putchar_isprint(char c)
 
 static void	ft_putstr_isprint(const char *str)
 {
-	printf("%s\"", DM);
-	while (*str)
+	if (!str)
+		printf("%sNULL%s ", DM, X);
+	else
 	{
-		if (isprint(*str))
-			printf("%c", *str);
-		else
-			printf("\\%02x", (unsigned char)*str);
-		str++;
+		printf("%s\"", DM);
+		while (*str)
+		{
+			if (isprint(*str))
+				printf("%c", *str);
+			else
+				printf("\\%02x", (unsigned char)*str);
+			str++;
+		}
+		printf("\"%s ", X);
 	}
-	printf("\"%s ", X);
 }
 
 static void	ft_print_intput(void)
@@ -59,8 +64,6 @@ static void	ft_print_output_user(void)
 		printf("%s%i%s ", DM, g_result.user_int, X);
 	if (g_presult.output_sizet)
 		printf("%s%zu%s ", DM, g_result.user_sizet, X);
-	if (g_presult.output_chr)
-		ft_putchar_isprint(g_result.user_chr);
 	if (g_presult.output_str)
 		ft_putstr_isprint(g_result.user_str);
 }
@@ -72,8 +75,6 @@ static void	ft_print_output_libc(void)
 		printf("%s%i%s ", DM, g_result.libc_int, X);
 	if (g_presult.output_sizet)
 		printf("%s%zu%s ", DM, g_result.libc_sizet, X);
-	if (g_presult.output_chr)
-		ft_putchar_isprint(g_result.libc_chr);
 	if (g_presult.output_str)
 		ft_putstr_isprint(g_result.libc_str);
 }
@@ -102,7 +103,6 @@ void	ft_reset_presult(void)
 	g_presult.input_str2 = false;
 	g_presult.output_int = false;
 	g_presult.output_sizet = false;
-	g_presult.output_chr = false;
 	g_presult.output_str = false;
 }
 
@@ -150,13 +150,6 @@ void	ft_result_output_sizet(size_t user, size_t libc)
 	g_result.user_sizet = user;
 	g_result.libc_sizet = libc;
 	g_presult.output_sizet = true;
-}
-
-void	ft_result_output_chr(char user, char libc)
-{
-	g_result.user_chr = user;
-	g_result.libc_chr = libc;
-	g_presult.output_chr = true;
 }
 
 void	ft_result_output_str(char *user, char *libc)

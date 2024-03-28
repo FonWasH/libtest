@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 12:02:06 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/28 13:19:03 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,6 @@ typedef struct s_tresult
 	int					libc_int;
 	size_t				user_sizet;
 	size_t				libc_sizet;
-	char				user_chr;
-	char				libc_chr;
 	char				*user_str;
 	char				*libc_str;
 }						t_result;
@@ -112,7 +110,6 @@ typedef struct s_presult
 	bool				input_str2;
 	bool				output_int;
 	bool				output_sizet;
-	bool				output_chr;
 	bool				output_str;
 }						t_presult;
 
@@ -148,7 +145,6 @@ void					ft_result_input_chr(char intput);
 void					ft_result_input_str(char *str1, char *str2);
 void					ft_result_output_int(int user, int libc);
 void					ft_result_output_sizet(size_t user, size_t libc);
-void					ft_result_output_chr(char user, char libc);
 void					ft_result_output_str(char *user, char *libc);
 void					ft_grade(bool success);
 // MAIN FUNCTIONS
@@ -164,7 +160,7 @@ bool					ft_test_memcpy(char *name, void **test);
 bool					ft_test_memmove(char *name, void **test);
 bool					ft_test_strlcpy(char *name, void **test);
 bool					ft_test_strlcat(char *name, void **test);
-//bool					ft_test_strchr(char *name, void **test);
+bool					ft_test_strchr(char *name, void **test);
 //bool					ft_test_strrchr(char *name, void **test);
 //bool					ft_test_strncmp(char *name, void **test);
 //bool					ft_test_memchr(char *name, void **test);
