@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:03:35 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 13:30:57 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/28 15:30:52 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ const t_ftest	g_ftest[] = {
 	{"ft_toupper", ft_test_ascii},
 	{"ft_strchr", ft_test_strchr},
 	{"ft_strrchr", ft_test_strrchr},
-//	{"ft_strncmp", ft_test_strncmp},
+	{"ft_strncmp", ft_test_strncmp},
 //	{"ft_memchr", ft_test_memchr},
 //	{"ft_memcmp", ft_test_memcmp},
 //	{"ft_strnstr", ft_test_strnstr},
