@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 13:19:03 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/28 13:30:50 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,7 +161,7 @@ bool					ft_test_memmove(char *name, void **test);
 bool					ft_test_strlcpy(char *name, void **test);
 bool					ft_test_strlcat(char *name, void **test);
 bool					ft_test_strchr(char *name, void **test);
-//bool					ft_test_strrchr(char *name, void **test);
+bool					ft_test_strrchr(char *name, void **test);
 //bool					ft_test_strncmp(char *name, void **test);
 //bool					ft_test_memchr(char *name, void **test);
 //bool					ft_test_memcmp(char *name, void **test);
