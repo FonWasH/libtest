@@ -6,24 +6,11 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:27:51 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 17:28:33 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/28 17:41:24 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
-
-const char	*g_s2[] = {
-	"Hello World!",
-	"Hello42",
-	"abcdefghijklmnopqrstuvwxyz",
-	"abcdefghijklmnopqrstuvwxyzABC",
-	"abc",
-	"abcABC",
-	"42",
-	"#",
-	"",
-	NULL
-};
 
 static bool	ft_run_test(const char *s1, const char *s2, size_t n)
 {
@@ -61,9 +48,9 @@ static bool	ft_test_tofind(const char *s1)
 {
 	size_t	i = 0, grade = 0;
 
-	while (g_s2[i])
+	while (g_str2_tests[i])
 	{
-		grade += ft_test_size(s1, g_s2[i]);
+		grade += ft_test_size(s1, g_str2_tests[i]);
 		i++;
 	}
 	return (grade == i);
@@ -71,13 +58,13 @@ static bool	ft_test_tofind(const char *s1)
 
 bool	ft_test_strncmp(char *name, void **test)
 {
-	const char	**tests_s1 = test ? (const char **)test : g_str_tests;
+	const char	**tests = test ? (const char **)test : g_str_tests;
 	size_t		i = 0, grade = 0;
 
 	(void)name;
-	while (tests_s1[i])
+	while (tests[i])
 	{
-		grade += ft_test_tofind(tests_s1[i]);
+		grade += ft_test_tofind(tests[i]);
 		i++;
 	}
 	return (grade == i);
