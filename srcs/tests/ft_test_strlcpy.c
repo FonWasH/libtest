@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:25:46 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 16:42:39 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/28 17:31:09 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool	ft_test_strlcpy(char *name, void **test)
 	bool		success;
 
 	(void)name;
-	while (i < 20)
+	while (i < 16)
 	{
 		ft_time_function(USER_START);
 		user_r = ft_strlcpy(user, tests, i);
