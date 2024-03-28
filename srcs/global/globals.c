@@ -6,43 +6,19 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:03:35 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/27 09:24:06 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/27 17:19:57 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-const char		*g_atoi_tests[] = {
-	"\t\n\v\f\r +00000042",
-	" -42a",
-	" a42",
-	" -+--+42",
-	"-2147483648",
-	"2147483647",
-	"0",
-	"-00",
-	"",
-	"999999999999999",
-	"999999999999999999999",
-	"-9999999999999999999999",
-	NULL
-};
-
-const char		*g_itoa_tests[] = {
-	"42",
-	"-42",
-	"0",
-	"-2147483648",
-	"2147483647",
-	"-1",
-	"1",
-	"100",
-	NULL
-};
+t_presult		g_presult;
+t_result		g_result;
 
 const char		*g_str_tests[] = {
 	"\t\n\v\f\r ",
 	"Hello World!",
+	"abcdefghijklmnopqrstuvwxyz",
 	"42",
 	"#",
 	"",
@@ -65,8 +41,8 @@ const t_ftest	g_ftest[] = {
 	{"ft_bzero", ft_test_bzero},
 	{"ft_memcpy", ft_test_memcpy},
 	{"ft_memmove", ft_test_memmove},
-//	{"ft_strlcpy", ft_test_strlcpy},
-//	{"ft_strlcat", ft_test_strlcat},
+	{"ft_strlcpy", ft_test_strlcpy},
+	{"ft_strlcat", ft_test_strlcat},
 	{"ft_tolower", ft_test_ascii},
 	{"ft_toupper", ft_test_ascii},
 //	{"ft_strchr", ft_test_strchr},

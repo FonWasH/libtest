@@ -45,8 +45,6 @@ SRC				= main.c \
 				tests/ft_test_lstclear.c \
 				tests/ft_test_lstiter.c \
 				tests/ft_test_lstmap.c
-SRC 			:= $(filter-out %ft_test_strlcpy.c,$(SRC))
-SRC 			:= $(filter-out %ft_test_strlcat.c,$(SRC))
 SRC 			:= $(filter-out %ft_test_strchr.c,$(SRC))
 SRC 			:= $(filter-out %ft_test_strrchr.c,$(SRC))
 SRC 			:= $(filter-out %ft_test_strncmp.c,$(SRC))
@@ -78,7 +76,7 @@ SRCS			= $(addprefix $(SRC_DIR), $(SRC))
 OBJS			= $(SRCS:.c=.o)
 
 CC				= cc
-CFLAGS			= -g -Wall -Wextra -Werror -fsanitize=address -fsanitize=undefined
+CFLAGS			= -g -Wall -Wextra -Werror -fsanitize=address -fsanitize=undefined -lbsd
 RM				= rm -f
 
 NAME			= libtest

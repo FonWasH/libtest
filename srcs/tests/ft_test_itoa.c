@@ -6,11 +6,23 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:48:58 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/27 09:46:04 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/28 08:38:04 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
+
+const char	*g_itoa_tests[] = {
+	"42",
+	"-42",
+	"0",
+	"-2147483648",
+	"2147483647",
+	"-1",
+	"1",
+	"100",
+	NULL
+};
 
 bool	ft_test_itoa(char *name, void **test)
 {
@@ -27,7 +39,11 @@ bool	ft_test_itoa(char *name, void **test)
 		ft_time_function(USER_END);
 		success = (!strcmp(user, tests[i]));
 		if (!success)
-			ft_print_fail_strstr(tests[i], user, (char *)tests[i]);
+		{
+			ft_result_input_int(atoi(tests[i]));
+			ft_result_output_str(user, (char *)tests[i]);
+			ft_print_result(true);
+		}
 		grade += success;
 		free(user);
 		i++;

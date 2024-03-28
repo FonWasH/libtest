@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/27 09:09:57 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/28 12:02:06 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdbool.h>
 # include <libgen.h>
 # include <string.h>
+# include <bsd/string.h>
 # include <ctype.h>
 # include <stdio.h>
 # include <time.h>
@@ -34,24 +35,26 @@
 # define DM "\e[2m\e[3m"
 # define X "\e[0m"
 // STRING
-# define KO R "KO" X
-# define OK G "OK" X
-# define CHEAT R "CHEAT" X
-# define ERROR R "ERROR" X
-# define GRADE_CHEAT R "-42" X
-# define FAIL R "FAIL" X " :("
-# define SUCCESS G "SUCCESS" X " :)"
+# define KO R "KO\n" X
+# define OK G "OK\n" X
+# define CHEAT R "CHEAT\n" X
+# define ERROR R "ERROR\n" X
+# define GRADE_CHEAT R "-42\n" X
+# define FAIL R "FAIL" X " :(\n"
+# define SUCCESS G "SUCCESS" X " :)\n"
 # define NORME BD "Norminette: " X
 # define FOR_FUNC BD "Forbidden Functions: " X
 # define TEST BD "Test: " X
 # define TIME BD "Time: " X
 # define GRADE BD "Grade: " X
+# define INPUT BD "\tinput:\t" X "=> "
+# define OUTPUT BD "\toutput:\t" X "=> "
 # define USER "user: "
-# define ORIG " | orig: "
-# define MEM_FAIL DM "Fail when destination is "
-# define HIGHER "higher" X
-# define LOWER "lower" X
-# define EQUAL "equal" X
+# define LIBC "libc: "
+# define MEM_FAIL DM "\t\t   Fail when destination is "
+# define HIGHER "higher\n" X
+# define LOWER "lower\n" X
+# define EQUAL "equal\n" X
 // FORMAT
 # define LINE "--------------------------------------"
 # define SIZE_LINE 40
@@ -80,8 +83,38 @@ typedef struct s_fascii
 {
 	char				*name;
 	int					(*user)(int);
-	int					(*orig)(int);
+	int					(*libc)(int);
 }						t_fascii;
+
+typedef struct s_tresult
+{
+	int					input_int;
+	size_t				input_sizet;
+	char				input_chr;
+	char				*input_str1;
+	char				*input_str2;
+	int					user_int;
+	int					libc_int;
+	size_t				user_sizet;
+	size_t				libc_sizet;
+	char				user_chr;
+	char				libc_chr;
+	char				*user_str;
+	char				*libc_str;
+}						t_result;
+
+typedef struct s_presult
+{
+	bool				input_int;
+	bool				input_sizet;
+	bool				input_chr;
+	bool				input_str1;
+	bool				input_str2;
+	bool				output_int;
+	bool				output_sizet;
+	bool				output_chr;
+	bool				output_str;
+}						t_presult;
 
 // ENUM
 typedef enum e_ftime
@@ -89,30 +122,35 @@ typedef enum e_ftime
 						RESET,
 						USER_START,
 						USER_END,
-						USER_END_ORIG_START,
-						ORIG_START,
-						ORIG_END,
+						USER_END_LIBC_START,
+						LIBC_START,
+						LIBC_END,
 						PRINT
 }						t_ftime;
 
 // GLOBALS
-extern const char		*g_atoi_tests[];
-extern const char		*g_itoa_tests[];
+extern t_presult		g_presult;
+extern t_result			g_result;
 extern const char		*g_str_tests[];
 extern const char		*g_chr_tests[];
 extern const t_ftest	g_ftest[];
 
 // UTIL FUNCTIONS
-void					ft_time_function(t_ftime action);
+void					ft_print_file(char *path);
 bool					ft_test_norminette(char *name);
 bool					ft_check_sysfunc(char *name);
-void					ft_print_file(char *path);
-void					ft_print_grade(bool success);
-void					ft_print_fail_chrint(const char test, int user, int orig);
-void					ft_print_fail_chrstr(const char test, char *user, char *orig);
-void					ft_print_fail_strint(const char *test, int user, int orig);
-void					ft_print_fail_strstr(const char *test, char *user, char *orig);
-void					ft_print_fail_intstr(int test, char *user, char *orig);
+void					ft_time_function(t_ftime action);
+void					ft_print_result(bool libc);
+void					ft_reset_presult(void);
+void					ft_result_input_int(int intput);
+void					ft_result_input_sizet(size_t intput);
+void					ft_result_input_chr(char intput);
+void					ft_result_input_str(char *str1, char *str2);
+void					ft_result_output_int(int user, int libc);
+void					ft_result_output_sizet(size_t user, size_t libc);
+void					ft_result_output_chr(char user, char libc);
+void					ft_result_output_str(char *user, char *libc);
+void					ft_grade(bool success);
 // MAIN FUNCTIONS
 void					ft_mandatory(bool title);
 void					ft_bonus(bool title);
@@ -124,8 +162,8 @@ bool					ft_test_memset(char *name, void **test);
 bool					ft_test_bzero(char *name, void **test);
 bool					ft_test_memcpy(char *name, void **test);
 bool					ft_test_memmove(char *name, void **test);
-//bool					ft_test_strlcpy(char *name, void **test);
-//bool					ft_test_strlcat(char *name, void **test);
+bool					ft_test_strlcpy(char *name, void **test);
+bool					ft_test_strlcat(char *name, void **test);
 //bool					ft_test_strchr(char *name, void **test);
 //bool					ft_test_strrchr(char *name, void **test);
 //bool					ft_test_strncmp(char *name, void **test);

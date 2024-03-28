@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 07:49:06 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/24 16:28:11 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/27 21:36:12 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ void	ft_mandatory(bool title)
 		printf("\n");
 		if (ft_test_norminette(g_ftest[i].name) && ft_check_sysfunc(g_ftest[i].name))
 		{
+			ft_reset_presult();
 			ft_time_function(RESET);
-			ft_print_grade((*g_ftest[i].f)(g_ftest[i].name, NULL));
+			ft_grade((*g_ftest[i].f)(g_ftest[i].name, NULL));
 		}
 	}
 }
