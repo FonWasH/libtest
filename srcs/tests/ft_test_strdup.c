@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:49:04 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 20:29:56 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 14:43:32 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ bool	ft_test_strdup(char *name, void **test)
 		ft_time_function(USER_END_LIBC_START);
 		libc = strdup(tests[i]);
 		ft_time_function(LIBC_END);
-		success = (!strcmp(user, libc) && (strlen(user) == strlen(libc)));
+		success = (!strcmp(user, libc)); // && (strlen(user) == strlen(libc)));
 		if (!success)
 		{
 			ft_result_input_str((char *)tests[i], NULL);

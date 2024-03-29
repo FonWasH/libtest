@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/29 11:27:09 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 14:52:22 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,7 +171,7 @@ bool					ft_test_strnstr(char *name, void **test);
 bool					ft_test_atoi(char *name, void **test);
 bool					ft_test_calloc(char *name, void **test);
 bool					ft_test_strdup(char *name, void **test);
-//bool					ft_test_substr(char *name, void **test);
+bool					ft_test_substr(char *name, void **test);
 //bool					ft_test_strjoin(char *name, void **test);
 //bool					ft_test_strtrim(char *name, void **test);
 //bool					ft_test_split(char *name, void **test);

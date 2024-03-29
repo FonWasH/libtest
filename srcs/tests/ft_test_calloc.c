@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:30:43 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/29 13:24:27 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 14:43:30 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ bool	ft_test_calloc(char *name, void **test)
 		memset((void *)libc, '.', isize);
 		user[isize - 1] = '\0';
 		libc[isize - 1] = '\0';
-		success = (user && libc && !strcmp(user, libc) && (strlen(user) == strlen(libc)));
+		success = (user && libc && !strcmp(user, libc)); // && (strlen(user) == strlen(libc)));
 		if (!success)
 		{
 			sprintf(str_nmemb, "%zu", nmemb[i]);
