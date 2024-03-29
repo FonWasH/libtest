@@ -4,6 +4,7 @@ libtest is a command-line utility designed to test the functions provided in the
 With no TEST specified, standard tests are applied to the function.
         
   -a, --all         test all functions; TEST is unavailable
+  -f, --force       test all functions without norme and forbidden functions check; TEST is unavailable
   -m, --mandatory   test mandatory functions; TEST is unavailable
   -b, --bonus       test bonus functions; TEST is unavailable
   -s, --show        display all available functions

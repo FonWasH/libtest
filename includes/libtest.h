@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/29 14:52:22 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 15:28:38 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ extern const char		*g_chr_tests[];
 extern const t_ftest	g_ftest[];
 
 // UTIL FUNCTIONS
+void					ft_print_name(char *name);
 void					ft_print_file(char *path);
 bool					ft_test_norminette(char *name);
 bool					ft_check_sysfunc(char *name);
@@ -150,8 +151,8 @@ void					ft_result_output_sizet(size_t user, size_t libc);
 void					ft_result_output_str(char *user, char *libc);
 void					ft_grade(bool success);
 // MAIN FUNCTIONS
-void					ft_mandatory(bool title);
-void					ft_bonus(bool title);
+void					ft_mandatory(bool title, bool force);
+void					ft_bonus(bool title, bool force);
 bool					ft_call_test(char *name, void **test, int count);
 // TEST FUNCTIONS
 bool					ft_test_ascii(char *name, void **test);

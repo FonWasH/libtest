@@ -6,20 +6,21 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 07:49:06 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/27 21:36:12 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 15:28:54 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-void	ft_mandatory(bool title)
+void	ft_mandatory(bool title, bool force)
 {
 	if (title)
 		system(TITLE);
 	for (size_t i = 0; g_ftest[i].name; i++)
 	{
 		printf("\n");
-		if (ft_test_norminette(g_ftest[i].name) && ft_check_sysfunc(g_ftest[i].name))
+		ft_print_name(g_ftest[i].name);
+		if (force || (ft_test_norminette(g_ftest[i].name) && ft_check_sysfunc(g_ftest[i].name)))
 		{
 			ft_reset_presult();
 			ft_time_function(RESET);

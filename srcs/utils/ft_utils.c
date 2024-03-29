@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:26:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 12:01:22 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 15:30:17 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ static bool	ft_build_cmd(char *target, size_t len, char *cmd_start, char *cmd_en
 	return (success);
 }
 
-static void	ft_print_name(char *name, int len)
+void	ft_print_name(char *name)
 {
+	int	len = strlen(name);
 	int	space = (SIZE_LINE - len - 2) / 2;
 
 	printf("%.*s %s%s%s%s %.*s\n", space, LINE, B, BD, name, X, SIZE_LINE - space - len, LINE);
@@ -56,7 +57,6 @@ bool	ft_test_norminette(char *name)
 	size_t	len = strlen(name);
 	bool	success = ft_build_cmd(name, len, CMD_NS, CMD_NE);
 
-	ft_print_name(name, (int)len);
 	printf("%s%s", NORME, success ? OK : ERROR);
 	if (!success)
 		printf("%s%s", GRADE, FAIL);

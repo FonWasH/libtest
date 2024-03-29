@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:42:22 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/27 21:36:12 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 15:28:46 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ bool	ft_call_test(char *name, void **test, int count)
 		{
 			system(TITLE);
 			printf("\n");
+			ft_print_name(name);
 			if (ft_test_norminette(name) && ft_check_sysfunc(name))
 			{
 				ft_reset_presult();

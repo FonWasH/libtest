@@ -32,6 +32,7 @@ Make sure your environment is properly configured before proceeding with the ins
   libtest [OPTION/FUNCTION]... [TEST]...
 
   -a, --all         test all functions; TEST is unavailable
+  -f, --force       test all functions without norme and forbidden functions check; TEST is unavailable
   -m, --mandatory   test mandatory functions; TEST is unavailable
   -b, --bonus       test bonus functions; TEST is unavailable
   -s, --show        display all available functions
