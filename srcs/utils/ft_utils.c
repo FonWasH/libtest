@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:26:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/29 15:30:17 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 22:47:33 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,12 @@ void	ft_time_function(t_ftime action)
 {
 	static clock_t	user_start, libc_start;
 	static double	user_time, libc_time;
+	static bool		print_libc;
 
+	if (action == USER_END_LIBC_START)
+		print_libc = true;
+	else if (action == USER_END)
+		print_libc = false;
 	if (action == RESET)
 	{
 		user_time = 0;
@@ -93,7 +98,10 @@ void	ft_time_function(t_ftime action)
 		libc_time += ((double)(clock() - libc_start)) / CLOCKS_PER_SEC;
 	if (action == PRINT)
 	{
-		printf("%s%s%s%fs%s | %s%s%fs%s\n", TIME, USER, DM, user_time, X, LIBC, DM, libc_time, X);
+		printf("%s%s%s%fs%s", TIME, USER, DM, user_time, X);
+		if (print_libc)
+			printf(" | %s%s%fs%s", LIBC, DM, libc_time, X);
+		printf("\n");
 		user_time = 0;
 		libc_time = 0;
 	}
