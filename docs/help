@@ -1,18 +1,17 @@
-Usage: libtest [OPTION/FUNCTION]... [TEST]...
+Usage: libtest [OPTION/FUNCTION]...
 libtest is a command-line utility designed to test the functions provided in the libft library.
-
-With no TEST specified, standard tests are applied to the function.
         
-  -a, --all         test all functions; TEST is unavailable
-  -f, --force       test all functions without norme and forbidden functions check; TEST is unavailable
-  -m, --mandatory   test mandatory functions; TEST is unavailable
-  -b, --bonus       test bonus functions; TEST is unavailable
+  -a, --all         test all functions
+  -f, --force       test all functions without norme and forbidden functions check
+  -m, --mandatory   test mandatory functions
+  -b, --bonus       test bonus functions
   -s, --show        display all available functions
   -h, --help        display this help and exit
   -v, --version     output version information and exit
 
 Examples:
-  libtest ft_atoi 42	Test the ft_atoi function with the input "42".
+  libtest ft_atoi   Test the ft_atoi.
+  libtest -m        Test all mandatory functions.
 
 Copyright © 2024 Free Software Foundation, Inc. License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
 This is free software: you are free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law.

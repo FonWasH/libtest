@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:03:35 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/29 14:52:18 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 16:04:09 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,6 @@
 
 t_presult		g_presult;
 t_result		g_result;
-
-const char		*g_str1_tests[] = {
-	"\t\n\v\f\r ",
-	"Hello World!",
-	"abcdefghijklmnopqrstuvwxyz",
-	"42",
-	"#",
-	"",
-	NULL
-};
-
-const char		*g_str2_tests[] = {
-	"Hello World!",
-	"Hello42",
-	"abcdefghijklmnopqrstuvwxyz",
-	"abcdefghijklmnopqrstuvwxyzABC",
-	"abc",
-	"abcABC",
-	"42",
-	"#",
-	"",
-	NULL
-};
-
-const char		*g_chr_tests[] = {
-	"09AZaz#\n 😀",
-	NULL
-};
 
 const t_ftest	g_ftest[] = {
 	{"ft_isalpha", ft_test_ascii},
@@ -88,4 +60,27 @@ const t_ftest	g_ftest[] = {
 //	{"ft_lstiter", ft_test_lstiter},
 //	{"ft_lstmap", ft_test_lstmap},
 	{NULL, NULL}
+};
+
+const char		*g_str1_tests[] = {
+	"\t\n\v\f\r ",
+	"Hello World!",
+	"abcdefghijklmnopqrstuvwxyz",
+	"42",
+	"#",
+	"",
+	NULL
+};
+
+const char		*g_str2_tests[] = {
+	"Hello World!",
+	"Hello42",
+	"abcdefghijklmnopqrstuvwxyz",
+	"abcdefghijklmnopqrstuvwxyzABC",
+	"abc",
+	"abcABC",
+	"42",
+	"#",
+	"",
+	NULL
 };

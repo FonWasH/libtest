@@ -6,58 +6,63 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 02:18:39 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 15:45:47 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 18:28:29 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-static bool	ft_test_memmove_size(void *user, void *libc, size_t size, size_t *step)
+static bool	ft_run_test(
+	void *user_dest, const void *user_src,
+	void *libc_dest, const void *libc_src, size_t n)
 {
-	*step = 1;
 	ft_time_function(USER_START);
-	ft_memmove(user, (const void *)user, size);
+	ft_memmove(user_dest, user_src, n);
 	ft_time_function(USER_END_LIBC_START);
-	memmove(libc, (const void *)libc, size);
+	memmove(libc_dest, libc_src, n);
 	ft_time_function(LIBC_END);
-	if (strcmp(user, libc))
-			return (false);
-	*step = 2;
-	ft_time_function(USER_START);
-	ft_memmove(user, (const void *)user + 5, size);
-	ft_time_function(USER_END_LIBC_START);
-	memmove(libc, (const void *)libc + 5, size);
-	ft_time_function(LIBC_END);
-	if (strcmp(user, libc))
-			return (false);
-	*step = 3;
-	ft_time_function(USER_START);
-	ft_memmove(user + 6, (const void *)user, size);
-	ft_time_function(USER_END_LIBC_START);
-	memmove(libc + 6, (const void *)libc, size);
-	ft_time_function(LIBC_END);
-	if (strcmp(user, libc))
-			return (false);
+	if (strcmp(user_dest, libc_dest))
+		return (false);
 	return (true);
 }
 
-bool	ft_test_memmove(char *name, void **test)
+static bool	ft_test_ptr_pos(void *user, void *libc, size_t n, size_t *pos)
 {
-	size_t	i = 0, grade = 0, step;
-	char	user[] = "abcdefghijklmnopqrst", libc[] = "abcdefghijklmnopqrst";
+	*pos = 1;
+	if (!ft_run_test(
+			user, (const void *)user,
+			libc, (const void *)libc, n))
+		return (false);
+	*pos = 2;
+	if (!ft_run_test(
+			user, (const void *)user + 5,
+			libc, (const void *)libc + 5, n))
+		return (false);
+	*pos = 3;
+	if (!ft_run_test(
+			user + 6, (const void *)user,
+			libc + 6, (const void *)libc, n))
+		return (false);
+	return (true);
+}
+
+bool	ft_test_memmove(char *name)
+{
+	char	user[] = "abcdefghijklmnopqrst";
+	char	libc[] = "abcdefghijklmnopqrst";
+	size_t	i = 0, grade = 0, pos;
 	bool	success;
 
 	(void)name;
-	(void)test;
 	while (i < 10)
 	{
-		success = ft_test_memmove_size((void *)user, (void *)libc, i, &step);	
+		success = ft_test_ptr_pos((void *)user, (void *)libc, i, &pos);	
 		if (!success)
 		{
 			ft_result_input_sizet(i);
 			ft_result_output_str((char *)user, (char *)libc);
-			ft_print_result(true);
-			printf("%s%s", MEM_FAIL, step == 1 ? EQUAL : step == 2 ? HIGHER : LOWER);
+			ft_print_result();
+			printf("%s%s", MEM, pos == 1 ? EQU : pos == 2 ? HIG : LOW);
 		}
 		grade += success;
 		i++;

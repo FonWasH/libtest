@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:30:00 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 20:29:56 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 17:31:47 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ static bool	ft_run_test(const void *s, int c, size_t n)
 		ft_result_input_int(c);
 		ft_result_input_sizet(n);
 		ft_result_output_str((char *)user, (char *)libc);
-		ft_print_result(true);
+		ft_print_result();
 		return (false);
 	}
 	return (true);
 }
 
-static bool	ft_test_size(const void *s, int c, size_t size)
+static bool	ft_test_size(const void *s, int c)
 {
-	size_t	i = 0, grade = 0;
+	size_t	i = 0, grade = 0, size = strlen(s);
 
 	while (i < size)
 	{
@@ -45,15 +45,14 @@ static bool	ft_test_size(const void *s, int c, size_t size)
 	return (grade == i);
 }
 
-bool	ft_test_memchr(char *name, void **test)
+bool	ft_test_memchr(char *name)
 {
-	const void	*tests = test ? (const void *)test[0] : (const void *)g_str1_tests[1];
-	int			i = -129, grade = -129;
+	int	i = CHAR_MIN - 1, grade = CHAR_MIN - 1;
 
 	(void)name;
-	while (i < 256)
+	while (i <= UCHAR_MAX + 1)
 	{
-		grade += ft_test_size(tests, i, strlen((char *)tests));
+		grade += ft_test_size((const void *)g_str1_tests[1], i);
 		i++;
 	}
 	return (grade == i);

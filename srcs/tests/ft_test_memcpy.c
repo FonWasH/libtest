@@ -6,48 +6,41 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:39:19 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 20:29:56 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 17:57:52 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-bool	ft_test_memcpy(char *name, void **test)
+static bool	ft_run_test(const void *src, size_t n)
 {
-	const void	**tests = test ? (const void **)test : (const void **)g_str1_tests;
-	size_t		i = 0, grade = 0, test_len;
-	char		*user, *libc;
-	bool		success;
+	char	user[] = "................";
+	char	libc[] = "................";
+
+	n = n > 16 ? 16 : n;
+	ft_time_function(USER_START);
+	ft_memcpy((void *)user, src, n);
+	ft_time_function(USER_END_LIBC_START);
+	memcpy((void *)libc, src, n);
+	ft_time_function(LIBC_END);
+	if (strcmp(user, libc))
+	{
+		ft_result_input_sizet(n);
+		ft_result_input_str((char *)src, NULL);
+		ft_result_output_str(user, libc);
+		ft_print_result();
+	}
+	return (true);
+}
+
+bool	ft_test_memcpy(char *name)
+{
+	size_t		i = 0, grade = 0;
 
 	(void)name;
-	while (tests[i])
+	while (g_str1_tests[i])
 	{
-		test_len = strlen(tests[i]);
-		user = (char *)malloc(sizeof(char) * test_len + 1);
-		libc = (char *)malloc(sizeof(char) * test_len + 1);
-		if (!user || !libc)
-		{
-			fprintf(stderr, ERROR_MEM);
-			exit(EXIT_FAILURE);
-		}
-		user[test_len] = '\0';
-		libc[test_len] = '\0';
-		ft_time_function(USER_START);
-		ft_memcpy((void *)user, tests[i], test_len);
-		ft_time_function(USER_END_LIBC_START);
-		memcpy((void *)libc, tests[i], test_len);
-		ft_time_function(LIBC_END);
-		success = (!strcmp(user, libc));
-		if (!success)
-		{
-			ft_result_input_sizet(test_len);
-			ft_result_input_str((char *)tests[i], NULL);
-			ft_result_output_str(user, libc);
-			ft_print_result(true);
-		}
-		grade += success;
-		free(user);
-		free(libc);
+		grade += ft_run_test((const void *)g_str1_tests[i], strlen(g_str1_tests[i]));
 		i++;
 	}
 	return (grade == i);

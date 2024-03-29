@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 07:49:06 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/29 15:28:54 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 15:55:31 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_mandatory(bool title, bool force)
 		{
 			ft_reset_presult();
 			ft_time_function(RESET);
-			ft_grade((*g_ftest[i].f)(g_ftest[i].name, NULL));
+			ft_grade((*g_ftest[i].f)(g_ftest[i].name));
 		}
 	}
 }

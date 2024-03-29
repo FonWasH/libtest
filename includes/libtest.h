@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/29 15:28:38 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 18:28:35 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdbool.h>
 # include <stdint.h>
 # include <libgen.h>
+# include <limits.h>
 # include <string.h>
 # include <bsd/string.h>
 # include <ctype.h>
@@ -52,10 +53,10 @@
 # define OUTPUT BD "\toutput:\t" X "=> "
 # define USER "user: "
 # define LIBC "libc: "
-# define MEM_FAIL DM "\t\t   Fail when destination is "
-# define HIGHER "higher\n" X
-# define LOWER "lower\n" X
-# define EQUAL "equal\n" X
+# define MEM DM "\t\t   Fail when destination is "
+# define HIG "higher\n" X
+# define LOW "lower\n" X
+# define EQU "equal\n" X
 // FORMAT
 # define LINE "--------------------------------------"
 # define SIZE_LINE 40
@@ -77,7 +78,7 @@
 typedef struct s_ftest
 {
 	char				*name;
-	bool				(*f)(char *, void **);
+	bool				(*f)(char *);
 }						t_ftest;
 
 typedef struct s_fascii
@@ -129,10 +130,9 @@ typedef enum e_ftime
 // GLOBALS
 extern t_presult		g_presult;
 extern t_result			g_result;
+extern const t_ftest	g_ftest[];
 extern const char		*g_str1_tests[];
 extern const char		*g_str2_tests[];
-extern const char		*g_chr_tests[];
-extern const t_ftest	g_ftest[];
 
 // UTIL FUNCTIONS
 void					ft_print_name(char *name);
@@ -140,7 +140,7 @@ void					ft_print_file(char *path);
 bool					ft_test_norminette(char *name);
 bool					ft_check_sysfunc(char *name);
 void					ft_time_function(t_ftime action);
-void					ft_print_result(bool libc);
+void					ft_print_result(void);
 void					ft_reset_presult(void);
 void					ft_result_input_int(int intput);
 void					ft_result_input_sizet(size_t intput);
@@ -153,44 +153,44 @@ void					ft_grade(bool success);
 // MAIN FUNCTIONS
 void					ft_mandatory(bool title, bool force);
 void					ft_bonus(bool title, bool force);
-bool					ft_call_test(char *name, void **test, int count);
+bool					ft_call_test(char *name);
 // TEST FUNCTIONS
-bool					ft_test_ascii(char *name, void **test);
-bool					ft_test_strlen(char *name, void **test);
-bool					ft_test_memset(char *name, void **test);
-bool					ft_test_bzero(char *name, void **test);
-bool					ft_test_memcpy(char *name, void **test);
-bool					ft_test_memmove(char *name, void **test);
-bool					ft_test_strlcpy(char *name, void **test);
-bool					ft_test_strlcat(char *name, void **test);
-bool					ft_test_strchr(char *name, void **test);
-bool					ft_test_strrchr(char *name, void **test);
-bool					ft_test_strncmp(char *name, void **test);
-bool					ft_test_memchr(char *name, void **test);
-bool					ft_test_memcmp(char *name, void **test);
-bool					ft_test_strnstr(char *name, void **test);
-bool					ft_test_atoi(char *name, void **test);
-bool					ft_test_calloc(char *name, void **test);
-bool					ft_test_strdup(char *name, void **test);
-bool					ft_test_substr(char *name, void **test);
-//bool					ft_test_strjoin(char *name, void **test);
-//bool					ft_test_strtrim(char *name, void **test);
-//bool					ft_test_split(char *name, void **test);
-bool					ft_test_itoa(char *name, void **test);
-//bool					ft_test_strmapi(char *name, void **test);
-//bool					ft_test_striteri(char *name, void **test);
-//bool					ft_test_putchar_fd(char *name, void **test);
-//bool					ft_test_putstr_fd(char *name, void **test);
-//bool					ft_test_putendl_fd(char *name, void **test);
-//bool					ft_test_putnbr_fd(char *name, void **test);
-//bool					ft_test_lstnew(char *name, void **test);
-//bool					ft_test_lstadd_front(char *name, void **test);
-//bool					ft_test_lstsize(char *name, void **test);
-//bool					ft_test_lstlast(char *name, void **test);
-//bool					ft_test_lstadd_back(char *name, void **test);
-//bool					ft_test_lstdelone(char *name, void **test);
-//bool					ft_test_lstclear(char *name, void **test);
-//bool					ft_test_lstiter(char *name, void **test);
-//bool					ft_test_lstmap(char *name, void **test);
+bool					ft_test_ascii(char *name);
+bool					ft_test_strlen(char *name);
+bool					ft_test_memset(char *name);
+bool					ft_test_bzero(char *name);
+bool					ft_test_memcpy(char *name);
+bool					ft_test_memmove(char *name);
+bool					ft_test_strlcpy(char *name);
+bool					ft_test_strlcat(char *name);
+bool					ft_test_strchr(char *name);
+bool					ft_test_strrchr(char *name);
+bool					ft_test_strncmp(char *name);
+bool					ft_test_memchr(char *name);
+bool					ft_test_memcmp(char *name);
+bool					ft_test_strnstr(char *name);
+bool					ft_test_atoi(char *name);
+bool					ft_test_calloc(char *name);
+bool					ft_test_strdup(char *name);
+bool					ft_test_substr(char *name);
+//bool					ft_test_strjoin(char *name);
+//bool					ft_test_strtrim(char *name);
+//bool					ft_test_split(char *name);
+bool					ft_test_itoa(char *name);
+//bool					ft_test_strmapi(char *name);
+//bool					ft_test_striteri(char *name);
+//bool					ft_test_putchar_fd(char *name);
+//bool					ft_test_putstr_fd(char *name);
+//bool					ft_test_putendl_fd(char *name);
+//bool					ft_test_putnbr_fd(char *name);
+//bool					ft_test_lstnew(char *name);
+//bool					ft_test_lstadd_front(char *name);
+//bool					ft_test_lstsize(char *name);
+//bool					ft_test_lstlast(char *name);
+//bool					ft_test_lstadd_back(char *name);
+//bool					ft_test_lstdelone(char *name);
+//bool					ft_test_lstclear(char *name);
+//bool					ft_test_lstiter(char *name);
+//bool					ft_test_lstmap(char *name);
 
 #endif

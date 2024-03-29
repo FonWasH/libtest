@@ -6,65 +6,64 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:30:29 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 20:41:49 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 17:31:47 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-static bool	ft_run_test(const char *s1, const char *s2, size_t n)
+static bool	ft_run_test(const char *str, const char *to_find, size_t len)
 {
 	char	*user, *libc;
 
 	ft_time_function(USER_START);
-	user = ft_strnstr(s1, s2, n);
+	user = ft_strnstr(str, to_find, len);
 	ft_time_function(USER_END_LIBC_START);
-	libc = strnstr(s1, s2, n);
+	libc = strnstr(str, to_find, len);
 	ft_time_function(LIBC_END);
 	if (!(user == libc))
 	{
-		ft_result_input_sizet(n);
-		ft_result_input_str((char *)s1, (char *)s2);
+		ft_result_input_sizet(len);
+		ft_result_input_str((char *)str, (char *)to_find);
 		ft_result_output_str(user, libc);
-		ft_print_result(true);
+		ft_print_result();
 		return (false);
 	}
 	return (true);
 }
 
-static bool	ft_test_size(const char *s1, const char *s2)
+static bool	ft_test_size(const char *str, const char *to_find)
 {
 	size_t	i = 0, grade = 0;
 
 	while (i < 30)
 	{
-		grade += ft_run_test(s1, s2, i);
+		grade += ft_run_test(str, to_find, i);
 		i++;
 	}
 	return (grade == i);
 }
 
-static bool	ft_test_tofind(const char *s1)
+static bool	ft_test_tofind(const char *str)
 {
 	size_t	i = 0, grade = 0;
 
 	while (g_str2_tests[i])
 	{
-		grade += ft_test_size(s1, g_str2_tests[i]);
+		grade += ft_test_size(str, g_str2_tests[i]);
 		i++;
 	}
 	return (grade == i);
 }
 
-bool	ft_test_strnstr(char *name, void **test)
+bool	ft_test_strnstr(char *name)
 {
-	const char	**tests = test ? (const char **)test : g_str1_tests;
-	size_t		i = 0, grade = 0;
+	size_t	i = 0, grade = 0;
 
 	(void)name;
-	while (tests[i])
+	while (g_str1_tests[i])
 	{
-		grade += ft_test_tofind(tests[i]);
+		grade += ft_test_tofind(g_str1_tests[i]);
 		i++;
 	}
 	return (grade == i);

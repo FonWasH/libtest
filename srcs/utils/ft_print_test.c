@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 09:19:55 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 13:21:38 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 17:28:26 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,18 +79,12 @@ static void	ft_print_output_libc(void)
 		ft_putstr_isprint(g_result.libc_str);
 }
 
-static void	ft_print_output(bool libc)
-{
-	ft_print_output_user();
-	if (libc)
-		ft_print_output_libc();
-}
-
-void	ft_print_result(bool libc)
+void	ft_print_result(void)
 {
 	printf("%s%s", TEST, KO);
 	ft_print_intput();
-	ft_print_output(libc);
+	ft_print_output_user();
+	ft_print_output_libc();
 	printf("\n");
 }
 

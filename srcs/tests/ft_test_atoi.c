@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:48:50 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 08:38:18 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 17:31:47 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,29 +28,33 @@ const char	*g_atoi_tests[] = {
 	NULL
 };
 
-bool	ft_test_atoi(char *name, void **test)
+static bool	ft_run_test(const char *nptr)
 {
-	const char	**tests = test ? (const char **)test : g_atoi_tests;
-	size_t		i = 0, grade = 0;
-	int			user, libc;
-	bool		success;
+	int	user, libc;
+
+	ft_time_function(USER_START);
+	user = ft_atoi(nptr);
+	ft_time_function(USER_END_LIBC_START);
+	libc = atoi(nptr);
+	ft_time_function(LIBC_END);
+	if (!(user == libc))
+	{
+		ft_result_input_str((char *)nptr, NULL);
+		ft_result_output_int(user, libc);
+		ft_print_result();
+		return (false);
+	}
+	return (true);
+}
+
+bool	ft_test_atoi(char *name)
+{
+	size_t	i = 0, grade = 0;
 
 	(void)name;
-	while (tests[i])
+	while (g_atoi_tests[i])
 	{
-		ft_time_function(USER_START);
-		user = ft_atoi(tests[i]);
-		ft_time_function(USER_END_LIBC_START);
-		libc = atoi(tests[i]);
-		ft_time_function(LIBC_END);
-		success = (user == libc);
-		if (!success)
-		{
-			ft_result_input_str((char *)tests[i], NULL);
-			ft_result_output_int(user, libc);
-			ft_print_result(true);
-		}
-		grade += success;
+		grade += ft_run_test(g_atoi_tests[i]);
 		i++;
 	}
 	return (grade == i);

@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:48:58 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 08:38:04 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 17:31:47 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,34 @@ const char	*g_itoa_tests[] = {
 	NULL
 };
 
-bool	ft_test_itoa(char *name, void **test)
+static bool	ft_run_test(char *n_str)
 {
-	const char	**tests = test ? (const char **)test : g_itoa_tests;	
-	size_t		i = 0, grade = 0;
-	char		*user;
-	bool		success;
+	int		n = atoi(n_str);
+	char	*user;
+
+	ft_time_function(USER_START);
+	user = ft_itoa(n);
+	ft_time_function(USER_END);
+	if (strcmp(user, n_str))
+	{
+		ft_result_input_int(n);
+		ft_result_output_str(user, n_str);
+		ft_print_result();
+		free(user);
+		return (false);
+	}
+	free(user);
+	return (true);
+}
+
+bool	ft_test_itoa(char *name)
+{
+	size_t	i = 0, grade = 0;
 
 	(void)name;
-	while (tests[i])
+	while (g_itoa_tests[i])
 	{
-		ft_time_function(USER_START);
-		user = ft_itoa(atoi(tests[i]));
-		ft_time_function(USER_END);
-		success = (!strcmp(user, tests[i]));
-		if (!success)
-		{
-			ft_result_input_int(atoi(tests[i]));
-			ft_result_output_str(user, (char *)tests[i]);
-			ft_print_result(true);
-		}
-		grade += success;
-		free(user);
+		grade += ft_run_test((char *)g_itoa_tests[i]);
 		i++;
 	}
 	return (grade == i);

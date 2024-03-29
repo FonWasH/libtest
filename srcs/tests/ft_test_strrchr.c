@@ -6,36 +6,40 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:27:27 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 20:29:56 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 17:31:47 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-bool	ft_test_strrchr(char *name, void **test)
+static bool	ft_run_test(const char *s, int c)
 {
-	const char	*tests = test ? (const char *)test[0] : g_str1_tests[1];
-	int			i = -129, grade = -129;
-	char		*user, *libc;
-	bool		success;
+	char	*user, *libc;
+
+	ft_time_function(USER_START);
+	user = ft_strrchr(s, c);
+	ft_time_function(USER_END_LIBC_START);
+	libc = strrchr(s, c);
+	ft_time_function(LIBC_END);
+	if (!(user == libc))
+	{
+		ft_result_input_str((char *)s, NULL);
+		ft_result_input_int(c);
+		ft_result_output_str(user, libc);
+		ft_print_result();
+		return (true);
+	}
+	return (true);
+}
+
+bool	ft_test_strrchr(char *name)
+{
+	int	i = CHAR_MIN - 1, grade = CHAR_MIN - 1;
 
 	(void)name;
-	while (i < 256)
+	while (i <= UCHAR_MAX + 1)
 	{
-		ft_time_function(USER_START);
-		user = ft_strrchr(tests, i);
-		ft_time_function(USER_END_LIBC_START);
-		libc = strrchr(tests, i);
-		ft_time_function(LIBC_END);
-		success = (user == libc);
-		if (!success)
-		{
-			ft_result_input_str((char *)tests, NULL);
-			ft_result_input_int(i);
-			ft_result_output_str(user, libc);
-			ft_print_result(true);
-		}
-		grade += success;
+		grade += ft_run_test(g_str1_tests[1], i);
 		i++;
 	}
 	return (grade == i);

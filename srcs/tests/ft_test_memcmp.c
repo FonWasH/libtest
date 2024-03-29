@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:30:15 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/28 20:29:56 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/29 17:31:47 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static bool	ft_run_test(const void *s1, const void *s2, size_t n)
 		ft_result_input_sizet(n);
 		ft_result_input_str((char *)s1, (char *)s2);
 		ft_result_output_int(user, libc);
-		ft_print_result(true);
+		ft_print_result();
 		return (false);
 	}
 	return (true);
@@ -34,9 +34,9 @@ static bool	ft_run_test(const void *s1, const void *s2, size_t n)
 
 static bool	ft_test_size(const void *s1, const void *s2)
 {
-	size_t	i = 0, grade = 0;
 	size_t	s1_len = strlen((char *)s1), s2_len = strlen((char *)s2);
 	size_t	size = s1_len <= s2_len ? s1_len : s2_len;
+	size_t	i = 0, grade = 0;
 
 	while (i < size)
 	{
@@ -58,15 +58,14 @@ static bool	ft_test_tofind(const void *s1)
 	return (grade == i);
 }
 
-bool	ft_test_memcmp(char *name, void **test)
+bool	ft_test_memcmp(char *name)
 {
-	const char	**tests = test ? (const char **)test : g_str1_tests;
-	size_t		i = 0, grade = 0;
+	size_t	i = 0, grade = 0;
 
 	(void)name;
-	while (tests[i])
+	while (g_str1_tests[i])
 	{
-		grade += ft_test_tofind((const void *)tests[i]);
+		grade += ft_test_tofind((const void *)g_str1_tests[i]);
 		i++;
 	}
 	return (grade == i);
