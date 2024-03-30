@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/30 17:37:45 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/30 19:23:10 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // LIB
 # include "../../libft.h"
 # include <stdbool.h>
-//# include <stdint.h>
+# include <stdint.h>
 # include <libgen.h>
 # include <limits.h>
 # include <string.h>
