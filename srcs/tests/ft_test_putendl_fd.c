@@ -6,13 +6,13 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:32:43 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/30 17:41:20 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/30 20:04:44 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-const char		*g_eputendl[] = {
+const char	*g_eputendl[] = {
 	"\t\n\v\f\r \n",
 	"Hello World!\n",
 	"abcdefghijklmnopqrstuvwxyz\n",

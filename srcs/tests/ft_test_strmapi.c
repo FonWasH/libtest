@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:31:51 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/30 11:08:44 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/30 19:56:46 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static bool	ft_run_test()
 	char	*user, *expected;
 
 	ft_time_function(USER_START);
-	user = ft_();
+	user = ft_strmapi();
 	ft_time_function(USER_END);
 	expected = ;
 	if (strcmp(user, expected))
@@ -27,6 +27,7 @@ static bool	ft_run_test()
 		ft_result_input_int();
 		ft_result_input_sizet();
 		ft_result_output_str(user, expected);
+		ft_result_output_chr();
 		ft_result_output_int();
 		ft_result_output_sizet();
 		ft_print_result(false);
