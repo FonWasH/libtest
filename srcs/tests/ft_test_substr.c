@@ -6,13 +6,13 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:30:55 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/30 10:55:32 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/30 17:39:30 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-char	*g_expect[] = {
+char	*g_esubstr[] = {
 	"Hello",
 	"Hello World!",
 	"World!",
@@ -25,18 +25,18 @@ char	*g_expect[] = {
 
 static bool	ft_run_test(char const *s, unsigned int start, size_t len, char *e)
 {
-	char	*user, *libc;
+	char	*user, *expected;
 
 	ft_time_function(USER_START);
 	user = ft_substr(s, start, len);
 	ft_time_function(USER_END);
-	libc = e;
-	if (strcmp(user, libc))
+	expected = e;
+	if (strcmp(user, expected))
 	{
 		ft_result_input_str((char *)s, NULL);
 		ft_result_input_int((int)start);
 		ft_result_input_sizet(len);
-		ft_result_output_str(user, libc);
+		ft_result_output_str(user, expected);
 		ft_print_result(false);
 		free(user);
 		return (false);
@@ -52,9 +52,9 @@ bool	ft_test_substr(char *name)
 	size_t			i = 0, grade = 0;
 
 	(void)name;
-	while (g_expect[i])
+	while (g_esubstr[i])
 	{
-		grade += ft_run_test(g_str1_tests[1], start[i], len[i], g_expect[i]);
+		grade += ft_run_test(g_str1_tests[1], start[i], len[i], g_esubstr[i]);
 		i++;
 	}
 	return (grade == i);

@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:03:35 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/29 16:04:09 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/30 17:37:38 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ const t_ftest	g_ftest[] = {
 	{"ft_itoa", ft_test_itoa},
 //	{"ft_strmapi", ft_test_strmapi},
 //	{"ft_striteri", ft_test_striteri},
-//	{"ft_putchar_fd", ft_test_putchar_fd},
-//	{"ft_putstr_fd", ft_test_putstr_fd},
-//	{"ft_putendl_fd", ft_test_putendl_fd},
+	{"ft_putchar_fd", ft_test_putchar_fd},
+	{"ft_putstr_fd", ft_test_putstr_fd},
+	{"ft_putendl_fd", ft_test_putendl_fd},
 //	{"ft_putnbr_fd", ft_test_putnbr_fd},
 //	{"ft_lstnew", ft_test_lstnew},
 //	{"ft_lstadd_front", ft_test_lstadd_front},

@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 09:19:55 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/30 10:54:58 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/30 12:35:47 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ static void	ft_print_output_user(bool print_libc)
 		printf("%s%i%s ", DM, g_result.user_int, X);
 	if (g_presult.output_sizet)
 		printf("%s%zu%s ", DM, g_result.user_sizet, X);
+	if (g_presult.output_chr)
+		ft_putchar_isprint(g_result.user_chr);
 	if (g_presult.output_str)
 		ft_putstr_isprint(g_result.user_str);
 }
@@ -75,6 +77,8 @@ static void	ft_print_output_libc(bool print_libc)
 		printf("%s%i%s ", DM, g_result.libc_int, X);
 	if (g_presult.output_sizet)
 		printf("%s%zu%s ", DM, g_result.libc_sizet, X);
+	if (g_presult.output_chr)
+		ft_putchar_isprint(g_result.libc_chr);
 	if (g_presult.output_str)
 		ft_putstr_isprint(g_result.libc_str);
 }
@@ -97,6 +101,7 @@ void	ft_reset_presult(void)
 	g_presult.input_str2 = false;
 	g_presult.output_int = false;
 	g_presult.output_sizet = false;
+	g_presult.output_chr = false;
 	g_presult.output_str = false;
 }
 
@@ -144,6 +149,13 @@ void	ft_result_output_sizet(size_t user, size_t libc)
 	g_result.user_sizet = user;
 	g_result.libc_sizet = libc;
 	g_presult.output_sizet = true;
+}
+
+void	ft_result_output_chr(char user, char libc)
+{
+	g_result.user_chr = user;
+	g_result.libc_chr = libc;
+	g_presult.output_chr = true;
 }
 
 void	ft_result_output_str(char *user, char *libc)
