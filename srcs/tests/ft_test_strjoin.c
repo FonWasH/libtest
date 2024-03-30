@@ -6,53 +6,50 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:31:09 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/30 20:10:14 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/30 20:25:47 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-const char	*g_str1_tests[] = {
-	"\t\n\v\f\r ",
-	"Hello World!",
-	"abcdefghijklmnopqrstuvwxyz",
-	"42",
-	"#",
+const char	*g_strjoin_s1[] = {
+	"Hello",
+	"4",
 	"",
-	NULL
-};
-
-const char	*g_str2_tests[] = {
-	"Hello World!",
-	"Hello42",
-	"abcdefghijklmnopqrstuvwxyz",
-	"abcdefghijklmnopqrstuvwxyzABC",
 	"abc",
-	"abcABC",
-	"42",
-	"#",
 	"",
 	NULL
 };
 
-static bool	ft_run_test()
+const char	*g_strjoin_s2[] = {
+	" World!",
+	"2",
+	"",
+	"",
+	"abc",
+	NULL
+};
+
+const char	*g_estrjoin[] = {
+	"Hello World!",
+	"42",
+	"",
+	"abc",
+	"abc",
+	NULL
+};
+
+static bool	ft_run_test(char const *s1, char const *s2, char *e)
 {
-	char	*user, *expected;
+	char	*user;
 
 	ft_time_function(USER_START);
-	user = ft_strjoin();
+	user = ft_strjoin(s1, s2);
 	ft_time_function(USER_END);
-	expected = ;
-	if (strcmp(user, expected))
+	if (strcmp(user, e))
 	{
-		ft_result_input_str();
-		ft_result_input_chr();
-		ft_result_input_int();
-		ft_result_input_sizet();
-		ft_result_output_str(user, expected);
-		ft_result_output_chr();
-		ft_result_output_int();
-		ft_result_output_sizet();
+		ft_result_input_str((char *)s1, (char *)s2);
+		ft_result_output_str(user, e);
 		ft_print_result(false);
 		free(user);
 		return (false);
@@ -66,9 +63,11 @@ bool	ft_test_strjoin(char *name)
 	size_t	i = 0, grade = 0;
 
 	(void)name;
-	while ()
+	while (g_strjoin_s1[i])
 	{
-
+		grade += ft_run_test(
+				g_strjoin_s1[i], g_strjoin_s2[i], (char *)g_estrjoin[i]);
+		i++;
 	}
 	return (grade == i);
 }

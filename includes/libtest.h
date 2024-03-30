@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/30 19:52:49 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/30 20:25:09 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,7 +179,7 @@ bool					ft_test_atoi(char *name);
 bool					ft_test_calloc(char *name);
 bool					ft_test_strdup(char *name);
 bool					ft_test_substr(char *name);
-//bool					ft_test_strjoin(char *name);
+bool					ft_test_strjoin(char *name);
 //bool					ft_test_strtrim(char *name);
 //bool					ft_test_split(char *name);
 bool					ft_test_itoa(char *name);
