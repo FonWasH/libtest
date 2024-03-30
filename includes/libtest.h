@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/30 19:23:10 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/30 19:52:49 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,7 @@ extern t_result			g_result;
 extern const t_ftest	g_ftest[];
 extern const char		*g_str1_tests[];
 extern const char		*g_str2_tests[];
+extern const char		*g_nbr_tests[];
 
 // UTIL FUNCTIONS
 void					ft_print_name(char *name);
@@ -187,7 +188,7 @@ bool					ft_test_itoa(char *name);
 bool					ft_test_putchar_fd(char *name);
 bool					ft_test_putstr_fd(char *name);
 bool					ft_test_putendl_fd(char *name);
-//bool					ft_test_putnbr_fd(char *name);
+bool					ft_test_putnbr_fd(char *name);
 //bool					ft_test_lstnew(char *name);
 //bool					ft_test_lstadd_front(char *name);
 //bool					ft_test_lstsize(char *name);

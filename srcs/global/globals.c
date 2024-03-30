@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:03:35 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/30 17:37:38 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/30 19:53:39 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ const t_ftest	g_ftest[] = {
 	{"ft_putchar_fd", ft_test_putchar_fd},
 	{"ft_putstr_fd", ft_test_putstr_fd},
 	{"ft_putendl_fd", ft_test_putendl_fd},
-//	{"ft_putnbr_fd", ft_test_putnbr_fd},
+	{"ft_putnbr_fd", ft_test_putnbr_fd},
 //	{"ft_lstnew", ft_test_lstnew},
 //	{"ft_lstadd_front", ft_test_lstadd_front},
 //	{"ft_lstsize", ft_test_lstsize},
@@ -82,5 +82,17 @@ const char		*g_str2_tests[] = {
 	"42",
 	"#",
 	"",
+	NULL
+};
+
+const char	*g_nbr_tests[] = {
+	"42",
+	"-42",
+	"0",
+	"-2147483648",
+	"2147483647",
+	"-1",
+	"1",
+	"100",
 	NULL
 };

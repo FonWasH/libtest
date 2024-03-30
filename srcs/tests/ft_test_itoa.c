@@ -6,23 +6,11 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:48:58 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/30 10:27:03 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/30 19:51:01 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
-
-const char	*g_itoa_tests[] = {
-	"42",
-	"-42",
-	"0",
-	"-2147483648",
-	"2147483647",
-	"-1",
-	"1",
-	"100",
-	NULL
-};
 
 static bool	ft_run_test(char *n_str)
 {
@@ -49,9 +37,9 @@ bool	ft_test_itoa(char *name)
 	size_t	i = 0, grade = 0;
 
 	(void)name;
-	while (g_itoa_tests[i])
+	while (g_nbr_tests[i])
 	{
-		grade += ft_run_test((char *)g_itoa_tests[i]);
+		grade += ft_run_test((char *)g_nbr_tests[i]);
 		i++;
 	}
 	return (grade == i);

@@ -6,26 +6,27 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:32:56 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/30 19:18:40 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/30 19:52:26 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-static bool	ft_run_test(char *s)
+static bool	ft_run_test(char *n_str)
 {
+	int		n = atoi(n_str);
 	int		pipefd[2];
 	char	user[BUFFER_SIZE];
 
 	pipe(pipefd);
 	ft_time_function(USER_START);
-	ft_putnbr_fd(s, pipefd[1]);
+	ft_putnbr_fd(n, pipefd[1]);
 	ft_time_function(USER_END);
-	read(pipefd[0], user, strlen(s));
-	if (strcmp(user, s))
+	read(pipefd[0], user, strlen(n_str));
+	if (strcmp(user, n_str))
 	{
-		ft_result_input_str(s, NULL);
-		ft_result_output_str(user, s);
+		ft_result_input_int(n);
+		ft_result_output_str(user, n_str);
 		ft_print_result(false);
 		memset(user, 0, sizeof(user));
 		close(pipefd[0]);
@@ -43,9 +44,9 @@ bool	ft_test_putnbr_fd(char *name)
 	size_t	i = 0, grade = 0;
 
 	(void)name;
-	while (g_str1_tests[i])
+	while (g_nbr_tests[i])
 	{
-		grade += ft_run_test((char *)g_str1_tests[i]);
+		grade += ft_run_test((char *)g_nbr_tests[i]);
 		i++;
 	}
 	return (grade == i);
