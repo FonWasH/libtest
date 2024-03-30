@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:30:55 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/29 19:44:44 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/30 10:55:32 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ char	*g_expect[] = {
 	"World!",
 	"World!",
 	"!",
+	" ",
 	"",
 	NULL,
 };
@@ -36,7 +37,7 @@ static bool	ft_run_test(char const *s, unsigned int start, size_t len, char *e)
 		ft_result_input_int((int)start);
 		ft_result_input_sizet(len);
 		ft_result_output_str(user, libc);
-		ft_print_result();
+		ft_print_result(false);
 		free(user);
 		return (false);
 	}
@@ -46,8 +47,8 @@ static bool	ft_run_test(char const *s, unsigned int start, size_t len, char *e)
 
 bool	ft_test_substr(char *name)
 {
-	unsigned int	start[] = {0, 0, 6, 6, 11, 0};
-	size_t			len[] = {5, 15, 6, 15, 1, 0};
+	unsigned int	start[] = {0, 0, 6, 6, 11, 5, 0};
+	size_t			len[] = {5, 15, 6, 15, 1, 1, 0};
 	size_t			i = 0, grade = 0;
 
 	(void)name;

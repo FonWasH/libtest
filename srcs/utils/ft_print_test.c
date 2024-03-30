@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 09:19:55 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/29 17:28:26 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/30 10:54:58 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ static void	ft_print_intput(void)
 	printf("\n");
 }
 
-static void	ft_print_output_user(void)
+static void	ft_print_output_user(bool print_libc)
 {
-	printf("%s%s", OUTPUT, USER);
+	printf("%s%s%s", OUTPUT, USER, print_libc ? "" : "    ");
 	if (g_presult.output_int)
 		printf("%s%i%s ", DM, g_result.user_int, X);
 	if (g_presult.output_sizet)
@@ -68,9 +68,9 @@ static void	ft_print_output_user(void)
 		ft_putstr_isprint(g_result.user_str);
 }
 
-static void	ft_print_output_libc(void)
+static void	ft_print_output_libc(bool print_libc)
 {
-	printf("\n\t\t   %s", LIBC);
+	printf("\n\t\t   %s", print_libc ? LIBC : EXPECT);
 	if (g_presult.output_int)
 		printf("%s%i%s ", DM, g_result.libc_int, X);
 	if (g_presult.output_sizet)
@@ -79,12 +79,12 @@ static void	ft_print_output_libc(void)
 		ft_putstr_isprint(g_result.libc_str);
 }
 
-void	ft_print_result(void)
+void	ft_print_result(bool print_libc)
 {
 	printf("%s%s", TEST, KO);
 	ft_print_intput();
-	ft_print_output_user();
-	ft_print_output_libc();
+	ft_print_output_user(print_libc);
+	ft_print_output_libc(print_libc);
 	printf("\n");
 }
 

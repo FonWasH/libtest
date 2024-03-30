@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:48:58 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/29 17:31:47 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/30 10:27:03 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static bool	ft_run_test(char *n_str)
 	{
 		ft_result_input_int(n);
 		ft_result_output_str(user, n_str);
-		ft_print_result();
+		ft_print_result(false);
 		free(user);
 		return (false);
 	}

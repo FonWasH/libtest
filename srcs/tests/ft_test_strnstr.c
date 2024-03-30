@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:30:29 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/29 17:31:47 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/30 10:26:56 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static bool	ft_run_test(const char *str, const char *to_find, size_t len)
 		ft_result_input_sizet(len);
 		ft_result_input_str((char *)str, (char *)to_find);
 		ft_result_output_str(user, libc);
-		ft_print_result();
+		ft_print_result(true);
 		return (false);
 	}
 	return (true);

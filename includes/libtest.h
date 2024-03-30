@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/29 18:28:35 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/30 10:53:21 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@
 # define OUTPUT BD "\toutput:\t" X "=> "
 # define USER "user: "
 # define LIBC "libc: "
+# define EXPECT "expected: "
 # define MEM DM "\t\t   Fail when destination is "
 # define HIG "higher\n" X
 # define LOW "lower\n" X
@@ -140,7 +141,7 @@ void					ft_print_file(char *path);
 bool					ft_test_norminette(char *name);
 bool					ft_check_sysfunc(char *name);
 void					ft_time_function(t_ftime action);
-void					ft_print_result(void);
+void					ft_print_result(bool print_libc);
 void					ft_reset_presult(void);
 void					ft_result_input_int(int intput);
 void					ft_result_input_sizet(size_t intput);

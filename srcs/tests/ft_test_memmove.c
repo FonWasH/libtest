@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 02:18:39 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/29 18:28:29 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/30 10:26:45 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ bool	ft_test_memmove(char *name)
 		{
 			ft_result_input_sizet(i);
 			ft_result_output_str((char *)user, (char *)libc);
-			ft_print_result();
+			ft_print_result(true);
 			printf("%s%s", MEM, pos == 1 ? EQU : pos == 2 ? HIG : LOW);
 		}
 		grade += success;
