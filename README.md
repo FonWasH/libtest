@@ -1,6 +1,7 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/FonWasH/libtest/main/image.png" />
+  <img src="https://raw.githubusercontent.com/FonWasH/libtest/main/resources/title.png" />
 </p>
+[<img src="https://raw.githubusercontent.com/FonWasH/libtest/main/resources/discord.gif">](https://discord.gg/hVr9nDFwgY)
 
 libtest is a command-line utility designed to test the functions provided in the libft library.
 It includes options to test mandatory and bonus functions, display available functions, and provide version information.
