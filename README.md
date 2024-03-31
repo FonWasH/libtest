@@ -3,7 +3,8 @@
   <br><a href="https://discord.gg/hVr9nDFwgY"><img src="resources/discord.gif" /></a>
   <img src="resources/42.gif" />
   <img src="resources/xav.gif" />
-  <img src="resources/home.gif" />
+  <img src="resources/logo1.gif" />
+  <img src="resources/logo2.gif" />
   <img src="resources/000010.gif" />
 </p>
 
