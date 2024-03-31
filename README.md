@@ -2,6 +2,10 @@
   <img src="resources/title.png" />
   <br><a href="https://discord.gg/hVr9nDFwgY"><img src="resources/discord.gif" /></a>
   <img src="resources/42.gif" />
+  <img src="resources/xav.gif" />
+  <img src="resources/home.gif" />
+  <img src="resources/000010.gif" />
+  
 </p>
 
 
