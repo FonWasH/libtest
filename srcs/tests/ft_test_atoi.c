@@ -6,13 +6,13 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:48:50 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/30 20:17:11 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/31 13:12:47 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-const char	*g_atoi_tests[] = {
+const char	*g_atoi_str[] = {
 	"\t\n\v\f\r +00000042",
 	" -42a",
 	" a42",
@@ -52,9 +52,9 @@ bool	ft_test_atoi(char *name)
 	size_t	i = 0, grade = 0;
 
 	(void)name;
-	while (g_atoi_tests[i])
+	while (g_atoi_str[i])
 	{
-		grade += ft_run_test(g_atoi_tests[i]);
+		grade += ft_run_test(g_atoi_str[i]);
 		i++;
 	}
 	return (grade == i);

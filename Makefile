@@ -45,7 +45,6 @@ SRC				= main.c \
 				tests/ft_test_lstclear.c \
 				tests/ft_test_lstiter.c \
 				tests/ft_test_lstmap.c
-SRC 			:= $(filter-out %ft_test_strmapi.c,$(SRC))
 SRC 			:= $(filter-out %ft_test_striteri.c,$(SRC))
 SRC 			:= $(filter-out %ft_test_lstnew.c,$(SRC))
 SRC 			:= $(filter-out %ft_test_lstadd_front.c,$(SRC))
