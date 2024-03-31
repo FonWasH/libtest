@@ -48,6 +48,6 @@ Make sure your environment is properly configured before proceeding with the ins
 ## Examples
 - `libtest ft_atoi` Test the ft_atoi function.
 - `libtest -m` Test all mandatory functions.
-<p align="center">
+<p align="left">
   <img src="resources/example.png" />
 </p>
