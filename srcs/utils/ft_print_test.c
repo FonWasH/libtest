@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 09:19:55 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/30 12:35:47 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/31 12:30:53 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	ft_putchar_isprint(char c)
 	printf("'%s ", X);
 }
 
-static void	ft_putstr_isprint(const char *str)
+static void	ft_putstr_isprint(char *str)
 {
 	if (!str)
 		printf("%sNULL%s ", DM, X);
@@ -38,6 +38,20 @@ static void	ft_putstr_isprint(const char *str)
 			str++;
 		}
 		printf("\"%s ", X);
+	}
+}
+
+static void	ft_puttabstr(char **str)
+{
+	if (!*str)
+		ft_putstr_isprint(*str);
+	else
+	{
+		for (size_t i = 0; str[i]; i++)
+		{
+			ft_putstr_isprint(str[i]);
+			printf(" ");
+		}
 	}
 }
 
@@ -68,6 +82,8 @@ static void	ft_print_output_user(bool print_libc)
 		ft_putchar_isprint(g_result.user_chr);
 	if (g_presult.output_str)
 		ft_putstr_isprint(g_result.user_str);
+	if (g_presult.output_tabstr)
+		ft_puttabstr(g_result.user_tabstr);
 }
 
 static void	ft_print_output_libc(bool print_libc)
@@ -81,6 +97,8 @@ static void	ft_print_output_libc(bool print_libc)
 		ft_putchar_isprint(g_result.libc_chr);
 	if (g_presult.output_str)
 		ft_putstr_isprint(g_result.libc_str);
+	if (g_presult.output_tabstr)
+		ft_puttabstr(g_result.libc_tabstr);
 }
 
 void	ft_print_result(bool print_libc)
@@ -103,6 +121,7 @@ void	ft_reset_presult(void)
 	g_presult.output_sizet = false;
 	g_presult.output_chr = false;
 	g_presult.output_str = false;
+	g_presult.output_tabstr = false;
 }
 
 void	ft_result_input_int(int intput)
@@ -163,6 +182,13 @@ void	ft_result_output_str(char *user, char *libc)
 	g_result.user_str = user;
 	g_result.libc_str = libc;
 	g_presult.output_str = true;
+}
+
+void	ft_result_output_tabstr(char **user, char **libc)
+{
+	g_result.user_tabstr = user;
+	g_result.libc_tabstr = libc;
+	g_presult.output_tabstr = true;
 }
 
 void	ft_grade(bool success)

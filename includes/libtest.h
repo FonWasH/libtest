@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/30 20:38:03 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/31 12:05:45 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,8 @@ typedef struct s_tresult
 	char				libc_chr;
 	char				*user_str;
 	char				*libc_str;
+	char				**user_tabstr;
+	char				**libc_tabstr;
 }						t_result;
 
 typedef struct s_presult
@@ -117,6 +119,7 @@ typedef struct s_presult
 	bool				output_sizet;
 	bool				output_chr;
 	bool				output_str;
+	bool				output_tabstr;
 }						t_presult;
 
 // ENUM
@@ -155,6 +158,7 @@ void					ft_result_output_int(int user, int libc);
 void					ft_result_output_sizet(size_t user, size_t libc);
 void					ft_result_output_chr(char user, char libc);
 void					ft_result_output_str(char *user, char *libc);
+void					ft_result_output_tabstr(char **user, char **libc);
 void					ft_grade(bool success);
 // MAIN FUNCTIONS
 void					ft_mandatory(bool title, bool force);
@@ -181,7 +185,7 @@ bool					ft_test_strdup(char *name);
 bool					ft_test_substr(char *name);
 bool					ft_test_strjoin(char *name);
 bool					ft_test_strtrim(char *name);
-//bool					ft_test_split(char *name);
+bool					ft_test_split(char *name);
 bool					ft_test_itoa(char *name);
 //bool					ft_test_strmapi(char *name);
 //bool					ft_test_striteri(char *name);
