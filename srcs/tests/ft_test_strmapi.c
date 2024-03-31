@@ -6,13 +6,13 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:31:51 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/31 13:16:13 by juperez          ###   ########.fr       */
+/*   Updated: 2024/03/31 13:26:31 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-const char		*g_strmapi_str[] = {
+const char	*g_strmapi_str[] = {
 	"helLO WorlD!",
 	"abcdefghijklMNOpqrstuvwXYZ",
 	"42",
@@ -20,7 +20,7 @@ const char		*g_strmapi_str[] = {
 	NULL
 };
 
-const char		*g_estrmapi[] = {
+const char	*g_estrmapi[] = {
 	"Hello world!",
 	"Abcdefghijklmnopqrstuvwxyz",
 	"42",
