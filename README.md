@@ -1,8 +1,8 @@
 <p align="center">
   <img src="resources/title.png" />
-  <br><a href="https://discord.gg/hVr9nDFwgY" target="_blank"><img src="resources/discord.gif" /></a>
-  <a href="https://42.fr/" target="_blank"><img src="resources/42.gif" /></a>
-  <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Xavier_Niel004.jpg/522px-Xavier_Niel004.jpg?20150216010239" target="_blank"><img src="resources/xav.gif" /></a>
+  <br><a href="https://discord.gg/hVr9nDFwgY"><img src="resources/discord.gif" /></a>
+  <a href="https://42.fr/"><img src="resources/42.gif" /></a>
+  <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Xavier_Niel004.jpg/522px-Xavier_Niel004.jpg?20150216010239"><img src="resources/xav.gif" /></a>
   <img src="resources/logo1.gif" />
   <img src="resources/logo2.gif" />
   <img src="resources/000010.gif" />
