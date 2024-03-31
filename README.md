@@ -3,8 +3,8 @@
   <br><a href="https://discord.gg/hVr9nDFwgY"><img src="resources/discord.gif" /></a>
   <a href="https://42.fr/"><img src="resources/42.gif" /></a>
   <a href="https://raw.githubusercontent.com/FonWasH/libtest/main/resources/le_xav.jpg"><img src="resources/xav.gif" /></a>
-  <img src="resources/logo1.gif" />
-  <img src="resources/logo2.gif" />
+  <a href="https://www.youtube.com/watch?v=SFdjkTLiJuY"><img src="resources/logo1.gif" /></a>
+  <a href="https://www.youtube.com/watch?v=aV6VyvAHOdg"><img src="resources/logo2.gif" /></a>
   <img src="resources/000010.gif" />
 </p>
 
