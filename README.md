@@ -5,7 +5,6 @@
   <img src="resources/xav.gif" />
   <img src="resources/home.gif" />
   <img src="resources/000010.gif" />
-  
 </p>
 
 
@@ -49,3 +48,6 @@ Make sure your environment is properly configured before proceeding with the ins
 ## Examples
 - `libtest ft_atoi` Test the ft_atoi function.
 - `libtest -m` Test all mandatory functions.
+<p align="center">
+  <img src="resources/example.png" />
+</p>
