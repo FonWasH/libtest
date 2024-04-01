@@ -60,6 +60,9 @@ check_sysfunc() {
 		if [[ "$symbol" == ft_* ]]; then
             continue
         fi
+        if [[ "$symbol" == __* ]]; then
+            continue
+        fi
         for allowed_call in "${whitelist[@]}"; do
             if [ "$symbol" == "$allowed_call" ]; then
                 found=1
