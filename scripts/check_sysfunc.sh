@@ -57,10 +57,7 @@ check_sysfunc() {
     fi
     for symbol in $symbols; do
         local found=0
-		if [[ "$symbol" == ft_* ]]; then
-            continue
-        fi
-        if [[ "$symbol" == __* ]]; then
+		if [[ "$symbol" =~ ^(ft_|__) ]]; then
             continue
         fi
         for allowed_call in "${whitelist[@]}"; do
