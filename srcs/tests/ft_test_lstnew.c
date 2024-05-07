@@ -6,12 +6,12 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:33:12 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/27 09:50:26 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/07 11:34:11 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-bool	ft_test_lstnew(char *name, void **test)
+bool	ft_test_lstnew(char *name)
 {
 }

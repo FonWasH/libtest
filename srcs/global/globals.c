@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:03:35 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/31 13:20:35 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/07 11:29:07 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_presult		g_presult;
 t_result		g_result;
 
-const t_ftest	g_ftest[] = {
+const t_ftest	g_fmandatory[] = {
 	{"ft_isalpha", ft_test_ascii},
 	{"ft_isdigit", ft_test_ascii},
 	{"ft_isalnum", ft_test_ascii},
@@ -50,7 +50,11 @@ const t_ftest	g_ftest[] = {
 	{"ft_putstr_fd", ft_test_putstr_fd},
 	{"ft_putendl_fd", ft_test_putendl_fd},
 	{"ft_putnbr_fd", ft_test_putnbr_fd},
-//	{"ft_lstnew", ft_test_lstnew},
+	{NULL, NULL}
+};
+
+const t_ftest	g_fbonus[] = {
+	{"ft_lstnew", ft_test_lstnew},
 //	{"ft_lstadd_front", ft_test_lstadd_front},
 //	{"ft_lstsize", ft_test_lstsize},
 //	{"ft_lstlast", ft_test_lstlast},

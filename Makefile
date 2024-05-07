@@ -3,8 +3,6 @@ INC_DIR			= ./includes/
 
 SRC				= main.c \
 		  		global/globals.c \
-		  		ft_mandatory.c \
-		  		ft_bonus.c \
 		  		ft_call_test.c \
 		  		utils/ft_utils.c \
 		  		utils/ft_print_test.c \
@@ -45,7 +43,6 @@ SRC				= main.c \
 				tests/ft_test_lstclear.c \
 				tests/ft_test_lstiter.c \
 				tests/ft_test_lstmap.c
-SRC 			:= $(filter-out %ft_test_lstnew.c,$(SRC))
 SRC 			:= $(filter-out %ft_test_lstadd_front.c,$(SRC))
 SRC 			:= $(filter-out %ft_test_lstsize.c,$(SRC))
 SRC 			:= $(filter-out %ft_test_lstlast.c,$(SRC))

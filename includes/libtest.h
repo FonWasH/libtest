@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/31 13:20:39 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/07 11:29:14 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,8 @@ typedef enum e_ftime
 // GLOBALS
 extern t_presult		g_presult;
 extern t_result			g_result;
-extern const t_ftest	g_ftest[];
+extern const t_ftest	g_fmandatory[];
+extern const t_ftest	g_fbonus[];
 extern const char		*g_str1_tests[];
 extern const char		*g_str2_tests[];
 extern const char		*g_nbr_tests[];
@@ -161,9 +162,8 @@ void					ft_result_output_str(char *user, char *libc);
 void					ft_result_output_tabstr(char **user, char **libc);
 void					ft_grade(bool success);
 // MAIN FUNCTIONS
-void					ft_mandatory(bool title, bool force);
-void					ft_bonus(bool title, bool force);
 bool					ft_call_test(char *name);
+void					ft_call_all_test(bool title, bool force, const t_ftest *ftest);
 // TEST FUNCTIONS
 bool					ft_test_ascii(char *name);
 bool					ft_test_strlen(char *name);
@@ -193,7 +193,8 @@ bool					ft_test_putchar_fd(char *name);
 bool					ft_test_putstr_fd(char *name);
 bool					ft_test_putendl_fd(char *name);
 bool					ft_test_putnbr_fd(char *name);
-//bool					ft_test_lstnew(char *name);
+// TEST BONUS FUNCTIONS
+bool					ft_test_lstnew(char *name);
 //bool					ft_test_lstadd_front(char *name);
 //bool					ft_test_lstsize(char *name);
 //bool					ft_test_lstlast(char *name);
