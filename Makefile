@@ -34,6 +34,8 @@ SRC				= main.c \
 				tests/ft_test_putstr_fd.c \
 				tests/ft_test_putendl_fd.c \
 				tests/ft_test_putnbr_fd.c \
+
+SRC_BONUS		= global/globals_bonus.c \
 				tests/ft_test_lstnew.c \
 				tests/ft_test_lstadd_front.c \
 				tests/ft_test_lstsize.c \
@@ -43,17 +45,22 @@ SRC				= main.c \
 				tests/ft_test_lstclear.c \
 				tests/ft_test_lstiter.c \
 				tests/ft_test_lstmap.c
-SRC 			:= $(filter-out %ft_test_lstadd_front.c,$(SRC))
-SRC 			:= $(filter-out %ft_test_lstsize.c,$(SRC))
-SRC 			:= $(filter-out %ft_test_lstlast.c,$(SRC))
-SRC 			:= $(filter-out %ft_test_lstadd_back.c,$(SRC))
-SRC 			:= $(filter-out %ft_test_lstdelone.c,$(SRC))
-SRC 			:= $(filter-out %ft_test_lstclear.c,$(SRC))
-SRC 			:= $(filter-out %ft_test_lstiter.c,$(SRC))
-SRC 			:= $(filter-out %ft_test_lstmap.c,$(SRC))
+SRC_BONUS 		:= $(filter-out %globals_bonus.c,$(SRC_BONUS))
+SRC_BONUS 		:= $(filter-out %ft_test_lstnew.c,$(SRC_BONUS))
+SRC_BONUS 		:= $(filter-out %ft_test_lstadd_front.c,$(SRC_BONUS))
+SRC_BONUS 		:= $(filter-out %ft_test_lstsize.c,$(SRC_BONUS))
+SRC_BONUS 		:= $(filter-out %ft_test_lstlast.c,$(SRC_BONUS))
+SRC_BONUS 		:= $(filter-out %ft_test_lstadd_back.c,$(SRC_BONUS))
+SRC_BONUS 		:= $(filter-out %ft_test_lstdelone.c,$(SRC_BONUS))
+SRC_BONUS 		:= $(filter-out %ft_test_lstclear.c,$(SRC_BONUS))
+SRC_BONUS 		:= $(filter-out %ft_test_lstiter.c,$(SRC_BONUS))
+SRC_BONUS 		:= $(filter-out %ft_test_lstmap.c,$(SRC_BONUS))
 
 SRCS			= $(addprefix $(SRC_DIR), $(SRC))
+SRCS_BONUS		= ${addprefix ${SRC_DIR}, ${SRC_BONUS}}
+
 OBJS			= $(SRCS:.c=.o)
+OBJS_BONUS		= ${SRCS_BONUS:.c=.o}
 
 CC				= cc
 CFLAGS			= -g -Wall -Wextra -Werror -fsanitize=address -fsanitize=undefined -lbsd
@@ -101,11 +108,11 @@ mandatory:		title check $(OBJS)
 				@clear
 				@echo "Mandatories successfully compiled."
 
-bonus:			title check_bonus $(OBJS)
+bonus:			title check_bonus $(OBJS) $(OBJS_BONUS)
 				@make bonus -sC ..
-				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) ../libft.a
+				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(OBJS_BONUS) ../libft.a
 				@clear
-				@echo "Bonus successfully compiled."
+				@echo "Mandatories & Bonus successfully compiled."
 
 ncmandatory:	title $(OBJS)
 				@make -sC ..
@@ -113,15 +120,15 @@ ncmandatory:	title $(OBJS)
 				@clear
 				@echo "Mandatories successfully compiled without check."
 
-ncbonus:		title $(OBJS)
+ncbonus:		title $(OBJS) $(OBJS_BONUS)
 				@make bonus -sC ..
-				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) ../libft.a
+				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(OBJS_BONUS) ../libft.a
 				@clear
-				@echo "Bonus successfully compiled without check."
+				@echo "Mandatories & Bonus successfully compiled without check."
 
 clean:
 				@make clean -sC ..
-				@$(RM) $(OBJS)
+				@$(RM) $(OBJS) $(OBJS_BONUS)
 				@clear
 				@echo "Clean completed."
 
