@@ -62,8 +62,10 @@ SRCS_BONUS		= ${addprefix ${SRC_DIR}, ${SRC_BONUS}}
 OBJS			= $(SRCS:.c=.o)
 OBJS_BONUS		= ${SRCS_BONUS:.c=.o}
 
+LINKER_FLAGS 	= -lbsd
+
 CC				= cc
-CFLAGS			= -g -Wall -Wextra -Werror -fsanitize=address -fsanitize=undefined -lbsd
+CFLAGS			= -g -Wall -Wextra -Werror -fsanitize=address -fsanitize=undefined #-lbsd
 RM				= rm -f
 
 NAME			= libtest
@@ -104,13 +106,13 @@ $(NAME):		mandatory
 
 mandatory:		title check $(OBJS)
 				@make -sC ..
-				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) ../libft.a
+				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LINKER_FLAGS) ../libft.a
 				@clear
 				@echo "Mandatories successfully compiled."
 
 bonus:			title check_bonus $(OBJS) $(OBJS_BONUS)
 				@make bonus -sC ..
-				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(OBJS_BONUS) ../libft.a
+				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(OBJS_BONUS) $(LINKER_FLAGS) ../libft.a
 				@clear
 				@echo "Mandatories & Bonus successfully compiled."
 

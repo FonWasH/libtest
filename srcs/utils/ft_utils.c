@@ -3,21 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
+/*   By: juperez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:26:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/29 22:47:33 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/15 16:37:33 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-static bool	ft_build_cmd(char *target, size_t len, char *cmd_start, char *cmd_end)
+static bool	ft_build_cmd(char *target, size_t len, char *cmd_start,
+		char *cmd_end)
 {
-	char	*cmd = NULL;
-	size_t	cmd_len = strlen(cmd_start) + len + strlen(cmd_end);
-	bool	success = false;
+	char	*cmd;
+	size_t	cmd_len;
+	bool	success;
 
+	cmd = NULL;
+	cmd_len = strlen(cmd_start) + len + strlen(cmd_end);
+	success = false;
 	cmd = (char *)malloc(sizeof(char) * cmd_len + 1);
 	if (!cmd)
 	{
@@ -26,25 +30,29 @@ static bool	ft_build_cmd(char *target, size_t len, char *cmd_start, char *cmd_en
 	}
 	cmd[cmd_len] = '\0';
 	snprintf(cmd, cmd_len + 1, "%s%s%s", cmd_start, target, cmd_end);
-	success = (!system(cmd));
+	success = (system(cmd));
 	free(cmd);
 	return (success);
 }
 
 void	ft_print_name(char *name)
 {
-	int	len = strlen(name);
-	int	space = (SIZE_LINE - len - 2) / 2;
+	int	len;
+	int	space;
 
-	printf("%.*s %s%s%s%s %.*s\n", space, LINE, B, BD, name, X, SIZE_LINE - space - len, LINE);
+	len = strlen(name);
+	space = (SIZE_LINE - len - 2) / 2;
+	printf("%.*s %s%s%s%s %.*s\n", space, LINE, B, BD, name, X, SIZE_LINE
+		- space - len, LINE);
 }
 
 void	ft_print_file(char *path)
 {
-	FILE	*file = fopen(path, "r");
+	FILE	*file;
 	char	buffer[BUFFER_SIZE];
 	size_t	read;
 
+	file = fopen(path, "r");
 	if (!file)
 		return ;
 	while ((read = fread(buffer, 1, BUFFER_SIZE, file)) > 0)
@@ -54,9 +62,11 @@ void	ft_print_file(char *path)
 
 bool	ft_test_norminette(char *name)
 {
-	size_t	len = strlen(name);
-	bool	success = ft_build_cmd(name, len, CMD_NS, CMD_NE);
+	size_t	len;
+	bool	success;
 
+	len = strlen(name);
+	success = ft_build_cmd(name, len, CMD_NS, CMD_NE);
 	printf("%s%s", NORME, success ? OK : ERROR);
 	if (!success)
 		printf("%s%s", GRADE, FAIL);
@@ -65,8 +75,9 @@ bool	ft_test_norminette(char *name)
 
 bool	ft_check_sysfunc(char *name)
 {
-	bool	success = ft_build_cmd(name, strlen(name), CMD_CS, CMD_CE);
+	bool	success;
 
+	success = ft_build_cmd(name, strlen(name), CMD_CS, CMD_CE);
 	printf("%s%s", FOR_FUNC, success ? OK : CHEAT);
 	if (!success)
 		printf("%s%s", GRADE, GRADE_CHEAT);
@@ -75,10 +86,10 @@ bool	ft_check_sysfunc(char *name)
 
 void	ft_time_function(t_ftime action)
 {
-	static clock_t	user_start, libc_start;
-	static double	user_time, libc_time;
-	static bool		print_libc;
+	static bool	print_libc;
 
+	static clock_t user_start, libc_start;
+	static double user_time, libc_time;
 	if (action == USER_END_LIBC_START)
 		print_libc = true;
 	else if (action == USER_END)
