@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:42:22 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/07 11:26:05 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/19 14:41:16 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static bool	ft_check_functions(char *name, const t_ftest *ftest)
 {
 	for (size_t i = 0; ftest[i].name; i++)
 	{
-		if (!strcmp(name, ftest[i].name))
+		if (!strcmp(name, ftest[i].name) && (*ftest[i].f))
 		{
 			system(TITLE);
 			printf("\n");
@@ -47,6 +47,8 @@ void	ft_call_all_test(bool title, bool force, const t_ftest *ftest)
 		system(TITLE);
 	for (size_t i = 0; ftest[i].name; i++)
 	{
+		if (!(*ftest[i].f))
+			continue ;
 		printf("\n");
 		ft_print_name(ftest[i].name);
 		if (force || (ft_test_norminette(ftest[i].name) && ft_check_sysfunc(ftest[i].name)))
