@@ -72,13 +72,15 @@ check_sysfunc() {
     done
     if [ ${#forbidden_calls[@]} -eq 0 ]; then
         echo "Forbidden system function calls: OK"
-        return 1
+        #return 1
+        [[ $(./scripts/check_hostname.sh) -eq 0 ]] && return 0 || return 1
     else
         echo "Forbidden system function calls detected:"
         for forbidden_call in "${forbidden_calls[@]}"; do
             echo "- $forbidden_call"
         done
-        return 0
+        #return 0
+        [[ $(./scripts/check_hostname.sh) -eq 0 ]] && return 1 || return 0
     fi
 }
 

@@ -62,10 +62,9 @@ SRCS_BONUS		= ${addprefix ${SRC_DIR}, ${SRC_BONUS}}
 OBJS			= $(SRCS:.c=.o)
 OBJS_BONUS		= ${SRCS_BONUS:.c=.o}
 
-LINKER_FLAGS 	= -lbsd
-
 CC				= cc
-CFLAGS			= -g -Wall -Wextra -Werror -fsanitize=address -fsanitize=undefined #-lbsd
+CFLAGS			= -g -Wall -Wextra -Werror -fsanitize=address -fsanitize=undefined
+LFLAGS			= -lbsd
 RM				= rm -f
 
 NAME			= libtest
@@ -106,25 +105,25 @@ $(NAME):		mandatory
 
 mandatory:		title check $(OBJS)
 				@make -sC ..
-				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LINKER_FLAGS) ../libft.a
+				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LFLAGS) ../libft.a
 				@clear
 				@echo "Mandatories successfully compiled."
 
 bonus:			title check_bonus $(OBJS) $(OBJS_BONUS)
 				@make bonus -sC ..
-				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(OBJS_BONUS) $(LINKER_FLAGS) ../libft.a
+				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(OBJS_BONUS) $(LFLAGS) ../libft.a
 				@clear
 				@echo "Mandatories & Bonus successfully compiled."
 
 ncmandatory:	title $(OBJS)
 				@make -sC ..
-				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) ../libft.a
+				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LFLAGS) ../libft.a
 				@clear
 				@echo "Mandatories successfully compiled without check."
 
 ncbonus:		title $(OBJS) $(OBJS_BONUS)
 				@make bonus -sC ..
-				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(OBJS_BONUS) ../libft.a
+				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(OBJS_BONUS) $(LFLAGS) ../libft.a
 				@clear
 				@echo "Mandatories & Bonus successfully compiled without check."
 

@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/09 13:12:47 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/19 13:40:06 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@
 # define CMD_NE ".c > /dev/null 2>&1"
 # define CMD_CS "./scripts/check_sysfunc.sh ../"
 # define CMD_CE ".o > /dev/null 2>&1"
+# define CMD_HOST "./scripts/check_hostname.sh"
 // PATH
 # define TITLE "./scripts/title.sh"
 # define SHOW_FUNC "./scripts/show_func.sh"

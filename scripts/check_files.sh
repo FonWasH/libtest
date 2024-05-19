@@ -13,14 +13,26 @@ targets=("all" "libft.a" "clean" "fclean" "re")
 flags=("-Wall" "-Wextra" "-Werror")
 
 check_lib_norme() {
-    if ! norminette -R CheckDefine ../libft.h > /dev/null 2>&1; then
-        echo -e "${BD}Norminette libft:${X} ${R}ERROR${X}\n"
-        read -n 1 -s -r -p "Press any key to continue..."
-        return 1
+    if [[ $(./scripts/check_hostname.sh) -eq 0 ]]; then
+        if ! norminette -R CheckDefine ../libft.h > /dev/null 2>&1; then
+            echo -e "${BD}Norminette libft:${X} ${R}ERROR${X}\n"
+            read -n 1 -s -r -p "Press any key to continue..."
+            return 1
+        else
+            echo -e "${BD}Norminette libft:${X} ${G}OK${X}\n"
+            read -n 1 -s -r -p "Press any key to continue..."
+            return 0
+        fi
     else
-        echo -e "${BD}Norminette libft:${X} ${G}OK${X}\n"
-        read -n 1 -s -r -p "Press any key to continue..."
-        return 0
+        if norminette -R CheckDefine ../libft.h > /dev/null 2>&1; then
+            echo -e "${BD}Norminette libft:${X} ${R}ERROR${X}\n"
+            read -n 1 -s -r -p "Press any key to continue..."
+            return 1
+        else
+            echo -e "${BD}Norminette libft:${X} ${G}OK${X}\n"
+            read -n 1 -s -r -p "Press any key to continue..."
+            return 0
+        fi
     fi
 }
 

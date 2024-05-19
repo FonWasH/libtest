@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juperez <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:26:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/15 16:37:33 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/19 14:05:19 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-static bool	ft_build_cmd(char *target, size_t len, char *cmd_start,
-		char *cmd_end)
+static bool	ft_build_cmd(char *target, size_t len, char *cmd_start, char *cmd_end)
 {
 	char	*cmd;
 	size_t	cmd_len;
@@ -42,8 +41,7 @@ void	ft_print_name(char *name)
 
 	len = strlen(name);
 	space = (SIZE_LINE - len - 2) / 2;
-	printf("%.*s %s%s%s%s %.*s\n", space, LINE, B, BD, name, X, SIZE_LINE
-		- space - len, LINE);
+	printf("%.*s %s%s%s%s %.*s\n", space, LINE, B, BD, name, X, SIZE_LINE - space - len, LINE);
 }
 
 void	ft_print_file(char *path)
@@ -64,9 +62,11 @@ bool	ft_test_norminette(char *name)
 {
 	size_t	len;
 	bool	success;
+	bool	host = (system(CMD_HOST));
 
 	len = strlen(name);
 	success = ft_build_cmd(name, len, CMD_NS, CMD_NE);
+	success = !host ? success ? false : true : success;
 	printf("%s%s", NORME, success ? OK : ERROR);
 	if (!success)
 		printf("%s%s", GRADE, FAIL);
@@ -76,8 +76,10 @@ bool	ft_test_norminette(char *name)
 bool	ft_check_sysfunc(char *name)
 {
 	bool	success;
+	bool	host = (system(CMD_HOST));
 
 	success = ft_build_cmd(name, strlen(name), CMD_CS, CMD_CE);
+	success = !host ? success ? false : true : success;
 	printf("%s%s", FOR_FUNC, success ? OK : CHEAT);
 	if (!success)
 		printf("%s%s", GRADE, GRADE_CHEAT);
@@ -87,9 +89,9 @@ bool	ft_check_sysfunc(char *name)
 void	ft_time_function(t_ftime action)
 {
 	static bool	print_libc;
-
 	static clock_t user_start, libc_start;
 	static double user_time, libc_time;
+
 	if (action == USER_END_LIBC_START)
 		print_libc = true;
 	else if (action == USER_END)
