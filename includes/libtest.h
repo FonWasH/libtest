@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/19 13:40:06 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/19 14:23:22 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,14 +195,14 @@ bool					ft_test_putstr_fd(char *name);
 bool					ft_test_putendl_fd(char *name);
 bool					ft_test_putnbr_fd(char *name);
 // TEST BONUS FUNCTIONS
-//bool					ft_test_lstnew(char *name);
-//bool					ft_test_lstadd_front(char *name);
-//bool					ft_test_lstsize(char *name);
-//bool					ft_test_lstlast(char *name);
-//bool					ft_test_lstadd_back(char *name);
-//bool					ft_test_lstdelone(char *name);
-//bool					ft_test_lstclear(char *name);
-//bool					ft_test_lstiter(char *name);
-//bool					ft_test_lstmap(char *name);
+bool					ft_test_lstnew(char *name) __attribute__((weak));
+//bool					ft_test_lstadd_front(char *name) __attribute__((weak));
+//bool					ft_test_lstsize(char *name) __attribute__((weak));
+//bool					ft_test_lstlast(char *name) __attribute__((weak));
+//bool					ft_test_lstadd_back(char *name) __attribute__((weak));
+//bool					ft_test_lstdelone(char *name) __attribute__((weak));
+//bool					ft_test_lstclear(char *name) __attribute__((weak));
+//bool					ft_test_lstiter(char *name) __attribute__((weak));
+//bool					ft_test_lstmap(char *name) __attribute__((weak));
 
 #endif
