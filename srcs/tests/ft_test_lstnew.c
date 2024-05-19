@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:33:12 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/07 13:19:05 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/19 16:08:01 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static bool	ft_run_test(void *content)
 {
-	t_list	*user;
+	t_list	*user = NULL;
 
 	ft_time_function(USER_START);
 	user = ft_lstnew(content);

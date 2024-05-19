@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:03:35 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/19 14:23:32 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/19 15:46:03 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ const t_ftest	g_fmandatory[] = {
 
 const t_ftest	g_fbonus[] = {
 	{"ft_lstnew", ft_test_lstnew},
-//	{"ft_lstadd_front", ft_test_lstadd_front},
+	{"ft_lstadd_front", ft_test_lstadd_front},
 //	{"ft_lstsize", ft_test_lstsize},
 //	{"ft_lstlast", ft_test_lstlast},
 //	{"ft_lstadd_back", ft_test_lstadd_back},
