@@ -1,18 +1,14 @@
 #!/bin/bash
 
-hostname=$(hostname)
-prefixes=("paul" "made" "bess")
+check_hostname() {
+    local hostname=$(hostname)
+    local prefixes=("paul" "made" "bess")
 
-found=false
-for prefix in "${prefixes[@]}"; do
-    if [[ $hostname == $prefix* ]]; then
-        found=true
-        break
-    fi
-done
+    for prefix in "${prefixes[@]}"; do
+        [[ $hostname == $prefix* ]] && return 1
+    done
 
-if $found; then
-    exit 1
-else
-    exit 0
-fi
+    return 0
+}
+
+check_hostname
