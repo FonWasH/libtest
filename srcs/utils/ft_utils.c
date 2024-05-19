@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:26:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/19 16:20:15 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/19 16:45:21 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,4 +132,16 @@ void	free_lst(t_list *lst)
 		lst = tmp;
 		i++;
 	}
+}
+
+size_t	lst_size(t_list *lst)
+{
+	size_t	size = 0;
+
+	while (lst)
+	{
+		lst = lst->next;
+		size++;
+	}
+	return (size);
 }

@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:33:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/19 16:20:59 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/19 16:45:52 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,6 @@ const char	*g_front_order_str[] = {
 	"5",
 	NULL
 };
-
-static size_t	lst_size(t_list *lst)
-{
-	size_t	size = 0;
-
-	while (lst)
-	{
-		lst = lst->next;
-		size++;
-	}
-	return (size);
-}
 
 static bool	ft_run_test(void)
 {

@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/19 16:20:29 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/19 16:50:24 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,6 +164,7 @@ void					ft_result_output_str(char *user, char *libc);
 void					ft_result_output_tabstr(char **user, char **libc);
 void					ft_grade(bool success);
 void					free_lst(t_list *lst);
+size_t					lst_size(t_list *lst);
 // MAIN FUNCTIONS
 bool					ft_call_test(char *name);
 void					ft_call_all_test(bool title, bool force, const t_ftest *ftest);
@@ -199,7 +200,7 @@ bool					ft_test_putnbr_fd(char *name);
 // TEST BONUS FUNCTIONS
 bool					ft_test_lstnew(char *name) __attribute__((weak));
 bool					ft_test_lstadd_front(char *name) __attribute__((weak));
-//bool					ft_test_lstsize(char *name) __attribute__((weak));
+bool					ft_test_lstsize(char *name) __attribute__((weak));
 //bool					ft_test_lstlast(char *name) __attribute__((weak));
 //bool					ft_test_lstadd_back(char *name) __attribute__((weak));
 //bool					ft_test_lstdelone(char *name) __attribute__((weak));

@@ -44,7 +44,6 @@ SRC_BONUS		= tests/ft_test_lstnew.c \
 				tests/ft_test_lstclear.c \
 				tests/ft_test_lstiter.c \
 				tests/ft_test_lstmap.c
-SRC_BONUS 		:= $(filter-out %ft_test_lstsize.c,$(SRC_BONUS))
 SRC_BONUS 		:= $(filter-out %ft_test_lstlast.c,$(SRC_BONUS))
 SRC_BONUS 		:= $(filter-out %ft_test_lstadd_back.c,$(SRC_BONUS))
 SRC_BONUS 		:= $(filter-out %ft_test_lstdelone.c,$(SRC_BONUS))
