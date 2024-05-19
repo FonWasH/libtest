@@ -7,7 +7,6 @@ check_hostname() {
     for prefix in "${prefixes[@]}"; do
         [[ $hostname == $prefix* ]] && return 1
     done
-
     return 0
 }
 
