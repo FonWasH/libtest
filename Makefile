@@ -150,4 +150,4 @@ check_bonus:
 					exit 1; \
 				fi
 
-.PHONY: 		all title mandatory bonus ncmandatory ncbonus clean fclean re title check check_bonus
+.PHONY: 		all mandatory bonus ncmandatory ncbonus clean fclean re title check check_bonus

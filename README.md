@@ -33,17 +33,32 @@ Make sure your environment is properly configured before proceeding with the ins
 - bc > `sudo apt install bc`
 - libbsd > `sudo apt install libbsd-dev`
 
+## Make
+```bash
+  make all          # Compile mandatory functions with checks
+  make libtest      # Compile mandatory functions with checks
+  make mandatory    # Compile mandatory functions with checks
+  make bonus        # Compile bonus functions with checks
+  make ncmandatory  # Compile mandatory functions without check
+  make ncbonus      # Compile bonus functions without check
+  make check        # Run checks on the mandatory functions
+  make check_bonus  # Run checks on the bonus functions
+  make clean        # Remove object files
+  make fclean       # Remove all files
+  make re           # Clean and Re-compile all the files
+```
+
 ## Usage
 ```bash
   libtest [OPTION/FUNCTION]...
 
-  -a, --all         test all functions
-  -f, --force       test all functions without norme and forbidden functions check
-  -m, --mandatory   test mandatory functions
-  -b, --bonus       test bonus functions
-  -s, --show        display all available functions
-  -h, --help        display help and exit
-  -v, --version     output version information and exit
+  -a, --all         # test all functions
+  -f, --force       # test all functions without norme and forbidden functions check
+  -m, --mandatory   # test mandatory functions
+  -b, --bonus       # test bonus functions
+  -s, --show        # display all available functions
+  -h, --help        # display help and exit
+  -v, --version     # output version information and exit
 ```
   
 ## Examples
