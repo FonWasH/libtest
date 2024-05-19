@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:26:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/19 14:05:19 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/19 16:20:15 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,5 +117,19 @@ void	ft_time_function(t_ftime action)
 		printf("\n");
 		user_time = 0;
 		libc_time = 0;
+	}
+}
+
+void	free_lst(t_list *lst)
+{
+	t_list	*tmp;
+	size_t	i = 0;
+
+	while (lst != NULL)
+	{
+		tmp = lst->next;
+		free(lst);
+		lst = tmp;
+		i++;
 	}
 }

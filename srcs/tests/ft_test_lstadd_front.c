@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:33:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/19 16:10:06 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/19 16:20:59 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,9 @@ const char	*g_front_order_str[] = {
 	"2",
 	"3",
 	"4",
-	"6",
+	"5",
 	NULL
 };
-
-static void	free_lst(t_list *lst)
-{
-	t_list	*tmp;
-	size_t	i = 0;
-
-	while (lst != NULL)
-	{
-		tmp = lst->next;
-		free(lst);
-		lst = tmp;
-		i++;
-	}
-}
 
 static size_t	lst_size(t_list *lst)
 {
@@ -70,8 +56,10 @@ static bool	ft_run_test(void)
 	size = lst_size(user);
 	if (size != 5)
 	{
+		ft_result_input_sizet(5);
 		ft_result_output_sizet(size, 5);
 		ft_print_result(false);
+		printf(LST_FRONT);
 		free_lst(user);
 		return (false);
 	}
@@ -79,7 +67,7 @@ static bool	ft_run_test(void)
 	{
 		if (strcmp((char *)tmp->content, (char *)g_front_order_str[i]))
 		{
-			ft_result_input_str((char *)g_lstadd_front_str[i], NULL);
+			ft_result_input_str((char *)g_front_order_str[i], NULL);
 			ft_result_output_str((char *)tmp->content, (char *)g_front_order_str[i]);
 			ft_print_result(false);
 			free_lst(user);

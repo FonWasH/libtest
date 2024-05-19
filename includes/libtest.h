@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/19 15:46:14 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/19 16:20:29 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@
 # define HIG "higher\n" X
 # define LOW "lower\n" X
 # define EQU "equal\n" X
+# define LST_FRONT DM "\t\t   Wrong list size\n" X
 // FORMAT
 # define LINE "--------------------------------------"
 # define SIZE_LINE 40
@@ -162,6 +163,7 @@ void					ft_result_output_chr(char user, char libc);
 void					ft_result_output_str(char *user, char *libc);
 void					ft_result_output_tabstr(char **user, char **libc);
 void					ft_grade(bool success);
+void					free_lst(t_list *lst);
 // MAIN FUNCTIONS
 bool					ft_call_test(char *name);
 void					ft_call_all_test(bool title, bool force, const t_ftest *ftest);
