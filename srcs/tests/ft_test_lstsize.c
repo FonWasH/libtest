@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:33:39 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/19 16:56:21 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/19 17:04:14 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static bool	ft_run_test(void)
 		ft_result_input_sizet(size);
 		ft_result_output_sizet(user_size, size);
 		ft_print_result(false);
-		printf(LST_FRONT);
+		printf(LST_SIZE);
 		free_lst(lst);
 		return (false);
 	}
