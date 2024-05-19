@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/19 17:28:03 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/19 19:14:53 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@
 # define LOW "lower\n" X
 # define EQU "equal\n" X
 # define LST_SIZE DM "\t\t   Wrong list size\n" X
+# define LST_DELONE DM "\t\t   Node not freed\n" X
 # define ERROR_HELP "\nTry '--help' for more information.\n"
 # define ERROR_MEM "Error: Memory allocation\n"
 # define LINE "--------------------------------------"
@@ -206,7 +207,7 @@ bool					ft_test_lstadd_front(char *name) __attribute__((weak));
 bool					ft_test_lstsize(char *name) __attribute__((weak));
 bool					ft_test_lstlast(char *name) __attribute__((weak));
 bool					ft_test_lstadd_back(char *name) __attribute__((weak));
-//bool					ft_test_lstdelone(char *name) __attribute__((weak));
+bool					ft_test_lstdelone(char *name) __attribute__((weak));
 //bool					ft_test_lstclear(char *name) __attribute__((weak));
 //bool					ft_test_lstiter(char *name) __attribute__((weak));
 //bool					ft_test_lstmap(char *name) __attribute__((weak));
