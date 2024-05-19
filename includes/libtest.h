@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/19 17:20:13 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/19 17:28:03 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 # define BD "\e[1m"
 # define DM "\e[2m\e[3m"
 # define X "\e[0m"
+
 // STRING
 # define KO R "KO\n" X
 # define OK G "OK\n" X
@@ -59,18 +60,18 @@
 # define LOW "lower\n" X
 # define EQU "equal\n" X
 # define LST_SIZE DM "\t\t   Wrong list size\n" X
-// FORMAT
-# define LINE "--------------------------------------"
-# define SIZE_LINE 40
-// ERROR
 # define ERROR_HELP "\nTry '--help' for more information.\n"
 # define ERROR_MEM "Error: Memory allocation\n"
+# define LINE "--------------------------------------"
+# define SIZE_LINE 40
+
 // CMD
 # define CMD_NS "norminette -o ../"
 # define CMD_NE ".c > /dev/null 2>&1"
 # define CMD_CS "./scripts/check_sysfunc.sh ../"
 # define CMD_CE ".o > /dev/null 2>&1"
 # define CMD_HOST "./scripts/check_hostname.sh"
+
 // PATH
 # define TITLE "./scripts/title.sh"
 # define SHOW_FUNC "./scripts/show_func.sh"
@@ -204,7 +205,7 @@ bool					ft_test_lstnew(char *name) __attribute__((weak));
 bool					ft_test_lstadd_front(char *name) __attribute__((weak));
 bool					ft_test_lstsize(char *name) __attribute__((weak));
 bool					ft_test_lstlast(char *name) __attribute__((weak));
-//bool					ft_test_lstadd_back(char *name) __attribute__((weak));
+bool					ft_test_lstadd_back(char *name) __attribute__((weak));
 //bool					ft_test_lstdelone(char *name) __attribute__((weak));
 //bool					ft_test_lstclear(char *name) __attribute__((weak));
 //bool					ft_test_lstiter(char *name) __attribute__((weak));
