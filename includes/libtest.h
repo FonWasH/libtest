@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/19 16:50:24 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/19 16:57:32 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,8 @@ extern const t_ftest	g_fbonus[];
 extern const char		*g_str1_tests[];
 extern const char		*g_str2_tests[];
 extern const char		*g_nbr_tests[];
+extern const char		*g_sortn_tests[];
+extern const char		*g_revn_tests[];
 
 // UTIL FUNCTIONS
 void					ft_print_name(char *name);
