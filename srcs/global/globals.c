@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:03:35 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/20 15:54:14 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/20 18:29:56 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,15 @@ const t_ftest	g_fmandatory[] = {
 };
 
 const t_ftest	g_fbonus[] = {
-	{"ft_lstnew", ft_test_lstnew},
-	{"ft_lstadd_front", ft_test_lstadd_front},
-	{"ft_lstsize", ft_test_lstsize},
-	{"ft_lstlast", ft_test_lstlast},
-	{"ft_lstadd_back", ft_test_lstadd_back},
-	{"ft_lstdelone", ft_test_lstdelone},
-	{"ft_lstclear", ft_test_lstclear},
-	{"ft_lstiter", ft_test_lstiter},
-	{"ft_lstmap", ft_test_lstmap},
+	{"ft_lstnew_bonus", ft_test_lstnew},
+	{"ft_lstadd_front_bonus", ft_test_lstadd_front},
+	{"ft_lstsize_bonus", ft_test_lstsize},
+	{"ft_lstlast_bonus", ft_test_lstlast},
+	{"ft_lstadd_back_bonus", ft_test_lstadd_back},
+	{"ft_lstdelone_bonus", ft_test_lstdelone},
+	{"ft_lstclear_bonus", ft_test_lstclear},
+	{"ft_lstiter_bonus", ft_test_lstiter},
+	{"ft_lstmap_bonus", ft_test_lstmap},
 	{NULL, NULL}
 };
 
