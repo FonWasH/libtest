@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:26:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/20 16:00:03 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/20 17:01:45 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,14 +121,12 @@ void	ft_time_function(t_ftime action)
 void	ft_free_lst(t_list *lst)
 {
 	t_list	*tmp;
-	size_t	i = 0;
 
-	while (lst != NULL)
+	while (lst)
 	{
 		tmp = lst->next;
 		free(lst);
 		lst = tmp;
-		i++;
 	}
 }
 
@@ -152,25 +150,17 @@ void	ft_test_free(void *ptr)
 
 void	ft_strtoupper(void *ptr)
 {
-	size_t	i = 0;
 	char	*str = (char *)ptr;
 
-	while (str[i])
-	{
+	for (size_t	i = 0; str[i]; i++)
 		str[i] = toupper(str[i]);
-		i++;
-	}
 }
 
 void	*ft_duptoupper(void *ptr)
 {
-	size_t	i = 0;
 	char	*str = strdup((char *)ptr);
 
-	while (str[i])
-	{
+	for (size_t	i = 0; str[i]; i++)
 		str[i] = toupper(str[i]);
-		i++;
-	}
 	return ((void *)str);
 }
