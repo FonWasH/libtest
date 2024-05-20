@@ -38,9 +38,9 @@ Make sure your environment is properly configured before proceeding with the ins
   make all          # Compile mandatory functions with checks
   make libtest      # Compile mandatory functions with checks
   make mandatory    # Compile mandatory functions with checks
-  make bonus        # Compile bonus functions with checks
+  make bonus        # Compile bonus and mandatory functions with checks
   make ncmandatory  # Compile mandatory functions without check
-  make ncbonus      # Compile bonus functions without check
+  make ncbonus      # Compile bonus and mandatory functions without check
   make check        # Run checks on the mandatory functions
   make check_bonus  # Run checks on the bonus functions
   make clean        # Remove object files
