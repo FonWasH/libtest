@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:26:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/19 19:14:21 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/20 14:34:34 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,8 @@ bool	ft_test_norminette(char *name)
 bool	ft_check_sysfunc(char *name)
 {
 	bool	success;
-	bool	host = (system(CMD_HOST));
 
 	success = ft_build_cmd(name, strlen(name), CMD_CS, CMD_CE);
-	success = !host ? success ? false : true : success;
 	printf("%s%s", FOR_FUNC, success ? OK : CHEAT);
 	if (!success)
 		printf("%s%s", GRADE, GRADE_CHEAT);
