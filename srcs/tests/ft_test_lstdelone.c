@@ -6,18 +6,16 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:34:14 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/19 19:13:16 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/20 14:58:03 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtest.h"
 
-int g_node_freed = 0;
-
-void test_free(void *ptr)
+static void	test_free(void *ptr)
 {
-    free(ptr);
-    g_node_freed = 1;
+	free(ptr);
+	g_node_freed = 1;
 }
 
 static bool	ft_run_test(void)
@@ -31,7 +29,7 @@ static bool	ft_run_test(void)
 	if (g_node_freed != 1)
 	{
 		ft_print_result(false);
-		printf(LST_DELONE);
+		printf(LST_FREE);
 		return (false);
 	}
 	return (true);
@@ -40,5 +38,6 @@ static bool	ft_run_test(void)
 bool	ft_test_lstdelone(char *name)
 {
 	(void)name;
+	g_node_freed = 0;
 	return (ft_run_test());
 }
