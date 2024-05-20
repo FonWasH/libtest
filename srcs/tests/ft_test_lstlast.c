@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:33:51 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/19 17:21:09 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/20 15:38:28 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ static bool	ft_run_test(void)
 		ft_result_input_str((char *)g_sortn_tests[i - 1], NULL);
 		ft_result_output_str((char *)last->content, (char *)g_sortn_tests[i - 1]);
 		ft_print_result(false);
-		free_lst(lst);
+		ft_free_lst(lst);
 		return (false);
 	}
-	free_lst(lst);
+	ft_free_lst(lst);
 	return (true);
 }
 

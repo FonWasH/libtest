@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:03:35 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/20 14:55:28 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/20 15:54:14 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ const t_ftest	g_fbonus[] = {
 	{"ft_lstadd_back", ft_test_lstadd_back},
 	{"ft_lstdelone", ft_test_lstdelone},
 	{"ft_lstclear", ft_test_lstclear},
-//	{"ft_lstiter", ft_test_lstiter},
-//	{"ft_lstmap", ft_test_lstmap},
+	{"ft_lstiter", ft_test_lstiter},
+	{"ft_lstmap", ft_test_lstmap},
 	{NULL, NULL}
 };
 
@@ -117,5 +117,23 @@ const char	*g_revn_tests[] = {
 	"3",
 	"2",
 	"1",
+	NULL
+};
+
+const char	*g_lowa_tests[] = {
+	"a",
+	"b",
+	"c",
+	"d",
+	"e",
+	NULL
+};
+
+const char	*g_uppa_tests[] = {
+	"A",
+	"B",
+	"C",
+	"D",
+	"E",
 	NULL
 };

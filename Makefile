@@ -44,8 +44,6 @@ SRC_BONUS		= tests/ft_test_lstnew.c \
 				tests/ft_test_lstclear.c \
 				tests/ft_test_lstiter.c \
 				tests/ft_test_lstmap.c
-SRC_BONUS 		:= $(filter-out %ft_test_lstiter.c,$(SRC_BONUS))
-SRC_BONUS 		:= $(filter-out %ft_test_lstmap.c,$(SRC_BONUS))
 
 SRCS			= $(addprefix $(SRC_DIR), $(SRC))
 SRCS_BONUS		= ${addprefix ${SRC_DIR}, ${SRC_BONUS}}

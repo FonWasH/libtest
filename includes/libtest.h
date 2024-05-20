@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/20 14:55:16 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/20 16:00:50 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,8 @@ extern const char		*g_str2_tests[];
 extern const char		*g_nbr_tests[];
 extern const char		*g_sortn_tests[];
 extern const char		*g_revn_tests[];
+extern const char		*g_lowa_tests[];
+extern const char		*g_uppa_tests[];
 
 // UTIL FUNCTIONS
 void					ft_print_name(char *name);
@@ -168,8 +170,11 @@ void					ft_result_output_chr(char user, char libc);
 void					ft_result_output_str(char *user, char *libc);
 void					ft_result_output_tabstr(char **user, char **libc);
 void					ft_grade(bool success);
-void					free_lst(t_list *lst);
-size_t					lst_size(t_list *lst);
+void					ft_free_lst(t_list *lst);
+size_t					ft_lst_size(t_list *lst);
+void					ft_test_free(void *ptr);
+void					ft_strtoupper(void *ptr);
+void					*ft_duptoupper(void *ptr);
 // MAIN FUNCTIONS
 bool					ft_call_test(char *name);
 void					ft_call_all_test(bool title, bool force, const t_ftest *ftest);
@@ -210,7 +215,7 @@ bool					ft_test_lstlast(char *name) __attribute__((weak));
 bool					ft_test_lstadd_back(char *name) __attribute__((weak));
 bool					ft_test_lstdelone(char *name) __attribute__((weak));
 bool					ft_test_lstclear(char *name) __attribute__((weak));
-//bool					ft_test_lstiter(char *name) __attribute__((weak));
-//bool					ft_test_lstmap(char *name) __attribute__((weak));
+bool					ft_test_lstiter(char *name) __attribute__((weak));
+bool					ft_test_lstmap(char *name) __attribute__((weak));
 
 #endif

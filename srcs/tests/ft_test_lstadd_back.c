@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:34:02 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/19 17:26:58 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/20 15:39:47 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ static bool	ft_run_test(void)
 	}
 	ft_time_function(USER_END);
 	tmp = user;
-	user_size = lst_size(user);
+	user_size = ft_lst_size(user);
 	if (user_size != size)
 	{
 		ft_result_input_sizet(size);
 		ft_result_output_sizet(user_size, size);
 		ft_print_result(false);
 		printf(LST_SIZE);
-		free_lst(user);
+		ft_free_lst(user);
 		return (false);
 	}
 	for (size_t i = 0; g_sortn_tests[i]; i++)
@@ -43,12 +43,12 @@ static bool	ft_run_test(void)
 			ft_result_input_str((char *)g_sortn_tests[i], NULL);
 			ft_result_output_str((char *)tmp->content, (char *)g_sortn_tests[i]);
 			ft_print_result(false);
-			free_lst(user);
+			ft_free_lst(user);
 			return (false);
 		}
 		tmp = tmp->next;
 	}
-	free_lst(user);
+	ft_free_lst(user);
 	return (true);
 }
 
