@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:32:29 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/30 17:41:14 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/21 19:06:14 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static bool	ft_run_test(char *s)
 	int		pipefd[2];
 	char	user[BUFFER_SIZE];
 
+	memset(user, 0, sizeof(user));
 	pipe(pipefd);
 	ft_time_function(USER_START);
 	ft_putstr_fd(s, pipefd[1]);
