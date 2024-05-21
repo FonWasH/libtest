@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/21 18:47:47 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/21 19:39:26 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ typedef struct s_fascii
 	int					(*libc)(int);
 }						t_fascii;
 
-typedef struct s_tresult
+typedef struct s_result
 {
 	int					input_int;
 	size_t				input_sizet;
