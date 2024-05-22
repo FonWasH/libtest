@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:48 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/21 19:39:26 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/22 15:45:26 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@
 // CMD
 # define CMD_NS "norminette -o ../"
 # define CMD_NE ".c > /dev/null 2>&1"
+# define CMD_NV "./scripts/check_norminette_version.sh"
 # define CMD_CS "./scripts/check_sysfunc.sh ../"
 # define CMD_CE ".o > /dev/null 2>&1"
-# define CMD_HOST "./scripts/check_hostname.sh"
 
 // PATH
 # define TITLE "./scripts/title.sh"

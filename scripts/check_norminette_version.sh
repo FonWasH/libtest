@@ -6,12 +6,12 @@ check_norminette_version() {
 
     if [[ $(echo -e "$base_version\n$current_version" | sort -V | head -n1) == $base_version ]]; then
         if [[ $current_version == $base_version ]]; then
-            return 0
-        else
             return 1
+        else
+            return 0
         fi
     else
-        return 0
+        return 1
     fi
 }
 

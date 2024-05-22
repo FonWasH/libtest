@@ -13,7 +13,7 @@ targets=("all" "libft.a" "clean" "fclean" "re")
 flags=("-Wall" "-Wextra" "-Werror")
 
 check_lib_norme() {
-    if [[ $(./scripts/check_hostname.sh) -eq 0 ]]; then
+    if [[ $(./scripts/check_norminette_version.sh) -eq 0 ]]; then
         if ! norminette -R CheckDefine ../libft.h > /dev/null 2>&1; then
             echo -e "${BD}Norminette libft:${X} ${R}ERROR${X}\n"
             read -n 1 -s -r -p "Press any key to continue..."

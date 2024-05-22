@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:26:25 by juperez           #+#    #+#             */
-/*   Updated: 2024/05/20 17:01:45 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/22 15:45:35 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ bool	ft_test_norminette(char *name)
 {
 	size_t	len;
 	bool	success;
-	bool	host = (system(CMD_HOST));
+	bool	version_last = (system(CMD_NV));
 
 	len = strlen(name);
 	success = ft_build_cmd(name, len, CMD_NS, CMD_NE);
-	success = !host ? success ? false : true : success;
+	success = !version_last ? success ? false : true : success;
 	printf("%s%s", NORME, success ? OK : ERROR);
 	if (!success)
 		printf("%s%s", GRADE, FAIL);
