@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:31:51 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/31 13:26:31 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/22 01:22:26 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,7 @@ bool	ft_test_strmapi(char *name)
 	(void)name;
 	while (g_strmapi_str[i])
 	{
-		grade += ft_run_test(
-				g_strmapi_str[i], ft_test_function, (char *)g_estrmapi[i]);
+		grade += ft_run_test(g_strmapi_str[i], ft_test_function, (char *)g_estrmapi[i]);
 		i++;
 	}
 	return (grade == i);

@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:30:55 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/30 20:10:07 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/22 01:22:06 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,7 @@ bool	ft_test_substr(char *name)
 	(void)name;
 	while (g_esubstr[i])
 	{
-		grade += ft_run_test(
-				g_str1_tests[1], start[i], len[i], (char *)g_esubstr[i]);
+		grade += ft_run_test(g_str1_tests[1], start[i], len[i], (char *)g_esubstr[i]);
 		i++;
 	}
 	return (grade == i);

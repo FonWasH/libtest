@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:31:09 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/30 20:25:47 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/22 01:22:40 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,7 @@ bool	ft_test_strjoin(char *name)
 	(void)name;
 	while (g_strjoin_s1[i])
 	{
-		grade += ft_run_test(
-				g_strjoin_s1[i], g_strjoin_s2[i], (char *)g_estrjoin[i]);
+		grade += ft_run_test(g_strjoin_s1[i], g_strjoin_s2[i], (char *)g_estrjoin[i]);
 		i++;
 	}
 	return (grade == i);

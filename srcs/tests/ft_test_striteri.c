@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:32:05 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/31 14:48:53 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/22 01:22:56 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,7 @@ bool	ft_test_striteri(char *name)
 	(void)name;
 	while (g_striteri_str[i])
 	{
-		grade += ft_run_test(
-				g_striteri_str[i],
-				ft_test_function,
-				(char *)g_estriteri[i]);
+		grade += ft_run_test(g_striteri_str[i], ft_test_function, (char *)g_estriteri[i]);
 		i++;
 	}
 	return (grade == i);

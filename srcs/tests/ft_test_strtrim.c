@@ -6,7 +6,7 @@
 /*   By: juperez <juperez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:31:22 by juperez           #+#    #+#             */
-/*   Updated: 2024/03/30 20:39:24 by juperez          ###   ########.fr       */
+/*   Updated: 2024/05/22 01:22:12 by juperez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,7 @@ bool	ft_test_strtrim(char *name)
 	(void)name;
 	while (g_strtrim_s1[i])
 	{
-		grade += ft_run_test(
-				g_strtrim_s1[i], g_strtrim_set[i], (char *)g_estrtrim[i]);
+		grade += ft_run_test(g_strtrim_s1[i], g_strtrim_set[i], (char *)g_estrtrim[i]);
 		i++;
 	}
 	return (grade == i);
